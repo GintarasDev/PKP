@@ -1,0 +1,26 @@
+@import "../Res/Colors.scss";
+@import "../Res/Values.scss";
+
+.o-InputField {
+  display: block;
+  background: $input-field-color;
+  border: none;
+  border-radius: $input-border-radius;
+  font-size: $input-font-size;
+  box-sizing: border-box;
+  padding: $input-border-padding;
+  margin: $input-border-margin;
+  width: 100%;
+  text-align: center;
+  color: $main-text-color;
+}
+
+.o-InputField::placeholder {
+   color: $main-text-color;
+}
+
+.o-InputField:focus{
+  outline: none;
+  border-bottom: 0.1rem solid $theme-color;
+}
+

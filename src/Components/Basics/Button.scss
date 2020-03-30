@@ -1,0 +1,21 @@
+@import "../Res/Colors.scss";
+@import "../Res/Values.scss";
+
+.o-Button {
+  display: block;
+  background: $theme-color;
+  border: none;
+  border-radius: $button-border-radius;
+  font-size: $button-font-size;
+  box-sizing: border-box;
+  padding: $input-border-padding;
+  margin: $button-border-margin;
+  width: 100%;
+  text-align: center;
+  color: $main-text-color;
+}
+
+.o-Button:focus{
+  outline: none;
+  border-bottom: 0.2rem solid $theme-color-darken;
+}

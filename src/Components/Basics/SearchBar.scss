@@ -1,0 +1,37 @@
+@import "../Res/Colors.scss";
+@import "../Res/Values.scss";
+
+.o-SearcbarWrap {
+  position: absolute;
+  width: 100%;
+}
+
+.o-SearchbarWrap > img {
+  position: absolute;
+  right: 0.5rem;
+  height: $searchbar-font-size + 0.5rem;
+  filter: invert(100%);
+}
+
+.o-Searchbar {
+  position: absolute;
+  display: inline-block;
+  background: $input-field-color;
+  border: none;
+  border-radius: $input-border-radius;
+  font-size: $searchbar-font-size;
+  box-sizing: border-box;
+  padding: $searchbar-padding;
+  width: 100%;
+  text-align: left;
+  color: $main-text-color;
+}
+
+.o-Searchbar::placeholder {
+  color: $main-text-color;
+}
+
+.o-Searchbar:focus{
+  outline: none;
+  border-bottom: 0.1rem solid $theme-color;
+}
