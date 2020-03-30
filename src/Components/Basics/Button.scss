@@ -19,3 +19,11 @@
   outline: none;
   border-bottom: 0.2rem solid $theme-color-darken;
 }
+
+.o-ButtonIcon {
+  position: relative;
+  height: $button-font-size;
+  bottom: -0.25rem;
+  padding: 0 0.2rem 0 0;
+  filter: invert(100%);
+}

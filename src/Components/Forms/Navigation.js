@@ -1,7 +1,7 @@
 import React from 'react';
 import './Styles/Navigation.scss';
 // import InputField from "../Basics/InputField";
-// import Button from "../Basics/Button";
+import Button from "../Basics/Button";
 import Logo from "../Basics/Logo";
 import ListItem from "../Basics/ListItem";
 import SearchBar from "../Basics/SearchBar";
@@ -11,7 +11,7 @@ class Navigation extends React.Component {
         super(props);
         this.state = {
             activeListItemId: 0,
-            activeListItem: <div>placeholder 0</div>,
+            activeListItem: <Button text={"Sample button"} iconPath={"clock.svg"} />,
             activeUser: "Tomas Lomas"
         }
     }

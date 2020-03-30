@@ -2,50 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ee3b5dfe-cd89-490b-a857-969253bfbf34" name="Default Changelist" comment="login, signup and navigation done">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Assets/add_group.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Assets/all_boards.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Assets/boards.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Assets/clock.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Assets/edit.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Assets/group.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Assets/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Assets/new.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Assets/online.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Assets/personal.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Assets/remove.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Assets/schedule.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Assets/search.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Basics/Button.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Basics/Button.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Basics/InputField.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Basics/InputField.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Basics/Link.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Basics/Link.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Basics/ListItem.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Basics/ListItem.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Basics/Logo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Basics/Logo.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Basics/PopUpError.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Basics/PopUpError.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Basics/SearchBar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Basics/SearchBar.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Forms/Login.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Forms/Navigation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Forms/Signup.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Forms/Styles/Login.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Forms/Styles/Navigation.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Forms/Styles/Signup.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Res/Colors.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Res/Values.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Basics/Button.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Basics/Button.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Basics/Button.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Basics/Button.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Forms/Navigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Forms/Navigation.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,8 +82,17 @@
       <workItem from="1585325592824" duration="6303000" />
       <workItem from="1585411144240" duration="1116000" />
       <workItem from="1585465346806" duration="37578000" />
-      <workItem from="1585546858970" duration="444000" />
+      <workItem from="1585546858970" duration="1129000" />
+      <workItem from="1585581605778" duration="2958000" />
     </task>
+    <task id="LOCAL-00001" summary="login, signup and navigation done">
+      <created>1585547319447</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1585547319447</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -140,14 +109,18 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2472" y="198" key="#ESLint/0.0.1920.1050/1920.0.1920.1080@1920.0.1920.1080" timestamp="1585411254699" />
-    <state x="550" y="134" key="CommitChangelistDialog2" timestamp="1585547296679">
+    <state x="550" y="134" key="CommitChangelistDialog2" timestamp="1585584562431">
       <screen x="0" y="0" width="1858" height="1080" />
     </state>
-    <state x="550" y="134" key="CommitChangelistDialog2/0.0.1858.1080/-1920.1.1920.1080@0.0.1858.1080" timestamp="1585547296679" />
+    <state x="550" y="134" key="CommitChangelistDialog2/0.0.1858.1080/-1920.1.1920.1080@0.0.1858.1080" timestamp="1585584562431" />
     <state x="2514" y="318" key="EditFileWatcherDialog" timestamp="1585160318701">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2514" y="318" key="EditFileWatcherDialog/0.0.1920.1050/1920.0.1920.1080@1920.0.1920.1080" timestamp="1585160318701" />
+    <state x="521" y="261" key="Vcs.Push.Dialog.v2" timestamp="1585547375524">
+      <screen x="0" y="0" width="1858" height="1080" />
+    </state>
+    <state x="521" y="261" key="Vcs.Push.Dialog.v2/0.0.1858.1080/-1920.1.1920.1080@0.0.1858.1080" timestamp="1585547375524" />
     <state x="570" y="155" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1585498153847">
       <screen x="0" y="0" width="1858" height="1080" />
     </state>
