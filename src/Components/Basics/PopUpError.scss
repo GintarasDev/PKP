@@ -1,0 +1,18 @@
+@import "../Res/Colors.scss";
+@import "../Res/Values.scss";
+
+.o-Error {
+  background: $error-message-background;
+  position: fixed;
+  display: inline-block;
+  left: 0;
+  top: 0;
+  border: none;
+  border-radius: $error-box-border-radius;
+  font-size: $error-box-font-size;
+  box-sizing: border-box;
+  padding: $input-border-padding;
+  margin: $error-box-margin;
+  text-align: left;
+  color: $main-text-color;
+}

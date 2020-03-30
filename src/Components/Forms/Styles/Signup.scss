@@ -1,0 +1,59 @@
+
+.o-SignupFormWrap {
+  position: fixed;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  left: 50%;
+  top: 50%;
+}
+
+.o-Signup {
+  position: relative;
+  width: 43rem;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.o-SignupFormWrap > .o-Button {
+  position: fixed;
+  display: inline-block;
+  right: 2rem;
+  top: 0;
+}
+
+.o-Signup > .o-Button {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.columns {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 15rem;
+}
+
+.short-bios {
+  position: relative;
+  height: 8rem;
+  resize: none;
+}
+
+.column-one {
+  position: absolute;
+  display: inline-block;
+  width: 50%;
+  left: 0;
+  top: 0;
+}
+
+.column-two {
+  position: absolute;
+  display: inline-block;
+  width: 50%;
+  right: 0;
+  top: 0;
+}

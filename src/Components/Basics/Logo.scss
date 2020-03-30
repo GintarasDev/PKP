@@ -1,0 +1,18 @@
+@import "../Res/Values.scss";
+@import "../Res/Colors.scss";
+
+.o-LogoWrap {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  margin: $logo-wrap-padding;
+  text-align: center;
+}
+
+.o-Logo {
+  position: relative;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+}

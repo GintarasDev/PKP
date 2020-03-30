@@ -1,9 +1,160 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ee3b5dfe-cd89-490b-a857-969253bfbf34" name="Default Changelist" comment="login, signup and navigation done">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Assets/add_group.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Assets/all_boards.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Assets/boards.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Assets/clock.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Assets/edit.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Assets/group.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Assets/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Assets/new.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Assets/online.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Assets/personal.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Assets/remove.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Assets/schedule.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Assets/search.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Basics/Button.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Basics/Button.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Basics/InputField.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Basics/InputField.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Basics/Link.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Basics/Link.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Basics/ListItem.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Basics/ListItem.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Basics/Logo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Basics/Logo.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Basics/PopUpError.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Basics/PopUpError.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Basics/SearchBar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Basics/SearchBar.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Forms/Login.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Forms/Navigation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Forms/Signup.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Forms/Styles/Login.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Forms/Styles/Navigation.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Forms/Styles/Signup.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Res/Colors.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Res/Values.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1Zd46tYhc7OtS4auWDYZIAvk4Fr" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.standard" value="" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="node" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Documents\uni\Programu kurimo procesas\App\client\src\Components\Assets" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.npm start">
+    <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
+      <method v="2" />
+    </configuration>
+    <configuration name="npm start" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ee3b5dfe-cd89-490b-a857-969253bfbf34" name="Default Changelist" comment="" />
+      <created>1585155465650</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1585155465650</updated>
+      <workItem from="1585155471124" duration="3324000" />
+      <workItem from="1585325592824" duration="6303000" />
+      <workItem from="1585411144240" duration="1116000" />
+      <workItem from="1585465346806" duration="37578000" />
+      <workItem from="1585546858970" duration="444000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="First commit" />
+    <MESSAGE value="login, signup and navigation done" />
+    <option name="LAST_COMMIT_MESSAGE" value="login, signup and navigation done" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2472" y="198" key="#ESLint" timestamp="1585411254699">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2472" y="198" key="#ESLint/0.0.1920.1050/1920.0.1920.1080@1920.0.1920.1080" timestamp="1585411254699" />
+    <state x="550" y="134" key="CommitChangelistDialog2" timestamp="1585547296679">
+      <screen x="0" y="0" width="1858" height="1080" />
+    </state>
+    <state x="550" y="134" key="CommitChangelistDialog2/0.0.1858.1080/-1920.1.1920.1080@0.0.1858.1080" timestamp="1585547296679" />
+    <state x="2514" y="318" key="EditFileWatcherDialog" timestamp="1585160318701">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2514" y="318" key="EditFileWatcherDialog/0.0.1920.1050/1920.0.1920.1080@1920.0.1920.1080" timestamp="1585160318701" />
+    <state x="570" y="155" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1585498153847">
+      <screen x="0" y="0" width="1858" height="1080" />
+    </state>
+    <state x="570" y="155" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1858.1080/-1920.1.1920.1080@0.0.1858.1080" timestamp="1585498153847" />
+    <state x="585" y="250" key="run.anything.popup" timestamp="1585501314919">
+      <screen x="0" y="0" width="1858" height="1080" />
+    </state>
+    <state x="585" y="250" key="run.anything.popup/0.0.1858.1080/-1920.1.1920.1080@0.0.1858.1080" timestamp="1585501314919" />
   </component>
 </project>

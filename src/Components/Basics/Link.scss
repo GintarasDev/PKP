@@ -1,0 +1,10 @@
+@import "../Res/Colors.scss";
+@import "../Res/Values.scss";
+
+.o-Link {
+  box-sizing: border-box;
+  margin: 1rem;
+  position: relative;
+  color: $links-color;
+  font-size: $link-font-size;
+}

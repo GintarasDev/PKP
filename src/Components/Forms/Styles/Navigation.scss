@@ -1,0 +1,52 @@
+@import "../../Res/Values.scss";
+@import "../../Res/Colors.scss";
+
+.top-nav {
+  height: 5rem;
+}
+
+.searchbar-wrap {
+  position: fixed;
+  left: 50%;
+  top: 2rem;
+  width: 40rem;
+  height: 2rem;
+  transform: translateX(-50%);
+}
+
+.currentItemSpace {
+  position: fixed;
+  display: inline-block;
+  top: 6rem;
+  left: 20rem;
+  width: fit-content;
+  height: fit-content;
+}
+
+.activeUser {
+  position: relative;
+  font-size: $active-user-font-size;
+  color: $main-text-color;
+  bottom: 1rem;
+  margin: 0 0 0 1rem;
+}
+
+.side-nav {
+  position: relative;
+  display: inline-block;
+  left: 2rem;
+  top: 2rem;
+  width: 20rem;
+}
+
+.list-item {
+  position: relative;
+  display: block;
+  left: 2rem;
+  margin: 1rem 0;
+}
+
+.logo {
+  margin: 1rem;
+  left: 1rem;
+}

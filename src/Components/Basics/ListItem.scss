@@ -1,0 +1,35 @@
+@import "../Res/Values.scss";
+@import "../Res/Colors.scss";
+
+.o-ListItem {
+  padding: $list-item-padding;
+  box-sizing: border-box;
+  border-left: 0.25rem solid #fff0;
+}
+
+.o-ListItem:hover {
+  background: $list-item-hover-background;
+}
+
+.o-ListItemActive {
+  background: $list-item-active-background;
+  border-left: 0.25rem solid $theme-color;
+}
+
+.o-Icon {
+  filter: invert(100%); // change color to white
+}
+
+.o-Text {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: $list-item-text-padding;
+  bottom: $list-item-text-vertical-position;
+  color: $main-text-color;
+  font-size: $list-item-font-size;
+}
+
+.o-Title {
+  font-size: $list-title-font-size;
+}
