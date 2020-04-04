@@ -1,0 +1,9 @@
+@import "../Res/Colors.scss";
+@import "../Res/Values.scss";
+
+.o-PreviewPanel {
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  background: $light-background-color;
+}

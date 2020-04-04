@@ -3,7 +3,6 @@
 
 .o-Button {
   display: block;
-  background: $theme-color;
   border: none;
   border-radius: $button-border-radius;
   font-size: $button-font-size;
@@ -20,9 +19,21 @@
   border-bottom: 0.2rem solid $theme-color-darken;
 }
 
+.o-Button-Green {
+  background: $theme-color;
+}
+
+.o-Button-Orange {
+  background: $button-orange;
+}
+
+.o-Button-Red {
+  background: $button-red;
+}
+
 .o-ButtonIcon {
   position: relative;
-  height: $button-font-size;
+  height: 1rem;
   bottom: -0.25rem;
   padding: 0 0.2rem 0 0;
   filter: invert(100%);

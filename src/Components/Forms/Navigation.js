@@ -2,6 +2,7 @@ import React from 'react';
 import './Styles/Navigation.scss';
 // import InputField from "../Basics/InputField";
 // import Button from "../Basics/Button";
+import PreviewPanel from "../Basics/PreviewPanel";
 import Logo from "../Basics/Logo";
 import ListItem from "../Basics/ListItem";
 import SearchBar from "../Basics/SearchBar";
@@ -12,7 +13,7 @@ class Navigation extends React.Component {
         super(props);
         this.state = {
             activeListItemId: 0,
-            activeListItem: <ProfileForm>yes</ProfileForm>,
+            activeListItem: <PreviewPanel width={"15rem"} height={"15rem"} />,
             activeUser: "Tomas Lomas"
         }
     }

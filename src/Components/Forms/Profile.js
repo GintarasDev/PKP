@@ -51,8 +51,8 @@ class ProfileForm extends React.Component{
                         </div>
                     </div>
                     <div className={'buttonBox'}>
-                        <Button iconPath={'edit.svg'} width={"15rem"} height={"5rem"} text={"Edit profile"} />
-                        <Button iconPath={'edit.svg'} width={"20rem"} height={"5rem"} text={"Change password"} />
+                        <Button iconPath={'edit.svg'} width={"15rem"} height={"1.5rem"} text={"Edit profile"} />
+                        <Button iconPath={'edit.svg'} width={"20rem"} height={"1.5rem"} text={"Change password"} />
                     </div>
             </div>
         );
