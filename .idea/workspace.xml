@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ee3b5dfe-cd89-490b-a857-969253bfbf34" name="Default Changelist" comment="Button color selection added. color=&quot;orange&quot;, &quot;red&quot;, &quot;green&quot; - default.">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Basics/PreviewPanel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Basics/PreviewPanel.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Forms/Boards.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Forms/Styles/Boards.scss" afterDir="false" />
+    <list default="true" id="ee3b5dfe-cd89-490b-a857-969253bfbf34" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Basics/Button.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Basics/Button.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Basics/Button.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Basics/Button.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Basics/PreviewPanel.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Basics/PreviewPanel.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Forms/Navigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Forms/Navigation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Forms/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Forms/Profile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Res/Colors.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Res/Colors.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Res/Values.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Res/Values.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -124,7 +118,7 @@
       <workItem from="1585546858970" duration="1129000" />
       <workItem from="1585581605778" duration="4299000" />
       <workItem from="1585677601354" duration="85000" />
-      <workItem from="1586010034435" duration="6327000" />
+      <workItem from="1586010034435" duration="7530000" />
     </task>
     <task id="LOCAL-00001" summary="login, signup and navigation done">
       <created>1585547319447</created>
@@ -140,7 +134,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585584587303</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Button color selection added. color=&quot;orange&quot;, &quot;red&quot;, &quot;green&quot; - default.">
+      <created>1586018278133</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1586018278133</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -163,10 +164,10 @@
       <screen x="0" y="0" width="1858" height="1080" />
     </state>
     <state x="668" y="343" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1858.1080/-1920.1.1920.1080@0.0.1858.1080" timestamp="1586012385629" />
-    <state x="-871" y="133" key="CommitChangelistDialog2" timestamp="1586018246205">
+    <state x="-871" y="133" key="CommitChangelistDialog2" timestamp="1586018276592">
       <screen x="-1920" y="1" width="1920" height="1080" />
     </state>
-    <state x="-871" y="133" key="CommitChangelistDialog2/0.0.1858.1080/-1920.1.1920.1080@0.0.1858.1080" timestamp="1586018246205" />
+    <state x="-871" y="133" key="CommitChangelistDialog2/0.0.1858.1080/-1920.1.1920.1080@0.0.1858.1080" timestamp="1586018276592" />
     <state x="2514" y="318" key="EditFileWatcherDialog" timestamp="1585160318701">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
@@ -191,10 +192,10 @@
       <screen x="0" y="0" width="1858" height="1080" />
     </state>
     <state x="641" y="256" key="MultipleFileMergeDialog/0.0.1858.1080/-1920.1.1920.1080@0.0.1858.1080" timestamp="1585586469753" />
-    <state x="521" y="261" key="Vcs.Push.Dialog.v2" timestamp="1585585276829">
+    <state x="521" y="261" key="Vcs.Push.Dialog.v2" timestamp="1586018285820">
       <screen x="0" y="0" width="1858" height="1080" />
     </state>
-    <state x="521" y="261" key="Vcs.Push.Dialog.v2/0.0.1858.1080/-1920.1.1920.1080@0.0.1858.1080" timestamp="1585585276829" />
+    <state x="521" y="261" key="Vcs.Push.Dialog.v2/0.0.1858.1080/-1920.1.1920.1080@0.0.1858.1080" timestamp="1586018285820" />
     <state x="570" y="155" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1585498153847">
       <screen x="0" y="0" width="1858" height="1080" />
     </state>

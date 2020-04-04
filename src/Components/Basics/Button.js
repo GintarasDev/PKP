@@ -25,7 +25,7 @@ class Button extends React.Component {
 
     render() {
         return (
-            <button className={"o-Button " + (this.props.color === "orange" ? "o-Button-Orange" : (this.props.color === "red" ? "o-Button-Red" : "o-Button-green"))} type="button" onClick={this.handleClick.bind(this)} style={{width: this.props.width}}>
+            <button className={"o-Button " + (this.props.color === "orange" ? "o-Button-Orange" : (this.props.color === "red" ? "o-Button-Red" : "o-Button-Green"))} type="button" onClick={this.handleClick.bind(this)} style={{width: this.props.width}}>
                 {this.state.icon}
                 {this.props.text}
             </button>

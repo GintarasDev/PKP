@@ -7,13 +7,14 @@ import Logo from "../Basics/Logo";
 import ListItem from "../Basics/ListItem";
 import SearchBar from "../Basics/SearchBar";
 import ProfileForm from "../Forms/Profile";
+import Button from "../Basics/Button";
 
 class Navigation extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             activeListItemId: 0,
-            activeListItem: <PreviewPanel width={"15rem"} height={"15rem"} />,
+            activeListItem: <Button  text={"sometext"}/>,//<PreviewPanel width={"20rem"} height={"20rem"} />,
             activeUser: "Tomas Lomas"
         }
     }
