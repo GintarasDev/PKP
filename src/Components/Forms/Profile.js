@@ -20,36 +20,39 @@ class ProfileForm extends React.Component{
     }
     render() {
         return (
-            <div>
-                    <div>
+            <div className={'container'}>
+                    <div className={'textBox'}>
                         <div className={'center'}>
                             <Logo class={"logo"} width={"8rem"} height={"4rem"}/>
                         </div>
                         <div className='center'>
                             <label className={"text"}>{this.state.Name}</label>
                         </div>
-                        <div>
+                        <div className={'center'}>
                             <label className={"text"}>Username: {this.state.Username}</label>
                         </div>
-                        <div>
+                        <div className={'center'}>
                             <label className={"text"}>Email: {this.state.Email}</label>
                         </div>
-                        <div>
+                        <div className={'center'}>
                             <label className={"text"}>Phone number: {this.state.PhoneNumber}</label>
                         </div>
-                        <div>
+                        <div className={'center'}>
                             <label className={"text"}>Address: {this.state.Address}</label>
                         </div>
-                        <div>
-                            <label className={"text"}>Bios:</label>
-                            {this.state.Bios}
-                        </div>
                         <div className={'center'}>
-                            <ListItem iconPath={"online.svg"}  width={"2rem"} height={"2rem"}/>
+                            <label className={"text"}>Bios:</label>
+                        </div>
+                        <div className='center' >
+                            <text className={'text'}>{this.state.Bios}</text>
+                        </div>
+                        <div className={'img'}>
+                            <ListItem class={'filterOnline'} iconPath={"online.svg"}  width={"2rem"} height={"2rem"}/>
                         </div>
                     </div>
-                    <div>
-                        <Button width={"10rem"} height={"5rem"} text={"Edit profile"} />
+                    <div className={'buttonBox'}>
+                        <Button iconPath={'edit.svg'} width={"15rem"} height={"5rem"} text={"Edit profile"} />
+                        <Button iconPath={'edit.svg'} width={"20rem"} height={"5rem"} text={"Change password"} />
                     </div>
             </div>
         );
