@@ -1,20 +1,16 @@
 import React from 'react';
 import './Styles/Navigation.scss';
-// import InputField from "../Basics/InputField";
-// import Button from "../Basics/Button";
-import PreviewPanel from "../Basics/PreviewPanel";
 import Logo from "../Basics/Logo";
 import ListItem from "../Basics/ListItem";
 import SearchBar from "../Basics/SearchBar";
-import ProfileForm from "../Forms/Profile";
-import Button from "../Basics/Button";
+import AllBoards from "./Boards";
 
 class Navigation extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             activeListItemId: 0,
-            activeListItem: <Button  text={"sometext"}/>,//<PreviewPanel width={"20rem"} height={"20rem"} />,
+            activeListItem: <AllBoards height={"48rem"} />,
             activeUser: "Tomas Lomas"
         }
     }
@@ -30,7 +26,7 @@ class Navigation extends React.Component {
                 </div>
                 <div className={"side-nav"} >
                     <ListItem isTitle={true} active={false} iconPath={"boards.svg"} text={"Boards"} width={"10rem"} height={"2rem"} />
-                    <ListItem clickHandler={this.setActive.bind(this)} itemNo={0} component={<div>placeholder 0</div>} class={"list-item"} active={this.state.activeListItemId === 0} iconPath={"all_boards.svg"} text={"All"} width={"10rem"} height={"2rem"} />
+                    <ListItem clickHandler={this.setActive.bind(this)} itemNo={0} component={<AllBoards height={"48rem"} />} class={"list-item"} active={this.state.activeListItemId === 0} iconPath={"all_boards.svg"} text={"All"} width={"10rem"} height={"2rem"} />
                     <ListItem clickHandler={this.setActive.bind(this)} itemNo={1} component={<div>placeholder 1</div>} class={"list-item"} active={this.state.activeListItemId === 1} iconPath={"personal.svg"} text={"Personal"} width={"10rem"} height={"2rem"} />
                     <ListItem clickHandler={this.setActive.bind(this)} itemNo={2} component={<div>placeholder 2</div>} class={"list-item"} active={this.state.activeListItemId === 2} iconPath={"new.svg"} text={"New"} width={"10rem"} height={"2rem"} />
                     <ListItem isTitle={true} active={false} iconPath={"group.svg"} text={"Groups"} width={"10rem"} height={"2rem"} />

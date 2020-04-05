@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ee3b5dfe-cd89-490b-a857-969253bfbf34" name="Default Changelist" comment="">
+    <list default="true" id="ee3b5dfe-cd89-490b-a857-969253bfbf34" name="Default Changelist" comment="Boards All - front end done">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Basics/Button.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Basics/Button.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Basics/PreviewPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Basics/PreviewPanel.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Basics/PreviewPanel.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Basics/PreviewPanel.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Forms/Boards.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Forms/Boards.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Forms/Navigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Forms/Navigation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Forms/Styles/Boards.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Forms/Styles/Boards.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Res/Values.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Res/Values.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -34,22 +38,9 @@
         </map>
       </branch-storage>
     </excluded-from-favorite>
-    <favorite-branches>
-      <branch-storage>
-        <map>
-          <entry type="REMOTE">
-            <value>
-              <list>
-                <branch-info repo="$PROJECT_DIR$" source="main-dev/profile" />
-              </list>
-            </value>
-          </entry>
-        </map>
-      </branch-storage>
-    </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="intialize" />
+        <entry key="$PROJECT_DIR$" value="profile" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -118,7 +109,8 @@
       <workItem from="1585546858970" duration="1129000" />
       <workItem from="1585581605778" duration="4299000" />
       <workItem from="1585677601354" duration="85000" />
-      <workItem from="1586010034435" duration="7530000" />
+      <workItem from="1586010034435" duration="8175000" />
+      <workItem from="1586076597500" duration="13306000" />
     </task>
     <task id="LOCAL-00001" summary="login, signup and navigation done">
       <created>1585547319447</created>
@@ -141,7 +133,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586018278133</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Fixed button green color">
+      <created>1586019794365</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1586019794365</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -153,7 +152,9 @@
     <MESSAGE value="login, signup and navigation done" />
     <MESSAGE value="added icons prop to Button" />
     <MESSAGE value="Button color selection added. color=&quot;orange&quot;, &quot;red&quot;, &quot;green&quot; - default." />
-    <option name="LAST_COMMIT_MESSAGE" value="Button color selection added. color=&quot;orange&quot;, &quot;red&quot;, &quot;green&quot; - default." />
+    <MESSAGE value="Fixed button green color" />
+    <MESSAGE value="Boards All - front end done" />
+    <option name="LAST_COMMIT_MESSAGE" value="Boards All - front end done" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2472" y="198" key="#ESLint" timestamp="1585411254699">
@@ -164,38 +165,43 @@
       <screen x="0" y="0" width="1858" height="1080" />
     </state>
     <state x="668" y="343" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1858.1080/-1920.1.1920.1080@0.0.1858.1080" timestamp="1586012385629" />
-    <state x="-871" y="133" key="CommitChangelistDialog2" timestamp="1586018276592">
-      <screen x="-1920" y="1" width="1920" height="1080" />
+    <state x="224" y="125" key="CommitChangelistDialog2" timestamp="1586112770408">
+      <screen x="0" y="0" width="1858" height="1080" />
     </state>
-    <state x="-871" y="133" key="CommitChangelistDialog2/0.0.1858.1080/-1920.1.1920.1080@0.0.1858.1080" timestamp="1586018276592" />
+    <state x="224" y="125" key="CommitChangelistDialog2/0.0.1858.1080/-1920.0.1920.1080@0.0.1858.1080" timestamp="1586112770408" />
+    <state x="-871" y="133" key="CommitChangelistDialog2/0.0.1858.1080/-1920.1.1920.1080@0.0.1858.1080" timestamp="1586019793261" />
     <state x="2514" y="318" key="EditFileWatcherDialog" timestamp="1585160318701">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2514" y="318" key="EditFileWatcherDialog/0.0.1920.1050/1920.0.1920.1080@1920.0.1920.1080" timestamp="1585160318701" />
-    <state width="918" height="295" key="GridCell.Tab.0.bottom" timestamp="1586018246241">
+    <state width="918" height="295" key="GridCell.Tab.0.bottom" timestamp="1586106518636">
       <screen x="0" y="0" width="1858" height="1080" />
     </state>
+    <state width="918" height="295" key="GridCell.Tab.0.bottom/0.0.1858.1080/-1920.0.1920.1080@0.0.1858.1080" timestamp="1586106518636" />
     <state width="918" height="295" key="GridCell.Tab.0.bottom/0.0.1858.1080/-1920.1.1920.1080@0.0.1858.1080" timestamp="1586018246241" />
-    <state width="918" height="295" key="GridCell.Tab.0.center" timestamp="1586018246241">
+    <state width="918" height="295" key="GridCell.Tab.0.center" timestamp="1586106518636">
       <screen x="0" y="0" width="1858" height="1080" />
     </state>
+    <state width="918" height="295" key="GridCell.Tab.0.center/0.0.1858.1080/-1920.0.1920.1080@0.0.1858.1080" timestamp="1586106518636" />
     <state width="918" height="295" key="GridCell.Tab.0.center/0.0.1858.1080/-1920.1.1920.1080@0.0.1858.1080" timestamp="1586018246241" />
-    <state width="918" height="295" key="GridCell.Tab.0.left" timestamp="1586018246241">
+    <state width="918" height="295" key="GridCell.Tab.0.left" timestamp="1586106518635">
       <screen x="0" y="0" width="1858" height="1080" />
     </state>
+    <state width="918" height="295" key="GridCell.Tab.0.left/0.0.1858.1080/-1920.0.1920.1080@0.0.1858.1080" timestamp="1586106518635" />
     <state width="918" height="295" key="GridCell.Tab.0.left/0.0.1858.1080/-1920.1.1920.1080@0.0.1858.1080" timestamp="1586018246241" />
-    <state width="918" height="295" key="GridCell.Tab.0.right" timestamp="1586018246241">
+    <state width="918" height="295" key="GridCell.Tab.0.right" timestamp="1586106518636">
       <screen x="0" y="0" width="1858" height="1080" />
     </state>
+    <state width="918" height="295" key="GridCell.Tab.0.right/0.0.1858.1080/-1920.0.1920.1080@0.0.1858.1080" timestamp="1586106518636" />
     <state width="918" height="295" key="GridCell.Tab.0.right/0.0.1858.1080/-1920.1.1920.1080@0.0.1858.1080" timestamp="1586018246241" />
     <state x="641" y="256" key="MultipleFileMergeDialog" timestamp="1585586469753">
       <screen x="0" y="0" width="1858" height="1080" />
     </state>
     <state x="641" y="256" key="MultipleFileMergeDialog/0.0.1858.1080/-1920.1.1920.1080@0.0.1858.1080" timestamp="1585586469753" />
-    <state x="521" y="261" key="Vcs.Push.Dialog.v2" timestamp="1586018285820">
+    <state x="521" y="261" key="Vcs.Push.Dialog.v2" timestamp="1586019796217">
       <screen x="0" y="0" width="1858" height="1080" />
     </state>
-    <state x="521" y="261" key="Vcs.Push.Dialog.v2/0.0.1858.1080/-1920.1.1920.1080@0.0.1858.1080" timestamp="1586018285820" />
+    <state x="521" y="261" key="Vcs.Push.Dialog.v2/0.0.1858.1080/-1920.1.1920.1080@0.0.1858.1080" timestamp="1586019796217" />
     <state x="570" y="155" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1585498153847">
       <screen x="0" y="0" width="1858" height="1080" />
     </state>
@@ -212,13 +218,15 @@
       <screen x="0" y="0" width="1858" height="1080" />
     </state>
     <state x="676" y="331" key="git4idea.merge.GitMergeDialog/0.0.1858.1080/-1920.1.1920.1080@0.0.1858.1080" timestamp="1585586053337" />
-    <state x="657" y="331" key="git4idea.merge.GitPullDialog" timestamp="1585586501007">
+    <state x="657" y="331" key="git4idea.merge.GitPullDialog" timestamp="1586112116013">
       <screen x="0" y="0" width="1858" height="1080" />
     </state>
+    <state x="657" y="331" key="git4idea.merge.GitPullDialog/0.0.1858.1080/-1920.0.1920.1080@0.0.1858.1080" timestamp="1586112116013" />
     <state x="657" y="331" key="git4idea.merge.GitPullDialog/0.0.1858.1080/-1920.1.1920.1080@0.0.1858.1080" timestamp="1585586501007" />
-    <state x="585" y="250" key="run.anything.popup" timestamp="1585586787136">
+    <state x="585" y="250" key="run.anything.popup" timestamp="1586102157080">
       <screen x="0" y="0" width="1858" height="1080" />
     </state>
+    <state x="585" y="250" key="run.anything.popup/0.0.1858.1080/-1920.0.1920.1080@0.0.1858.1080" timestamp="1586102157080" />
     <state x="585" y="250" key="run.anything.popup/0.0.1858.1080/-1920.1.1920.1080@0.0.1858.1080" timestamp="1585586787136" />
   </component>
 </project>
