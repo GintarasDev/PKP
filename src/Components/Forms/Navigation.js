@@ -5,14 +5,16 @@ import './Styles/Navigation.scss';
 import Logo from "../Basics/Logo";
 import ListItem from "../Basics/ListItem";
 import SearchBar from "../Basics/SearchBar";
-import ProfileForm from "../Forms/Profile";
+import UserForm from "./User";
+import ProfileForm from "./Profile";
+import ChangePasswordForm from "./ChangePassword";
 
 class Navigation extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             activeListItemId: 0,
-            activeListItem: <ProfileForm>yes</ProfileForm>,
+            activeListItem: <ChangePasswordForm/>,
             activeUser: "Tomas Lomas"
         }
     }

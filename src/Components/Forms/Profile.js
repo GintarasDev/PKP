@@ -20,39 +20,39 @@ class ProfileForm extends React.Component{
     }
     render() {
         return (
-            <div className={'container'}>
-                    <div className={'textBox'}>
-                        <div className={'center'}>
+            <div className={'profileContainer'}>
+                    <div className={'profileTextBox'}>
+                        <div className={'profileCenter'}>
                             <Logo class={"logo"} width={"8rem"} height={"4rem"}/>
                         </div>
-                        <div className='center'>
-                            <label className={"text"}>{this.state.Name}</label>
+                        <div className='profileCenter'>
+                            <label className={"profileText"}>{this.state.Name}</label>
                         </div>
-                        <div className={'center'}>
-                            <label className={"text"}>Username: {this.state.Username}</label>
+                        <div className={'profileCenter'}>
+                            <label className={"profileText"}>Username: {this.state.Username}</label>
                         </div>
-                        <div className={'center'}>
-                            <label className={"text"}>Email: {this.state.Email}</label>
+                        <div className={'profileCenter'}>
+                            <label className={"profileText"}>Email: {this.state.Email}</label>
                         </div>
-                        <div className={'center'}>
-                            <label className={"text"}>Phone number: {this.state.PhoneNumber}</label>
+                        <div className={'profileCenter'}>
+                            <label className={"profileText"}>Phone number: {this.state.PhoneNumber}</label>
                         </div>
-                        <div className={'center'}>
-                            <label className={"text"}>Address: {this.state.Address}</label>
+                        <div className={'profileCenter'}>
+                            <label className={"profileText"}>Address: {this.state.Address}</label>
                         </div>
-                        <div className={'center'}>
-                            <label className={"text"}>Bios:</label>
+                        <div className={'profileCenter'}>
+                            <label className={"profileText"}>Bios:</label>
                         </div>
-                        <div className='center' >
-                            <text className={'text'}>{this.state.Bios}</text>
+                        <div className='profileCenter' >
+                            <text className={'profileText'}>{this.state.Bios}</text>
                         </div>
-                        <div className={'img'}>
-                            <ListItem class={'filterOnline'} iconPath={"online.svg"}  width={"2rem"} height={"2rem"}/>
+                        <div className={'profileImg'}>
+                            <ListItem class={'profileFilterOnline'} iconPath={"online.svg"}  width={"2rem"} height={"2rem"}/>
                         </div>
                     </div>
-                    <div className={'buttonBox'}>
-                        <Button iconPath={'edit.svg'} width={"15rem"} height={"5rem"} text={"Edit profile"} />
-                        <Button iconPath={'edit.svg'} width={"20rem"} height={"5rem"} text={"Change password"} />
+                    <div className={'profileButtonBox'}>
+                        <Button clickHandler="" iconPath={'edit.svg'} width={"13rem"} height={"1.5rem"} text={"Edit profile"} />
+                        <Button clickHandler="" iconPath={'edit.svg'} width={"18rem"} height={"1.5rem"} text={"Change password"} />
                     </div>
             </div>
         );
