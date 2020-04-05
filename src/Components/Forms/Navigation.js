@@ -15,7 +15,8 @@ class Navigation extends React.Component {
         this.state = {
             activeListItemId: 0,
             activeListItem: <ChangePasswordForm/>,
-            activeUser: "Tomas Lomas"
+            activeUser: "Tomas Lomas",
+            error: null
         }
     }
     render() {
@@ -42,6 +43,7 @@ class Navigation extends React.Component {
                 <div className={"currentItemSpace"}>
                     {this.state.activeListItem}
                 </div>
+                {this.state.error}
             </div>
         );
     }
