@@ -1,0 +1,48 @@
+@import "../../Res/Values.scss";
+@import "../../Res/Colors.scss";
+
+.eProfileText {
+  font-size: $main-font-size;
+  color: $main-text-color;
+  bottom: 1rem;
+  margin: 0 0 0 1rem;
+}
+
+.eProfileAdjust-text {
+  text-align: left;
+  margin-left: 1rem;
+}
+
+.eProfileAdjust {
+  text-align: center;
+  width: 92%;
+  margin-top: -2rem;
+}
+
+.eProfileCenter {
+  width: fit-content;
+  text-align: right;
+}
+
+.eProfileContainer {
+  position: relative;
+  height: 40rem;
+  width: 50rem;
+  margin-left: 4.75rem;
+}
+
+.eProfileRow {
+  display: flex;
+}
+
+.eProfileContainerBT {
+  width: 100%;
+  float: left;
+  text-align: left;
+  margin-left: 1rem;
+}
+.eProfileContainer button{
+  display: inline-block;
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
