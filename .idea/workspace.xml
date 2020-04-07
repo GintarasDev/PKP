@@ -1,19 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ee3b5dfe-cd89-490b-a857-969253bfbf34" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Components/Basics/User.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Basics/User.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Forms/SearchResults.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Forms/Styles/SearchResults.scss" afterDir="false" />
+    <list default="true" id="5eff84dc-2d29-46c4-ac63-0058b1e0b113" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Basics/PreviewPanel.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Basics/PreviewPanel.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Basics/SearchBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Basics/SearchBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Forms/Navigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Forms/Navigation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Forms/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Forms/Profile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Res/Values.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Res/Values.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +34,7 @@
     </excluded-from-favorite>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="profile" />
+        <entry key="$PROJECT_DIR$" value="development" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -96,6 +86,10 @@
       <envs />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="JavaScript Debug.Debug Application" />
+      <item itemvalue="npm.npm start" />
+    </list>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -174,6 +168,17 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="First commit" />
@@ -207,25 +212,25 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2514" y="318" key="EditFileWatcherDialog/0.0.1920.1050/1920.0.1920.1080@1920.0.1920.1080" timestamp="1585160318701" />
-    <state width="918" height="258" key="GridCell.Tab.0.bottom" timestamp="1586281873683">
+    <state width="918" height="258" key="GridCell.Tab.0.bottom" timestamp="1586287015514">
       <screen x="0" y="0" width="1858" height="1080" />
     </state>
-    <state width="918" height="258" key="GridCell.Tab.0.bottom/0.0.1858.1080/-1920.0.1920.1080@0.0.1858.1080" timestamp="1586281873683" />
+    <state width="918" height="258" key="GridCell.Tab.0.bottom/0.0.1858.1080/-1920.0.1920.1080@0.0.1858.1080" timestamp="1586287015514" />
     <state width="918" height="295" key="GridCell.Tab.0.bottom/0.0.1858.1080/-1920.1.1920.1080@0.0.1858.1080" timestamp="1586018246241" />
-    <state width="918" height="258" key="GridCell.Tab.0.center" timestamp="1586281873682">
+    <state width="918" height="258" key="GridCell.Tab.0.center" timestamp="1586287015514">
       <screen x="0" y="0" width="1858" height="1080" />
     </state>
-    <state width="918" height="258" key="GridCell.Tab.0.center/0.0.1858.1080/-1920.0.1920.1080@0.0.1858.1080" timestamp="1586281873682" />
+    <state width="918" height="258" key="GridCell.Tab.0.center/0.0.1858.1080/-1920.0.1920.1080@0.0.1858.1080" timestamp="1586287015514" />
     <state width="918" height="295" key="GridCell.Tab.0.center/0.0.1858.1080/-1920.1.1920.1080@0.0.1858.1080" timestamp="1586018246241" />
-    <state width="918" height="258" key="GridCell.Tab.0.left" timestamp="1586281873682">
+    <state width="918" height="258" key="GridCell.Tab.0.left" timestamp="1586287015513">
       <screen x="0" y="0" width="1858" height="1080" />
     </state>
-    <state width="918" height="258" key="GridCell.Tab.0.left/0.0.1858.1080/-1920.0.1920.1080@0.0.1858.1080" timestamp="1586281873682" />
+    <state width="918" height="258" key="GridCell.Tab.0.left/0.0.1858.1080/-1920.0.1920.1080@0.0.1858.1080" timestamp="1586287015513" />
     <state width="918" height="295" key="GridCell.Tab.0.left/0.0.1858.1080/-1920.1.1920.1080@0.0.1858.1080" timestamp="1586018246241" />
-    <state width="918" height="258" key="GridCell.Tab.0.right" timestamp="1586281873682">
+    <state width="918" height="258" key="GridCell.Tab.0.right" timestamp="1586287015514">
       <screen x="0" y="0" width="1858" height="1080" />
     </state>
-    <state width="918" height="258" key="GridCell.Tab.0.right/0.0.1858.1080/-1920.0.1920.1080@0.0.1858.1080" timestamp="1586281873682" />
+    <state width="918" height="258" key="GridCell.Tab.0.right/0.0.1858.1080/-1920.0.1920.1080@0.0.1858.1080" timestamp="1586287015514" />
     <state width="918" height="295" key="GridCell.Tab.0.right/0.0.1858.1080/-1920.1.1920.1080@0.0.1858.1080" timestamp="1586018246241" />
     <state width="918" height="364" key="GridCell.Tab.1.bottom" timestamp="1586202503226">
       <screen x="0" y="0" width="1858" height="1080" />
@@ -279,10 +284,10 @@
       <screen x="0" y="0" width="1858" height="1080" />
     </state>
     <state x="641" y="256" key="MultipleFileMergeDialog/0.0.1858.1080/-1920.1.1920.1080@0.0.1858.1080" timestamp="1585586469753" />
-    <state x="521" y="261" key="Vcs.Push.Dialog.v2" timestamp="1586273738357">
+    <state x="521" y="261" key="Vcs.Push.Dialog.v2" timestamp="1586286975193">
       <screen x="0" y="0" width="1858" height="1080" />
     </state>
-    <state x="521" y="261" key="Vcs.Push.Dialog.v2/0.0.1858.1080/-1920.0.1920.1080@0.0.1858.1080" timestamp="1586273738357" />
+    <state x="521" y="261" key="Vcs.Push.Dialog.v2/0.0.1858.1080/-1920.0.1920.1080@0.0.1858.1080" timestamp="1586286975193" />
     <state x="521" y="261" key="Vcs.Push.Dialog.v2/0.0.1858.1080/-1920.1.1920.1080@0.0.1858.1080" timestamp="1586019796217" />
     <state x="570" y="155" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1585498153847">
       <screen x="0" y="0" width="1858" height="1080" />

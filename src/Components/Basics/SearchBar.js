@@ -21,7 +21,7 @@ class SearchBar extends React.Component {
     }
 
     showSearchResults = () => {
-        this.props.clickHandler(9, <SearchResults searchString={this.state.value} width={"70rem"} clickHandler={this.props.changeHandler} />)
+        this.props.clickHandler(9, <SearchResults searchString={this.state.value} width={"70rem"} clickHandler={this.props.clickHandler} />)
     }
 }
 
