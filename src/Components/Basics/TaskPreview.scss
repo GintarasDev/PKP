@@ -1,0 +1,26 @@
+@import "../Res/Colors.scss";
+@import "../Res/Values.scss";
+
+.o-TaskPreview {
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  background: $light-background-color;
+  border-radius: $preview-panel-border-radius;
+  padding: $task-preview-padding;
+  color: $main-text-color;
+  font-size: $preview-panel-font-size;
+  margin: $task-preview-margin;
+}
+
+.o-TaskPreview div {
+  font-size: $task-preview-font-size;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.o-TaskPreview img {
+  vertical-align: middle;
+  filter: invert(100%);
+}

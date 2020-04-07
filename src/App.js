@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import LoginForm from "./Components/Forms/Login";
 import Navigation from "./Components/Forms/Navigation";
+import SignupForm from "./Components/Forms/Signup";
 
 class App extends React.Component {
 
@@ -19,6 +20,7 @@ class App extends React.Component {
 
     render() {
         //{this.state.currentPage}
+        //<Navigation stateUpdater={this.updateAppState} />
         //<SignupForm stateUpdater={this.updateAppState} />
         return (
             <div className="App">
