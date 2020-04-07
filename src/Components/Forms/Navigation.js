@@ -16,7 +16,7 @@ class Navigation extends React.Component {
         this.state = {
             activeListItemId: 0,
             activeListItem: <ChangePasswordForm/>,
-            activeUser: "Tomas Lomas"
+            activeUser: "Tomas Lomas",
             error: null
         }
     }
