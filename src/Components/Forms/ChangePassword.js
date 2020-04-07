@@ -5,6 +5,7 @@ import './Styles/ChangePassword.scss';
 import Button from "../Basics/Button";
 import InputField from "../Basics/InputField";
 import PopUpError from "../Basics/PopUpError";
+import ProfileForm from "./Profile";
 
 class ChangePasswordForm extends React.Component{
     constructor(props) {
@@ -34,7 +35,7 @@ class ChangePasswordForm extends React.Component{
                     <div className={'cPassContainer'}>
                         <div className={'cPassContainerBT'}>
                             <Button clickHandler={this.changePassword.bind(this)} text={"Save"} width={"12rem"}/>
-                            <Button color={'orange'} clickHandler="" text={"Cancel"} width={"12rem"}/>
+                            <Button color={'orange'} clickHandler={this.setActive.bind(this)} text={"Cancel"} width={"12rem"}/>
                         </div>
                     </div>
                 </div>
@@ -81,6 +82,10 @@ class ChangePasswordForm extends React.Component{
 
     removeErrorMessage = () => {
         this.setState({error: null});
+    };
+
+    setActive = () => {
+        this.props.clickHandler(9, <ProfileForm clickHandler={this.props.clickHandler}/>);
     };
 
     updateCurrentPassword = (e) => {

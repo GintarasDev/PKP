@@ -5,17 +5,17 @@ import ListItem from "../Basics/ListItem";
 import SearchBar from "../Basics/SearchBar";
 import UserForm from "./User";
 import ChangePasswordForm from "./ChangePassword";
+import EditProfileForm from "./EditProfile";
 import AllBoards from "./Boards";
 import Board from "./Personal";
 import ProfileForm from "./Profile";
-
 
 class Navigation extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             activeListItemId: 0,
-            activeListItem: <ChangePasswordForm/>,
+            activeListItem: <ProfileForm clickHandler={this.setActive.bind(this)}/>,
             activeUser: "Tomas Lomas",
             error: null
         }
