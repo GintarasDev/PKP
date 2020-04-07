@@ -1,7 +1,6 @@
 import React from 'react';
 import Logo from "../Basics/Logo";
 import './Styles/Profile.scss';
-import '../Basics/Button.scss'
 import Button from "../Basics/Button";
 import ListItem from "../Basics/ListItem";
 import ChangePasswordForm from "./ChangePassword";
