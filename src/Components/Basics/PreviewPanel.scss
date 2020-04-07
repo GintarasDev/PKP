@@ -1,0 +1,47 @@
+@import "../Res/Colors.scss";
+@import "../Res/Values.scss";
+
+.o-PreviewPanel {
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  background: $light-background-color;
+  border-radius: $preview-panel-border-radius;
+  padding: $info-panel-padding;
+  color: $main-text-color;
+  font-size: $preview-panel-font-size;
+
+}
+
+.o-PreviewPanelTitle {
+  position: sticky;
+  top: 0;
+  box-sizing: border-box;
+  font-size: $preview-panel-title-font-size;
+  width: 100%;
+  text-align: center;
+  margin: 0 0 $preview-panel-title-bottom-margin 0;
+}
+
+.o-PreviewPanelData {
+  display: block;
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  margin: 0 0 $info-panel-padding 0;
+  text-overflow: ellipsis;
+  overflow: auto;
+}
+
+.o-PreviewPanelDataValue {
+  position: relative;
+  right: 0;
+  box-sizing: border-box;
+}
+
+.o-AdditionalElement{
+  position: sticky;
+  box-sizing: border-box;
+  width: 100%;
+}
