@@ -3,17 +3,20 @@ import './Styles/Navigation.scss';
 import Logo from "../Basics/Logo";
 import ListItem from "../Basics/ListItem";
 import SearchBar from "../Basics/SearchBar";
+import UserForm from "./User";
+import ChangePasswordForm from "./ChangePassword";
 import AllBoards from "./Boards";
 import Board from "./Personal";
 import ProfileForm from "./Profile";
+
 
 class Navigation extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             activeListItemId: 0,
-            activeListItem: <Board />,
-            activeUser: "Tomas Lomas",
+            activeListItem: <ChangePasswordForm/>,
+            activeUser: "Tomas Lomas"
             error: null
         }
     }
