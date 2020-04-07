@@ -20,9 +20,10 @@ class App extends React.Component {
     render() {
         //{this.state.currentPage}
         //<SignupForm stateUpdater={this.updateAppState} />
+        //<Navigation stateUpdater={this.updateAppState} />
         return (
             <div className="App">
-                <Navigation stateUpdater={this.updateAppState} />
+                 {this.state.currentPage}
             </div>
         );
     };
