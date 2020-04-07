@@ -1,5 +1,6 @@
 import React from 'react';
 import './SearchBar.scss';
+import SearchResults from "../Forms/SearchResults";
 
 class SearchBar extends React.Component {
     constructor(props) {
@@ -12,11 +13,15 @@ class SearchBar extends React.Component {
     render() {
         return (
             <div className={"o-SearchbarWrap"} >
-                <input id={this.props.id} onChange={this.props.onChange} className={"o-Searchbar " + this.props.class}
+                <input id={this.props.id} onChange={this.showSearchResults} className={"o-Searchbar " + this.props.class}
                        type={this.props.type} placeholder={this.props.placeholder} style={{width: this.props.width}}/>
                 <img src={require("../Assets/search.svg")} alt={"search"}/>
             </div>
         );
+    }
+
+    showSearchResults = () => {
+        this.props.clickHandler(9, <SearchResults searchString={this.state.value} width={"70rem"} clickHandler={this.props.changeHandler} />)
     }
 }
 

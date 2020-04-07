@@ -21,6 +21,9 @@
   width: 100%;
   text-align: center;
   margin: 0 0 $preview-panel-title-bottom-margin 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .o-PreviewPanelData {

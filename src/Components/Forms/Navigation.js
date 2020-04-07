@@ -9,6 +9,7 @@ import EditProfileForm from "./EditProfile";
 import AllBoards from "./Boards";
 import Board from "./Board";
 import ProfileForm from "./Profile";
+import SearchResults from "./SearchResults";
 
 class Navigation extends React.Component {
     constructor(props) {
@@ -27,7 +28,7 @@ class Navigation extends React.Component {
                     <Logo class={"logo"} width={"4rem"} height={"4rem"}/>
                     <span className={"activeUser"}>{this.state.activeUser}</span>
                     <div className={"searchbar-wrap"}>
-                        <SearchBar placeholder={"Search for boards, groups and users..."} />
+                        <SearchBar placeholder={"Search for boards, groups and users..."} clickHandler={this.setActive.bind(this)} />
                     </div>
                 </div>
                 <div className={"side-nav"} >
