@@ -14,7 +14,8 @@
 }
 
 .o-PreviewPanelTitle {
-  position: relative;
+  position: sticky;
+  top: 0;
   box-sizing: border-box;
   font-size: $preview-panel-title-font-size;
   width: 100%;
@@ -30,7 +31,6 @@
   height: 100%;
   margin: 0 0 $info-panel-padding 0;
   text-overflow: ellipsis;
-  //white-space: nowrap;
   overflow: auto;
 }
 
@@ -38,4 +38,10 @@
   position: relative;
   right: 0;
   box-sizing: border-box;
+}
+
+.o-AdditionalElement{
+  position: sticky;
+  box-sizing: border-box;
+  width: 100%;
 }
