@@ -1,12 +1,14 @@
 import React from 'react';
-import './Styles/Personal.scss';
+import './Styles/Board.scss';
 import PreviewPanel from "../Basics/PreviewPanel";
 import TaskPreview from "../Basics/TaskPreview";
+import Button from "../Basics/Button";
 
 class Board extends React.Component {
     constructor(props) {
         super(props);
         this.temp = [];
+        this.elementToAdd = {};
         this.backlogTasks = [];
         this.toDoTasks = [];
         this.inProgressTasks = [];
@@ -25,15 +27,31 @@ class Board extends React.Component {
     render() {
         return (
             <div className="o-PersonalBoard">
+                <div className={"o-BoardHeader"} >
+                    <span className={"o-Left"}>
+                        <img src={require("../Assets/personal.svg")} alt={"Assigned users"} />
+                        {" " + this.props.assignedUsers}
+                    </span>
+                    <span className={"o-Center"}>
+                        {this.props.boardTitle}
+                    </span>
+                    <span className={"o-Right"}>
+                        <Button clickHandler={this.editBoard} iconPath={'edit.svg'} width={"12rem"} height={"1.5rem"} text={"Edit board"} />
+                    </span>
+                </div>
                 <div className="o-Boards">
-                    <PreviewPanel class={"taskPanel"} title={"Backlog"} height={"40rem"} width={"16rem"} additionalElement={this.addTaskButton()} additionalElementHeight={"1.2rem"} dataToDisplay={this.state.backlogTasks} />
-                    <PreviewPanel class={"taskPanel"} title={"To do"} height={"40rem"} width={"16rem"} additionalElement={this.addTaskButton()} additionalElementHeight={"1.2rem"} dataToDisplay={this.state.toDoTasks} />
-                    <PreviewPanel class={"taskPanel"} title={"In progress"} height={"40rem"} width={"16rem"} additionalElement={this.addTaskButton()} additionalElementHeight={"1.2rem"} dataToDisplay={this.state.inProgressTasks} />
-                    <PreviewPanel class={"taskPanel"} title={"On hold"} height={"40rem"} width={"16rem"} additionalElement={this.addTaskButton()} additionalElementHeight={"1.2rem"} dataToDisplay={this.state.onHoldTasks} />
-                    <PreviewPanel class={"taskPanel"} title={"Done"} height={"40rem"} width={"16rem"} additionalElement={this.addTaskButton()} additionalElementHeight={"1.2rem"} dataToDisplay={this.state.doneTasks} />
+                    <PreviewPanel class={"taskPanel"} title={"Backlog"} height={"40rem"} width={"16rem"} additionalElement={this.addTaskButton()} additionalElementHeight={"1.2rem"} dataToDisplay={this.state.backlogTasks} addElement={this.addElement.bind(this)} />
+                    <PreviewPanel class={"taskPanel"} title={"To do"} height={"40rem"} width={"16rem"} additionalElement={this.addTaskButton()} additionalElementHeight={"1.2rem"} dataToDisplay={this.state.toDoTasks} addElement={this.addElement.bind(this)} />
+                    <PreviewPanel class={"taskPanel"} title={"In progress"} height={"40rem"} width={"16rem"} additionalElement={this.addTaskButton()} additionalElementHeight={"1.2rem"} dataToDisplay={this.state.inProgressTasks} addElement={this.addElement.bind(this)} />
+                    <PreviewPanel class={"taskPanel"} title={"On hold"} height={"40rem"} width={"16rem"} additionalElement={this.addTaskButton()} additionalElementHeight={"1.2rem"} dataToDisplay={this.state.onHoldTasks} addElement={this.addElement.bind(this)} />
+                    <PreviewPanel class={"taskPanel"} title={"Done"} height={"40rem"} width={"16rem"} additionalElement={this.addTaskButton()} additionalElementHeight={"1.2rem"} dataToDisplay={this.state.doneTasks} addElement={this.addElement.bind(this)} />
                 </div>
             </div>
         );
+    };
+
+    editBoard = () => {
+        //this.props.clickHandler(id, edit board page here);
     };
 
     addTasksToBoard = () => {
@@ -80,9 +98,6 @@ class Board extends React.Component {
         this.temp = [];
         if (boardTitle === "backlog") {
             this.removeTask(id, this.state.backlogTasks);
-            if(this.temp === this.state.backlogTasks){
-                console.log("wtf");
-            }
             this.setState({backlogTasks: this.temp});
         }
         else if (boardTitle === "todo") {
@@ -110,8 +125,40 @@ class Board extends React.Component {
     checkElement = (element, id) => {
         if(element.id !== id) {
             this.temp.push(element);
+        } else {
+            this.elementToAdd = element;
         }
     };
+
+    addElement = (boardTitle) => {
+        this.temp = [];
+        //add api for category changing here :)
+        if (boardTitle === "Backlog") {
+            this.temp = this.state.backlogTasks;
+            this.temp.push(this.elementToAdd);
+            this.setState({backlogTasks: this.temp});
+        }
+        else if (boardTitle === "To do") {
+            this.temp = this.state.toDoTasks;
+            this.temp.push(this.elementToAdd);
+            this.setState({toDoTasks: this.temp});
+        }
+        else if (boardTitle === "In progress") {
+            this.temp = this.state.inProgressTasks;
+            this.temp.push(this.elementToAdd);
+            this.setState({inProgressTasks: this.temp});
+        }
+        else if (boardTitle === "On hold") {
+            this.temp = this.state.onHoldTasks;
+            this.temp.push(this.elementToAdd);
+            this.setState({onHoldTasks: this.temp});
+        }
+        else if (boardTitle === "Done") {
+            this.temp = this.state.doneTasks;
+            this.temp.push(this.elementToAdd);
+            this.setState({doneTasks: this.temp});
+        }
+    }
 }
 
 export default Board;

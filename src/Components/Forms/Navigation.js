@@ -7,7 +7,7 @@ import UserForm from "./User";
 import ChangePasswordForm from "./ChangePassword";
 import EditProfileForm from "./EditProfile";
 import AllBoards from "./Boards";
-import Board from "./Personal";
+import Board from "./Board";
 import ProfileForm from "./Profile";
 
 class Navigation extends React.Component {
@@ -15,7 +15,7 @@ class Navigation extends React.Component {
         super(props);
         this.state = {
             activeListItemId: 0,
-            activeListItem: <ProfileForm clickHandler={this.setActive.bind(this)}/>,
+            activeListItem: <Board assignedUsers={"1 (personal)"} boardTitle={"Personal"} clickHandler={this.setActive.bind(this)}/>,
             activeUser: "Tomas Lomas",
             error: null
         }
@@ -32,8 +32,8 @@ class Navigation extends React.Component {
                 </div>
                 <div className={"side-nav"} >
                     <ListItem isTitle={true} active={false} iconPath={"boards.svg"} text={"Boards"} width={"10rem"} height={"2rem"} />
-                    <ListItem clickHandler={this.setActive.bind(this)} itemNo={0} component={<AllBoards height={"48rem"} />} class={"list-item"} active={this.state.activeListItemId === 0} iconPath={"all_boards.svg"} text={"All"} width={"10rem"} height={"2rem"} />
-                    <ListItem clickHandler={this.setActive.bind(this)} itemNo={1} component={<Board />} class={"list-item"} active={this.state.activeListItemId === 1} iconPath={"personal.svg"} text={"Personal"} width={"10rem"} height={"2rem"} />
+                    <ListItem clickHandler={this.setActive.bind(this)} itemNo={0} component={<AllBoards height={"48rem"} clickHandler={this.setActive.bind(this)}/>} class={"list-item"} active={this.state.activeListItemId === 0} iconPath={"all_boards.svg"} text={"All"} width={"10rem"} height={"2rem"} clickHandler={this.setActive.bind(this)} />
+                    <ListItem clickHandler={this.setActive.bind(this)} itemNo={1} component={<Board assignedUsers={"1 (personal)"} boardTitle={"Personal"} clickHandler={this.setActive.bind(this)}/>} class={"list-item"} active={this.state.activeListItemId === 1} iconPath={"personal.svg"} text={"Personal"} width={"10rem"} height={"2rem"} />
                     <ListItem clickHandler={this.setActive.bind(this)} itemNo={2} component={<div>placeholder 2</div>} class={"list-item"} active={this.state.activeListItemId === 2} iconPath={"new.svg"} text={"New"} width={"10rem"} height={"2rem"} />
                     <ListItem isTitle={true} active={false} iconPath={"group.svg"} text={"Groups"} width={"10rem"} height={"2rem"} />
                     <ListItem clickHandler={this.setActive.bind(this)} itemNo={3} component={<div>placeholder 3</div>} class={"list-item"} active={this.state.activeListItemId === 3} iconPath={"all_boards.svg"} text={"All"} width={"10rem"} height={"2rem"} />

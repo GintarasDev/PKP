@@ -1,14 +1,13 @@
 import React from 'react';
 import './TaskPreview.scss';
-import ReactDOM from 'react-dom';
-
 
 class TaskPreview extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             displayData: null,
-            additionalElement: null
+            additionalElement: null,
+            dragClass: ""
         };
         this.data = [];
     }
@@ -42,6 +41,7 @@ class TaskPreview extends React.Component {
                     onDrag={(event) => this.dragging(event)}
                     draggable={"true"}
                     id={this.props.id}
+                    className={this.state.dragClass}
                 >
                     <div className="o-TaskPreview" style={{width: this.props.width}}>
                         <div>{this.props.title}</div>

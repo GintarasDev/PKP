@@ -26,11 +26,12 @@ class PreviewPanel extends React.Component {
     };
 
     render() {
+        this.prepareData();
         return (
             <div onDragOver={this.allowDrop} onDrop={(event) => this.drop(event)} className={"o-PreviewPanel " + this.props.class} style={{width: this.props.width, height: this.props.height}} onClick={this.handleClick}>
                 <div className={"o-PreviewPanelData"} style={this.state.additionalElement === null ? {} : {paddingBottom: this.props.additionalElementHeight}}>
                     <div className={"o-PreviewPanelTitle"}>{this.props.title}</div>
-                    {this.state.displayData}
+                    {this.data}
                     <div className={"o-AdditionalElement"} style={this.state.additionalElement === null ? {} : {bottom: "-" + this.props.additionalElementHeight}}>
                         {this.state.additionalElement}
                     </div>
@@ -40,11 +41,11 @@ class PreviewPanel extends React.Component {
     };
 
     componentDidMount() {
-        this.prepareData();
         this.additionalButton();
     }
 
     prepareData = () => {
+        this.data = [];
         if (this.props.dataToDisplay !== undefined) {
             this.props.dataToDisplay.forEach(element => this.addDataToView(element));
         } else {
@@ -54,7 +55,6 @@ class PreviewPanel extends React.Component {
                 </div>
             ));
         }
-        this.setState({displayData: this.data});
     };
 
     addDataToView = (dataToAdd) => {
@@ -70,12 +70,11 @@ class PreviewPanel extends React.Component {
 
     allowDrop = (event) => {
         event.preventDefault();
-        this.forceUpdate();
     };
 
     drop = (event) => {
         event.preventDefault();
-        this.forceUpdate();
+        this.props.addElement(this.props.title);
     };
 }
 
