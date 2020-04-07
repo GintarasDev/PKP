@@ -1,0 +1,48 @@
+@import "../../Res/Values.scss";
+@import "../../Res/Colors.scss";
+
+.o-AddTask {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  filter: invert(70%);
+}
+
+.taskPanel {
+  margin: 0 0.5rem;
+}
+
+.o-BoardHeader {
+  display: block;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: $board-font-size;
+  color: $main-text-color;
+  height: 5rem;
+}
+
+.o-Left {
+  display: inline-block;
+  position: absolute;
+}
+
+.o-Left > img {
+  filter: invert(100%);
+  width: $board-font-size + 0.5rem;
+  vertical-align: middle;
+}
+
+.o-Center {
+  display: inline-block;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+}
+
+.o-Right {
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  top: -1rem;
+}

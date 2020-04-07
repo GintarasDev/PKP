@@ -1,6 +1,7 @@
 import React from 'react';
 import './Styles/Boards.scss';
 import PreviewPanel from "../Basics/PreviewPanel";
+import Board from "./Board";
 
 class AllBoards extends React.Component {
     constructor(props) {
@@ -54,6 +55,7 @@ class AllBoards extends React.Component {
 
     openBoard = () => {
         //open board logic goes here :)
+        this.props.clickHandler(9, <Board boardTitle={"Project X"} assignedUsers={"17"} clickHandler={this.props.clickHandler}/>);
         console.log("project clicked");
     }
 }
