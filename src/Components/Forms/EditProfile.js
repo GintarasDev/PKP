@@ -5,6 +5,7 @@ import './Styles/EditProfile.scss';
 import Button from "../Basics/Button";
 import InputField from "../Basics/InputField";
 import ProfileForm from "./Profile";
+import DeleteProfile from "../Basics/DeleteProfile";
 
 class EditProfileForm extends React.Component{
     constructor(props) {
@@ -17,7 +18,8 @@ class EditProfileForm extends React.Component{
             address: "",
             phoneNumber: "",
             bios: "",
-            error: null
+            error: null,
+            popUp: null
         };
     }
     render() {
@@ -43,10 +45,11 @@ class EditProfileForm extends React.Component{
                 </div>
                     <InputField class={"short-bios"} onChange={this.updateShortBios} type={"area"} value={this.state.bios} placeholder={this.state.bios} width={"45rem"}/>
                 <div className={'eProfileContainerBT'}>
-                    <Button color={'red'} clickHandler="" text={"Delete profile"} width={"12rem"}/>
-                    <Button clickHandler={this.saveChanges} text={"Save changes"} width={"13rem"}/>
+                    <Button color={'red'} clickHandler={this.popUp} text={"Delete profile"} width={"12rem"}/>
+                    <Button clickHandler="" text={"Save changes"} width={"13rem"}/>
                     <Button color={'orange'} clickHandler={this.setActive.bind(this)} text={"Cancel changes"} width={"14rem"}/>
                 </div>
+                {this.state.popUp}
             </div>
         );
     }
@@ -65,6 +68,14 @@ class EditProfileForm extends React.Component{
             phoneNumber: "+37064989549",
             bios: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus venenatis pulvinar elit, in dapibus tortor condimentum in. Pellentesque venenatis arcu in massa vehicula ultrices.Lorem ipsum dolor sit amet, consectetur ",
         });
+    };
+
+    popUp = () => {
+        this.setState({popUp: (<DeleteProfile message={"Passwords do not match"} clickHandler={this.removeMessage} width={"20rem"}/>)});
+    };
+
+    removeMessage = () => {
+        this.setState({popUp: null});
     };
 
     saveChanges = () => {

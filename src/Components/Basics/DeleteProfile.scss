@@ -1,0 +1,45 @@
+@import "../Res/Colors.scss";
+@import "../Res/Values.scss";
+
+.AreYouSure {
+  background: $popup-message-background;
+  position: fixed;
+  display: inline-block;
+  left: 33rem;
+  top: 1rem;
+  border: none;
+  width: 30rem;
+  border-radius: $error-box-border-radius;
+  font-size: $error-box-font-size;
+  box-sizing: border-box;
+  padding: $input-border-padding;
+  margin: $error-box-margin;
+  text-align: center;
+  color: $main-text-color;
+}
+
+.DeleteText {
+  font-size: 1.75rem;
+  color: $main-text-color;
+  bottom: 1rem;
+  margin: 0 0 0 1rem;
+}
+
+.DeleteAdjustField {
+  margin-left: 1.5rem;
+}
+
+.DeletePadding {
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+}
+
+.DeleteContainerBT {
+  width: 100%;
+  float: left;
+  text-align: center;
+}
+.DeleteContainer button{
+  display: inline-block;
+  margin: 0.5rem;
+}
