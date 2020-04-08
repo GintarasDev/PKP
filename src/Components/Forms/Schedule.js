@@ -24,19 +24,10 @@ class ScheduleForm extends React.Component {
                 <div className={'schedulePad'}>
                     <label className={'scheduleText'}>Schedule</label>
                 </div>
-                <InputField type={'date'} width={'14rem'} />
-                <InputField type={'date-range'} width={'30rem'} />
-                <InputField type={'time'} width={'14rem'} />
-                <InputField title={'Test'} type={'checkbox'} />
-                <label>{this.state.name} work schedule</label>
                 <div className={'schedulePad'}>
                     <label>Schedule</label>
                 </div>
-                <div className={'scheduleMargin'}>
-                    <InputField class={'scheduleInline'} onChange={this.state.updateStartDate} type={'date'} width={'11rem'}/>
-                    <span className={'scheduleSpan'}>-</span>
-                    <InputField class={'scheduleInline'} onChange={this.state.updateEndDate} type={'date'} width={'11rem'}/>
-                </div>
+                <InputField class={'scheduleInline'} onChangeFrom={this.state.updateStartDate} onChangeTo={this.state.updateEndDate} type={'date-range'} width={'10rem'}/>
                 <div className={'scheduleBoards'}>
                     <div className="scheduleBoardsMargin" style={{height: this.props.height}}>
                         {this.state.workSchedule}
