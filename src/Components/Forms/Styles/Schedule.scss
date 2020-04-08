@@ -4,7 +4,7 @@
 .scheduleContainer {
   position: relative;
   height: 40rem;
-  width: 50rem;
+  width: 72rem;
   font-size: $main-font-size;
   color: $main-text-color;
   bottom: 1rem;
@@ -27,7 +27,26 @@
   font-size: 1rem;
   box-sizing: border-box;
   padding-top: -3rem;
-  width: 40%;
+  width: 34%;
   color: $main-text-color;
   height: 2rem;
+}
+
+.scheduleInline {
+  display: inline-block;
+}
+
+.scheduleBoards {
+  display: block;
+  position: relative;
+  padding: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  margin-left: -2rem;
+}
+
+.scheduleBoardsMargin {
+  position: relative;
+  overflow-y: auto;
+  height: 28rem;
 }

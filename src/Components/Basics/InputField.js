@@ -56,6 +56,10 @@ class InputField extends React.Component {
                     </label>
                 </div>
             );
+        } else if(this.props.type === "date") {
+            return (
+                <input type={'date'} value={this.props.value} onChange={this.props.onChange} placeholder={this.props.placeholder} className={"o-InputEmpty " + this.props.class} style={{width: this.props.width}}/>
+            );
         } else {
             return (
                 <input value={this.props.value} id={this.props.id} onChange={this.props.onChange} className={"o-InputField " + this.props.class} type={this.props.type} placeholder={this.props.placeholder} style={{width: this.props.width, height: this.props.height}}/>

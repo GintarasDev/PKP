@@ -5,6 +5,7 @@ import Button from "../Basics/Button";
 import Logo from "../Basics/Logo";
 import LoginForm from "./Login";
 import PopUpError from "../Basics/PopUpError";
+import axios from 'axios';
 
 class SignupForm extends React.Component {
     constructor(props) {
@@ -53,14 +54,32 @@ class SignupForm extends React.Component {
 
     signUp = () => {
         if(this.validateData()) {
-            console.log("Congrats, you've just Signed Up: \n" +
-                this.state.name + " - " + this.state.surname + " - \n" +
-                this.state.username + " - " + this.state.email + " - \n" +
-                this.state.address + " - " + this.state.phoneNumber + " - \n" +
-                this.state.password + " - " + this.state.repeatPassword + " - \n" +
-                this.state.shortBios
-            );
-            //Connect signup form to backend here! (and remove console log) :)
+            this.saveData(this.getUserData());
+        }
+    };
+
+    saveData = () => {
+        const url='http://localhost:8080/signup';
+        const person = this.state;
+        axios({
+            method: 'post',
+            url: url,
+            data: person
+        })
+            .then(data=>console.log(data))
+            .catch(err=>console.log(err))
+    };
+
+    getUserData = () => {
+        return this.user = {
+            password: this.state.password,
+            username: this.state.username,
+            name: this.state.name,
+            surname: this.state.surname,
+            email: this.state.email,
+            address: this.state.address,
+            phoneNumber: this.state.phoneNumber,
+            shortBios: this.state.shortBios,
         }
     };
 

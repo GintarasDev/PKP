@@ -127,6 +127,19 @@ input[type='date']:focus {
   position: absolute;
   display: none;
 }
+.o-InputEmpty {
+  display: block;
+  background: none;
+  border: none;
+  border-radius: 1rem;
+  font-size: 1.5rem;
+  box-sizing: border-box;
+  padding: 0.01rem;
+  margin: 0.1rem;
+  width: 60%;
+  text-align: center;
+  color: $main-text-color;
+}
 
 .o-Checkbox > input {
   position: absolute;
