@@ -25,3 +25,19 @@
   border-bottom: 0.1rem solid $theme-color;
 }
 
+.o-InputEmpty {
+  display: block;
+  background: none;
+  border: none;
+  border-radius: 1rem;
+  font-size: 1.5rem;
+  box-sizing: border-box;
+  padding: 0.01rem;
+  margin: 0.1rem;
+  width: 60%;
+  text-align: center;
+  color: $main-text-color;
+}
+
+::-webkit-inner-spin-button { display: none; }
+::-webkit-calendar-picker-indicator { background: orange; }
