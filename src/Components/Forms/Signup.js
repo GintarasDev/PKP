@@ -5,6 +5,7 @@ import Button from "../Basics/Button";
 import Logo from "../Basics/Logo";
 import LoginForm from "./Login";
 import PopUpError from "../Basics/PopUpError";
+import axios from 'axios';
 
 class SignupForm extends React.Component {
     constructor(props) {
