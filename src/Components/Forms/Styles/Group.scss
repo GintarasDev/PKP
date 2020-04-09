@@ -1,0 +1,107 @@
+@import "../../Res/Values.scss";
+@import "../../Res/Colors.scss";
+
+.o-GroupInfo {
+  display: inline-block;
+  font-size: $main-font-size;
+  color: $main-text-color;
+  margin: 1rem 0 0 0;
+  width: 80rem;
+  height: 4rem;
+}
+
+.o-MembersAmounts {
+  display: inline-block;
+  position: absolute;
+  left: 0;
+}
+
+.o-MembersAmounts > img {
+  display: inline-block;
+  margin: 0 0.5rem 0 1.5rem;
+  width: $main-font-size + 1rem;
+  height: $main-font-size + 1rem;
+  vertical-align: middle;
+}
+
+.o-NumberOfMembersImg {
+  filter: invert(100%);
+}
+
+.o-NumberOfOnlineMembersImg {
+  filter: invert(56%) sepia(45%) saturate(614%) hue-rotate(102deg) brightness(89%) contrast(90%);
+}
+
+.o-GroupTitle {
+  position: absolute;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  font-size: $group-title-font-size;
+}
+
+.o-EditButton {
+  position: absolute;
+  display: inline-block;
+  right: 0rem;
+}
+
+.o-MembersStatistics {
+  position: relative;
+  display: block;
+  width: 80rem;
+  height: 35rem;
+  overflow-y: auto;
+}
+
+.o-WeekTimeBar {
+  margin: 0.5rem 0 0 0;
+  width: 100%;
+}
+
+.o-WeekTimeFilled {
+  display: inline-block;
+  background: #367157;
+  text-align: center;
+}
+
+.o-WeekTimeFree {
+  display: inline-block;
+  background: #385A4B;
+  text-align: center;
+}
+
+.o-WeekTimeFilledRed {
+  display: inline-block;
+  background: #842828;
+  text-align: center;
+}
+
+.o-WeekTimeFreeRed {
+  display: inline-block;
+  background: #712121;
+  text-align: center;
+}
+
+.o-GroupData {
+  display: block;
+  box-sizing: border-box;
+  //padding: 0 2rem 2rem 2rem;
+  width: 100%;
+  margin: 0 0 2rem 0;
+  color: $main-text-color;
+}
+
+.o-InfoTitle {
+  font-size: $statistic-user-name-font-size;
+  margin: 0 0 0.5rem 0;
+}
+
+.o-GroupStatistics {
+  display: inline-block;
+  width: 35rem;
+  height: 8rem;
+  overflow-y: auto;
+  margin: 1rem 0 0 4rem;
+  font-size: $statistic-font-size;
+}

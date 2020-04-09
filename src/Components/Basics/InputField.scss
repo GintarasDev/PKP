@@ -25,6 +25,108 @@
   border-bottom: 0.1rem solid $theme-color;
 }
 
+.o-EdgeChromium .o-InputEmpty {
+  display: inline-block;
+  background: $input-field-color;
+  border: none;
+  border-radius: $input-border-radius;
+  font-size: $input-font-size;
+  box-sizing: border-box;
+  padding: $input-date-padding;
+  text-align: center;
+  color: $main-text-color;
+}
+
+.o-Chrome .o-InputEmpty {
+  display: inline-block;
+  background: $input-field-color;
+  border: none;
+  border-radius: $input-border-radius;
+  font-size: $input-font-size;
+  box-sizing: border-box;
+  padding: $input-date-padding;
+  text-align: center;
+  color: $main-text-color;
+}
+
+.o-Firefox .o-InputEmpty {
+  display: inline-block;
+  background: $input-field-color;
+  border: none;
+  border-radius: $input-border-radius;
+  font-size: $input-font-size;
+  box-sizing: border-box;
+  padding: $input-date-padding;
+  text-align: center;
+  color: $main-text-color;
+}
+
+input[type='date']:focus {
+  outline: none;
+}
+
+.o-EdgeChromium ::-webkit-calendar-picker-indicator {
+   position: relative;
+   width: 0.1rem;
+   margin: 0 -0.7rem;
+   background: #ff000000;
+   background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0OCA0OCIgZmlsbD0id2hpdGUiIHdpZHRoPSI2NHB4IiBoZWlnaHQ9IjY0cHgiPjxwYXRoIGQ9Ik0xNi41OSA4LjU5TDEyIDEzLjE3IDcuNDEgOC41OSA2IDEwbDYgNiA2LTZ6Ii8+PHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPjwvc3ZnPg==");
+   transform: scale(4);
+   transform: translateY(10%);
+ }
+
+.o-Chrome ::-webkit-inner-spin-button{
+  -webkit-appearance: none;
+  display: none;
+ }
+.o-Chrome ::-webkit-calendar-picker-indicator:hover{
+  background: none;
+}
+.o-Chrome ::-webkit-calendar-picker-indicator {
+  display: inline;
+  visibility: visible;
+  position: relative;
+  width: 1rem;
+  margin: 0 0 0 -1rem;
+}
+
+.o-DoubleDateInput {
+  position: relative;
+  display: inline-block;
+  height: 3.3rem;
+  padding: 0 0 0.3rem 0;
+  background: $input-field-color;
+  border: none;
+  border-radius: 2rem;
+  font-size: $input-font-size;
+  box-sizing: border-box;
+  color: $main-text-color;
+  vertical-align: middle;
+}
+
+.o-DoubleDateInput .o-InputEmpty {
+  background: none;
+}
+
+.checkmark {
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  display: inline-block;
+  border-radius: $input-checkbox-border-radius;
+  background: $input-field-color;
+}
+
+.o-Checkbox > input[type=checkbox]:checked + .checkmark > img {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+}
+
+.checkmark > img {
+  position: absolute;
+  display: none;
+}
 .o-InputEmpty {
   display: block;
   background: none;
@@ -39,5 +141,20 @@
   color: $main-text-color;
 }
 
-::-webkit-inner-spin-button { display: none; }
-::-webkit-calendar-picker-indicator { background: orange; }
+.o-Checkbox > input {
+  position: absolute;
+  visibility: hidden;
+}
+
+.o-Checkbox {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.o-LabelText {
+  position: absolute;
+  left: 2rem;
+  display: inline-block;
+  margin: 0 0 0 0.75rem;
+}

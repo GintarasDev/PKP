@@ -1,0 +1,20 @@
+@import "../../Res/Values.scss";
+@import "../../Res/Colors.scss";
+
+.o-AllGroups {
+  display: block;
+  position: relative;
+  padding: $boards-view-padding;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.previewPanel {
+  margin: 1rem;
+}
+
+.o-AllGroupsMargin {
+  position: relative;
+  margin: 0 20rem 0 0;
+  overflow-y: scroll;
+}
