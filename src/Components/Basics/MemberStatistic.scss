@@ -1,0 +1,48 @@
+@import "../Res/Colors.scss";
+@import "../Res/Values.scss";
+
+.o-MemberStatisticFormWrap {
+  color: $main-text-color;
+  font-size: $statistic-font-size;
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 0 3rem;
+}
+
+.o-StatisticUserName {
+  font-size: $statistic-user-name-font-size;
+}
+
+.o-MemberStatisticData {
+  margin: 0 0 0 5rem;
+}
+
+.o-WeekTimeBar {
+  margin: 0.5rem 0 0 0;
+  width: 100%;
+}
+
+.o-WeekTimeFilled {
+  display: inline-block;
+  background: #367157;
+  text-align: center;
+}
+
+.o-WeekTimeFree {
+  display: inline-block;
+  background: #385A4B;
+  text-align: center;
+}
+
+.o-WeekTimeFilledRed {
+  display: inline-block;
+  background: #842828;
+  text-align: center;
+}
+
+.o-WeekTimeFreeRed {
+  display: inline-block;
+  background: #712121;
+  text-align: center;
+}
+
