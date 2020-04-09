@@ -26,7 +26,7 @@ class User extends React.Component {
 
     render() {
         return (
-            <div className={"o-UserPreview"} style={{height: this.props.height}} >
+            <div className={"o-UserPreview "} style={{height: this.props.height}} >
                 <img onClick={this.handleClick} className={"o-Avatar"} src={require("../Assets/logo.png")} alt={this.props.name}/>
                 <div onClick={this.handleClick} className={"o-UserName"} >
                     {this.props.name}
