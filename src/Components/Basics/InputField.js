@@ -13,7 +13,7 @@ class InputField extends React.Component {
         if(this.props.type === "area")
         {
             return (
-                <textarea value={this.props.value} id={this.props.id} onChange={this.props.onChange} className={"o-InputField " + this.props.class} placeholder={this.props.placeholder} style={{width: this.props.width, textAlign: "left"}} />
+                <textarea value={this.props.value} id={this.props.id} onChange={this.props.onChange} className={"o-InputField " + this.props.class} placeholder={this.props.placeholder} style={{width: this.props.width, textAlign: "left", height: this.props.height}} />
             );
         } else if(this.props.type === "date") {
             return (

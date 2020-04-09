@@ -1,0 +1,18 @@
+@import "../../Res/Values.scss";
+@import "../../Res/Colors.scss";
+
+.boardCreationContainer {
+  position: relative;
+  height: 35rem;
+  width: 43.5rem;
+  font-size: $main-font-size;
+  color: $main-text-color;
+  bottom: 1rem;
+  top: 0.5rem;
+  margin-left: 3rem;
+}
+
+.boardCreationAdjust {
+  transform: translate(43%);
+  margin-top: -rem;
+}

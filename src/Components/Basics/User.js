@@ -5,6 +5,7 @@ class User extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            id: this.props.id
         }
     }
 
@@ -12,7 +13,7 @@ class User extends React.Component {
         if(this.props.clickHandler === undefined || this.props.clickHandler === null) {
             console.log("function is not assigned...");
         } else {
-            this.props.clickHandler();
+            this.props.clickHandler(this.state.id);
         }
     };
 
@@ -26,7 +27,7 @@ class User extends React.Component {
 
     render() {
         return (
-            <div className={"o-UserPreview"} style={{height: this.props.height}} >
+            <div className={"o-UserPreview " + this.props.class} style={{height: this.props.height}} >
                 <img onClick={this.handleClick} className={"o-Avatar"} src={require("../Assets/logo.png")} alt={this.props.name}/>
                 <div onClick={this.handleClick} className={"o-UserName"} >
                     {this.props.name}
