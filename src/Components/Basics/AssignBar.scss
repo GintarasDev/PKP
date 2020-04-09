@@ -1,0 +1,64 @@
+@import "../Res/Colors.scss";
+@import "../Res/Values.scss";
+
+.AssignWrap {
+  position: absolute;
+  width: 17rem;
+  display: inline-block;
+  box-sizing: border-box;
+  background: $light-background-color;
+  border-radius: $preview-panel-border-radius;
+  color: $main-text-color;
+  font-size: $preview-panel-font-size;
+  height: 20rem;
+  margin-top: -0.5rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.AssignWrap > img {
+  position: absolute;
+  right: 0.5rem;
+  margin-top: 0.75rem;
+  margin-right: 1rem;
+  height: $searchbar-font-size + 0.5rem;
+  filter: invert(100%);
+}
+
+.AssignSearchbar {
+  position: absolute;
+  display: inline-block;
+  background: $input-field-color;
+  border: none;
+  border-radius: $input-border-radius;
+  font-size: $searchbar-font-size;
+  box-sizing: border-box;
+  padding: $searchbar-padding;
+  width: 90%;
+  text-align: left;
+  color: $main-text-color;
+  margin-left: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.AssignSearchbar::placeholder {
+  color: $main-text-color;
+}
+
+.AssignSearchbar:focus{
+  outline: none;
+  border-bottom: 0.1rem solid $theme-color;
+}
+
+.AssignMagic {
+  height: 15rem;
+  margin-top: 4rem;
+  text-align: left;
+  margin-left: 1rem;
+  color: $main-text-color;
+  font-size: $main-font-size;
+}
+
+.AssignUserElement {
+  margin-top: -1rem;
+}
