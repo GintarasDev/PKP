@@ -12,7 +12,7 @@ class InputField extends React.Component {
         // Chrome 1 - 79
         this.isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
         // Edge (based on chromium) detection
-        this.isEdgeChromium = this.isChrome && (navigator.userAgent.indexOf("Edg") != -1);
+        this.isEdgeChromium = this.isChrome && navigator.userAgent.indexOf("Edg") != -1;
     }
 
     render() {

@@ -13,36 +13,86 @@
   margin-left: 2rem;
 }
 
-.schedulePad {
-  margin-top: 2rem;
-}
-
-.scheduleMargin {
+.o-ScheduleBoards {
+  position: relative;
   display: inline-block;
-  text-align: center;
-  background: #238b5e;
-  background: $input-field-color;
-  border: none;
-  border-radius: $input-border-radius;
-  font-size: 1rem;
   box-sizing: border-box;
-  padding-top: -3rem;
-  width: 34%;
-  color: $main-text-color;
-  height: 2rem;
-}
-
-.scheduleBoards {
-  display: block;
-  position: relative;
-  padding: 1rem;
-  width: 100%;
-  box-sizing: border-box;
-  margin-left: -2rem;
-}
-
-.scheduleBoardsMargin {
-  position: relative;
+  width: 75vw;
+  height: 62vh;
   overflow-y: auto;
-  height: 28rem;
 }
+
+.o-ScheduleTitle {
+  display: block;
+  font-size: $schedule-title-font-size;
+  color: $main-text-color;
+}
+
+.o-ScheduleRangeText {
+  margin: 2rem 0 1rem 2rem;
+  display: block;
+  font-size: $schedule-title-font-size;
+  color: $main-text-color;
+}
+
+.o-ScheduleRange {
+  display: block;
+  width: 31rem;
+  margin: 2rem;
+}
+
+@media only screen and (max-width : 2000px) {
+  .o-ScheduleBoards {
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 75vw;
+    height: 62vh;
+    overflow-y: auto;
+  }
+}
+
+@media only screen and (max-width : 1600px) {
+  .o-ScheduleBoards {
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 75vw;
+    height: 55vh;
+    overflow-y: auto;
+  }
+}
+
+@media only screen and (max-width : 1400px) {
+  .o-ScheduleBoards {
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 58vw;
+    height: 45vh;
+    overflow-y: auto;
+  }
+}
+
+@media only screen and (max-width : 1100px) {
+  .o-ScheduleBoards {
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 65vw;
+    height: 35vh;
+  }
+
+  .profileText {
+    height: 20vh;
+    overflow-y: auto;
+  }
+}
+//.o-ScheduleBoards {
+//  position: relative;
+//  display: inline-block;
+//  box-sizing: border-box;
+//  width: 75vw;
+//  height: 62vh;
+//  overflow-y: auto;
+//}
