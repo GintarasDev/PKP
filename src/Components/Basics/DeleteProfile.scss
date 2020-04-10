@@ -3,10 +3,10 @@
 
 .AreYouSure {
   background: $popup-message-background;
-  position: fixed;
+  position: absolute;
   display: inline-block;
-  left: 33rem;
-  top: 1rem;
+  left: 15rem;
+  top: -5rem;
   border: none;
   width: 30rem;
   border-radius: $error-box-border-radius;

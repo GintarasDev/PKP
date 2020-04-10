@@ -1,9 +1,9 @@
 import React from 'react';
-import './Styles/BoardCreation.scss';
+import './Styles/TaskCreation.scss';
 import BoardTemplate from "../Basics/BoardTemplate";
 import Button from "../Basics/Button";
 
-class BoardCreation extends React.Component {
+class TaskCreation extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -12,11 +12,11 @@ class BoardCreation extends React.Component {
 
     render() {
         return (
-            <div className={'boardCreationContainer'}>
+            <div className={'taskCreationContainer'}>
                 <div>
-                    <BoardTemplate value={'Board creation'}/>
+                    <BoardTemplate type={'task'} value={'Task creation'}/>
                 </div>
-                <div className={'boardCreationAdjust'}>
+                <div className={'taskCreationAdjust'}>
                     <Button width={'10rem'} text={'Create'}/>
                 </div>
             </div>
@@ -25,4 +25,4 @@ class BoardCreation extends React.Component {
 
 }
 
-export default BoardCreation;
+export default TaskCreation;
