@@ -15,7 +15,7 @@ class AllBoards extends React.Component {
     render() {
         return (
             <div className="o-AllBoards">
-                <div className="o-AllBoardsMargin" style={{height: this.props.height}}>
+                <div className="o-AllBoardsMargin">
                     {this.state.dataToDisplay}
                 </div>
             </div>

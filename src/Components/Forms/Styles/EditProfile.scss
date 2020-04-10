@@ -15,34 +15,80 @@
 
 .eProfileAdjust {
   text-align: center;
-  width: 92%;
+  width: 100%;
   margin-top: -2rem;
 }
 
-.eProfileCenter {
-  width: fit-content;
-  text-align: right;
+.short-bios {
+  display: inline-block;
 }
 
 .eProfileContainer {
-  position: relative;
-  height: 40rem;
-  width: 50rem;
-  margin-left: 4.75rem;
-}
+   position: relative;
+   height: 40rem;
+   width: 60vw;
+   margin-left: 4.75rem;
+ }
 
 .eProfileRow {
-  display: flex;
+  position: relative;
+  display: block;
+  text-align: center;
+}
+
+.eProfile-Input {
+  display: inline-block;
 }
 
 .eProfileContainerBT {
   width: 100%;
   float: left;
-  text-align: left;
+  text-align: center;
   margin-left: 1rem;
 }
 .eProfileContainer button{
   display: inline-block;
   margin-right: 1rem;
   margin-left: 1rem;
+}
+
+
+@media only screen and (max-width : 2000px) {
+  .eProfileContainer {
+    position: relative;
+    height: 40rem;
+    width: 60vw;
+    margin-left: 4.75rem;
+  }
+}
+
+@media only screen and (max-width : 1600px) {
+  .eProfileContainer {
+    position: relative;
+    height: 40rem;
+    width: 60vw;
+    margin-left: 4.75rem;
+  }
+}
+
+@media only screen and (max-width : 1400px) {
+  .eProfileContainer {
+    position: relative;
+    height: 32rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 60vw;
+    margin-left: 4.75rem;
+  }
+}
+
+@media only screen and (max-width : 1100px) {
+  .eProfileContainer {
+    position: relative;
+    height: 27rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 70vw;
+    margin-left: -1rem;
+  }
 }

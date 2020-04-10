@@ -29,22 +29,24 @@ class EditProfileForm extends React.Component{
                     <label className={"eProfileText"}>Edit profile</label>
                 </div>
                 <div className={'eProfileAdjust'}>
-                    <Logo class={"logo"} width={"12rem"} height={"8rem"}/>
+                    <Logo width={"8rem"} height={"8rem"}/>
                 </div>
                 <div className={'eProfileRow'}>
-                    <InputField onChange={this.updateName} type={"text"} value={this.state.name} placeholder={this.state.name} width={"21.5rem"}/>
-                    <InputField onChange={this.updateSurname} type={"text"} value={this.state.surname} placeholder={this.state.surname} width={"21.5rem"}/>
+                    <InputField class={"eProfile-Input"} onChange={this.updateName} type={"text"} value={this.state.name} placeholder={this.state.name} width={"21.5rem"}/>
+                    <InputField class={"eProfile-Input"} onChange={this.updateSurname} type={"text"} value={this.state.surname} placeholder={this.state.surname} width={"21.5rem"}/>
                 </div>
                 <div className={'eProfileRow'}>
-                    <InputField onChange={this.updateUsername} type={"text"} value={this.state.username} placeholder={this.state.username} width={"21.5rem"}/>
-                    <InputField onChange={this.updateEmail} type={"text"} value={this.state.email} placeholder={this.state.email} width={"21.5rem"}/>
+                    <InputField class={"eProfile-Input"} onChange={this.updateUsername} type={"text"} value={this.state.username} placeholder={this.state.username} width={"21.5rem"}/>
+                    <InputField class={"eProfile-Input"} onChange={this.updateEmail} type={"text"} value={this.state.email} placeholder={this.state.email} width={"21.5rem"}/>
                 </div>
                 <div className={'eProfileRow'}>
-                    <InputField onChange={this.updateAddress} type={"text"} value={this.state.address} placeholder={this.state.address} width={"21.5rem"}/>
-                    <InputField onChange={this.updatePhoneNumber} type={"text"} value={this.state.phoneNumber} placeholder={this.state.phoneNumber} width={"21.5rem"}/>
+                    <InputField class={"eProfile-Input"} onChange={this.updateAddress} type={"text"} value={this.state.address} placeholder={this.state.address} width={"21.5rem"}/>
+                    <InputField class={"eProfile-Input"} onChange={this.updatePhoneNumber} type={"text"} value={this.state.phoneNumber} placeholder={this.state.phoneNumber} width={"21.5rem"}/>
                 </div>
-                    <InputField class={"short-bios"} onChange={this.updateShortBios} type={"area"} value={this.state.bios} placeholder={this.state.bios} width={"45rem"}/>
-                <div className={'eProfileContainerBT'}>
+                <div className={'eProfileRow'}>
+                    <InputField class={"eProfile-Input"} onChange={this.updateShortBios} type={"area"} value={this.state.bios} placeholder={this.state.bios} width={"45rem"} height={"8rem"} />
+                </div>
+                <div className={'eProfileContainerBT eProfileRow'}>
                     <Button color={'red'} clickHandler={this.popUp} text={"Delete profile"} width={"12rem"}/>
                     <Button clickHandler="" text={"Save changes"} width={"13rem"}/>
                     <Button color={'orange'} clickHandler={this.setActive.bind(this)} text={"Cancel changes"} width={"14rem"}/>

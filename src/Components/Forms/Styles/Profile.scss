@@ -17,18 +17,18 @@
   filter: invert(49%) sepia(94%) saturate(305%) hue-rotate(102deg) brightness(94%) contrast(95%);
 }
 
+.profileContainer {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  width: 90vw;
+}
+
 .profileImg {
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 1%;
-}
-
-.profileContainer {
-  display: flex;
-  position: relative;
-  flex-wrap: wrap;
-  width: 72rem;
 }
 
 .profileTextBox {
@@ -40,4 +40,41 @@
   width: 30%;
   padding: 0.5rem;
   text-align: right;
+}
+
+@media only screen and (max-width : 2000px) {
+  .profileContainer {
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    width: 90vw;
+  }
+}
+
+@media only screen and (max-width : 1600px) {
+  .profileContainer {
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    width: 80vw;
+  }
+}
+
+@media only screen and (max-width : 1400px) {
+  .profileContainer {
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    width: 70vw;
+  }
+}
+
+@media only screen and (max-width : 1100px) {
+  .profileContainer {
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    width: 60vw;
+    overflow-y: none;
+  }
 }

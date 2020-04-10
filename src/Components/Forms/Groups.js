@@ -15,7 +15,7 @@ class AllGroups extends React.Component {
     render() {
         return (
             <div className="o-AllGroups">
-                <div className="o-AllGroupsMargin" style={{height: this.props.height}}>
+                <div className="o-AllGroupsMargin" >
                     {this.state.dataToDisplay}
                 </div>
             </div>

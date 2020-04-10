@@ -3,7 +3,6 @@ import '../Basics/Button.scss';
 import './Styles/Schedule.scss';
 import InputField from "../Basics/InputField";
 import PreviewPanel from "../Basics/PreviewPanel";
-import Board from "./Board";
 
 class ScheduleForm extends React.Component {
     constructor(props) {
@@ -19,19 +18,12 @@ class ScheduleForm extends React.Component {
 
     render() {
         return (
-            <div className={'scheduleContainer'}>
-                <label className={'scheduleText'} >{this.state.name} work schedule</label>
-                <div className={'schedulePad'}>
-                    <label className={'scheduleText'}>Schedule</label>
-                </div>
-                <div className={'schedulePad'}>
-                    <label>Schedule</label>
-                </div>
-                <InputField class={'scheduleInline'} onChangeFrom={this.state.updateStartDate} onChangeTo={this.state.updateEndDate} type={'date-range'} width={'10rem'}/>
-                <div className={'scheduleBoards'}>
-                    <div className="scheduleBoardsMargin" style={{height: this.props.height}}>
-                        {this.state.workSchedule}
-                    </div>
+            <div className={'o-ScheduleContainer'}>
+                <label className={'o-ScheduleTitle'} style={{display: this.props.useTitle ? "block" : "none"}} >{this.state.name} work schedule</label>
+                <label className={'o-ScheduleRangeText'}>Schedule range</label>
+                <InputField class={'o-ScheduleRange'} onChangeFrom={this.state.updateStartDate} onChangeTo={this.state.updateEndDate} type={'date-range'} width={'10rem'}/>
+                <div className={'o-ScheduleBoards ' + this.props.scheduleContainerClass}>
+                    {this.state.workSchedule}
                 </div>
             </div>
         );
@@ -78,12 +70,6 @@ class ScheduleForm extends React.Component {
         this.Schedule.push(
             (<PreviewPanel class={"previewPanel"} width={"20rem"} height={"10rem"} title={"2020"} dataToDisplay={Schedule}/>)
         );
-    };
-
-    openBoard = () => {
-        //open board logic goes here :)
-        this.props.clickHandler(9, <Board boardTitle={"2020-03-09"} assignedUsers={"17"} clickHandler={this.props.clickHandler}/>);
-        console.log("project clicked");
     };
 
     updateStartDate = (e) => {
