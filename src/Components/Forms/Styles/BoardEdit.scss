@@ -1,0 +1,26 @@
+@import "../../Res/Values.scss";
+@import "../../Res/Colors.scss";
+
+.boardEditContainer {
+  position: relative;
+  height: 35rem;
+  width: 43.5rem;
+  font-size: $main-font-size;
+  color: $main-text-color;
+  bottom: 1rem;
+  top: 0.5rem;
+  margin-left: 20%;
+}
+
+.boardEditButtonBox {
+  width: 100%;
+  float: left;
+  text-align: left;
+  transform: translate(15%);
+  margin-left: 2rem;
+}
+.boardEditButtonBox button{
+  display: inline-block;
+  margin-right: 1rem;
+  margin-left: 0.5rem;
+}

@@ -11,7 +11,10 @@ class DeleteProfile extends React.Component {
         }
     };
 
+
     render() {
+        if(this.props.type === "password")
+        {
         return (
             <div className="AreYouSure">
                 <div className={'DeletePadding'}>
@@ -29,7 +32,20 @@ class DeleteProfile extends React.Component {
                 </div>
             </div>
         );
-    };
+        } else {
+            return (
+                <div className={'AreYouSure'}>
+                    <div className={'DeletePadding'}>
+                        <label className={'DeleteText'}>Are you sure you want to  <strong>delete</strong> {this.props.call}</label>
+                    </div>
+                    <div className={'DeleteContainer'}>
+                        <Button color={'red'} text={'Delete ' + this.props.dynamic} width={'12rem'}/>
+                        <Button clickHandler={this.handleClick.bind(this)} text={'Cancel'} width={'12rem'}/>
+                    </div>
+                </div>
+            )
+        }
+    }
 }
 
 export default DeleteProfile;

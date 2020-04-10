@@ -1,7 +1,7 @@
 @import "../../Res/Values.scss";
 @import "../../Res/Colors.scss";
 
-.boardCreationContainer {
+.taskCreationContainer {
   position: relative;
   height: 35rem;
   width: 44rem;
@@ -12,7 +12,7 @@
   margin-left: 20%;
 }
 
-.boardCreationAdjust {
+.taskCreationAdjust {
   transform: translate(43%);
   margin-top: -1rem;
   width: 100%

@@ -18,12 +18,18 @@ class BoardTemplate extends React.Component {
     };
 
     render() {
+        if(this.props.type === 'task'){
         return (
             <div className="boardCreationContainer">
                 <label>{this.props.value}</label>
                 <div className={'boardTemplateAdjust'}>
                     <InputField width={'100%'} placeholder={'Board title'}/>
                     <InputField type={'area'} width={'100%'} height={'12rem'} placeholder={'Board description'}/>
+                </div>
+                <div className={'boardTemplateRow'}>
+                    <InputField width={'25%'} placeholder={'Start'}/>
+                    <InputField width={'25%'} placeholder={'Deadline'}/>
+                    <InputField width={'40%'} placeholder={'Estimated time'}/>
                 </div>
                 <div className={'boardTemplateRow'}>
                     <label className={'boardTemplateInline'}>Assigned Users</label>
@@ -35,12 +41,36 @@ class BoardTemplate extends React.Component {
                         {this.state.popUp}
                     </div>
                 </div>
-                <div className={'boardTemplateUserListHeight'}>
+                <div className={'boardTemplateUserListTaskHeight '}>
                     {this.AssignedUserList}
                 </div>
             </div>
         );
-    };
+        } else {
+            return (
+                <div className="boardCreationContainer">
+                    <label>{this.props.value}</label>
+                    <div className={'boardTemplateAdjust'}>
+                        <InputField width={'100%'} placeholder={'Board title'}/>
+                        <InputField type={'area'} width={'100%'} height={'12rem'} placeholder={'Board description'}/>
+                    </div>
+                    <div className={'boardTemplateRow'}>
+                        <label className={'boardTemplateInline'}>Assigned Users</label>
+                        <div className={'boardTemplateInlineImg'} onClick={this.Bar}>
+                            {this.state.img}
+                        </div>
+                        {this.state.overlay}
+                        <div>
+                            {this.state.popUp}
+                        </div>
+                    </div>
+                    <div className={'boardTemplateUserListHeight'}>
+                        {this.AssignedUserList}
+                    </div>
+                </div>
+            );
+        }
+    }
 
     Bar = () => {
         this.setState({popUp: (<AssignBar assignedUser={this.addUser.bind(this)}/>)});

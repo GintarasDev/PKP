@@ -15,13 +15,18 @@ import ScheduleForm from "./Schedule";
 import BoardCreation from "./BoardCreation";
 import MemberStatistic from "../Basics/MemberStatistic";
 import Group from "./Group";
+import BoardEdit from "./BoardEdit";
+import GroupCreation from "./GroupCreation";
+import GroupEdit from "./GroupEdit";
+import TaskCreation from "./TaskCreation";
+import TaskEdit from "./TaskEdit";
 
 class Navigation extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             activeListItemId: 1,
-            activeListItem: <Board assignedUsers={"1 (personal)"} boardTitle={"Personal"} clickHandler={this.setActive.bind(this)}/>,
+            activeListItem: <TaskEdit/>,
             activeUser: "Tomas Lomas",
             error: null
         }
