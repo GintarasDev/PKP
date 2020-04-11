@@ -4,7 +4,7 @@
 .taskEditContainer {
   position: relative;
   height: 35rem;
-  width: 43.5rem;
+  width: 64rem;
   font-size: $main-font-size;
   color: $main-text-color;
   bottom: 1rem;
@@ -17,10 +17,63 @@
   float: left;
   text-align: left;
   transform: translate(15%);
+  margin-top: 3rem;
   margin-left: 2rem;
 }
+
 .taskEditButtonBox button{
   display: inline-block;
   margin-right: 1rem;
   margin-left: 0.5rem;
+}
+
+
+
+@media only screen and (max-width : 2000px) {
+  .taskEditContainer {
+    margin-left: 8%;
+  }
+}
+
+@media only screen and (max-width : 1800px) {
+  .taskEditContainer {
+    margin-left: 0;
+  }
+}
+
+@media only screen and (max-width : 1600px) {
+  .taskEditContainer {
+    margin-left: -4rem;
+  }
+}
+
+@media only screen and (max-width : 1400px) {
+  .taskEditContainer {
+    margin-left: 2rem;
+    height: 32rem;
+    width: 50rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .taskEditButtonBox {
+    transform: translate(0%);
+    margin-top: 4rem;
+    margin-left: 3rem;
+  }
+}
+
+@media only screen and (max-width : 1100px) {
+  .taskEditContainer {
+    margin-left: 0;
+    height: 28rem;
+    width: 47rem;
+    top: -1rem;
+  }
+
+  .taskEditButtonBox {
+    transform: translate(0%);
+    margin-left: 1rem;
+
+  }
 }

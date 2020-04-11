@@ -5,6 +5,7 @@ import Button from "../Basics/Button";
 import Link from "../Basics/Link";
 import Logo from "../Basics/Logo";
 import SignupForm from "./Signup";
+import Navigation from "./Navigation";
 
 class LoginForm extends React.Component {
     constructor(props) {
@@ -15,6 +16,7 @@ class LoginForm extends React.Component {
         }
 
     }
+
     render() {
         return (
             <div className="o-LoginFormWrap">
@@ -24,7 +26,7 @@ class LoginForm extends React.Component {
                     <InputField onChange={this.updateUsername} type={"text"} placeholder={"Username"} width={"25rem"}/>
                     <InputField onChange={this.updatePassword} type={"password"} placeholder={"Password"} width={"25rem"}/>
                     <Button clickHandler={this.logIn} text={"Log in"} width={"10rem"}/>
-                    <Link  text={"Forgot my password"} href={"https://www.supportivecarematters.org/info/wher-can-i-find-emotional-support/"}/>
+                    <Link text={"Forgot my password"} href={"https://www.supportivecarematters.org/info/wher-can-i-find-emotional-support/"}/>
                 </div>
             </div>
         );
@@ -41,6 +43,7 @@ class LoginForm extends React.Component {
     logIn = () => {
         console.log("Congrats, you've just loged in: " + this.state.username + " - " + this.state.password);
         //Connect login form to backend here! (and remove console log) :)
+        this.props.stateUpdater({currentPage: (<Navigation stateUpdater={this.props.stateUpdater} />)})
     };
 
     signUp = () => {

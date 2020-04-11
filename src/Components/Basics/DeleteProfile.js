@@ -4,47 +4,44 @@ import InputField from "../Basics/InputField";
 import Button from "./Button";
 
 class DeleteProfile extends React.Component {
-    handleClick = () => {
-        if(this.props.clickHandler === undefined || this.props.clickHandler === null) {
+    handleCancelClick = () => {
+        if (this.props.cancelClickHandler === undefined || this.props.cancelClickHandler === null) {
         } else {
-            this.props.clickHandler();
+            this.props.cancelClickHandler();
         }
     };
 
+    handleDeleteClick = () => {
+        if (this.props.deleteClickHandler === undefined || this.props.deleteClickHandler === null) {
+        } else {
+            this.props.deleteClickHandler();
+        }
+    };
 
     render() {
-        if(this.props.type === "password")
-        {
         return (
-            <div className="AreYouSure">
+            <div className={'AreYouSure'}>
                 <div className={'DeletePadding'}>
-                    <label className={'DeleteText'}>Are you sure you want to  <strong>delete</strong> your profile?</label>
+                    <label className={'DeleteText'}>Are you sure you want
+                        to <strong>delete</strong> {this.props.call}</label>
                 </div>
-                <div>
-                    <label className={'DeleteText'}>Enter your password to confirm</label>
-                </div>
-                <div className={'DeleteAdjustField'} >
-                    <InputField width={'22rem'} type={'password'} placeholder={'Password'}/>
-                </div>
+                {this.props.type === "password" ? (
+                    <div>
+                        <div>
+                            <label className={'DeleteText'}>Enter your password to confirm</label>
+                        </div>
+                        <div className={'DeleteAdjustField'}>
+                            <InputField width={'22rem'} type={'password'} placeholder={'Password'}/>
+                        </div>
+                    </div>
+                ) : ""}
                 <div className={'DeleteContainer'}>
-                    <Button color={'red'} text={'Delete profile'} width={'12rem'}/>
-                    <Button clickHandler={this.handleClick.bind(this)} text={'Cancel'} width={'12rem'}/>
+                    <Button class={"o-PopupButtons"} clickHandler={this.handleDeleteClick.bind(this)} color={'red'}
+                            text={'Delete ' + this.props.dynamic} width={'12rem'}/>
+                    <Button class={"o-PopupButtons"} clickHandler={this.handleCancelClick.bind(this)} text={'Cancel'} width={'12rem'}/>
                 </div>
             </div>
         );
-        } else {
-            return (
-                <div className={'AreYouSure'}>
-                    <div className={'DeletePadding'}>
-                        <label className={'DeleteText'}>Are you sure you want to  <strong>delete</strong> {this.props.call}</label>
-                    </div>
-                    <div className={'DeleteContainer'}>
-                        <Button color={'red'} text={'Delete ' + this.props.dynamic} width={'12rem'}/>
-                        <Button clickHandler={this.handleClick.bind(this)} text={'Cancel'} width={'12rem'}/>
-                    </div>
-                </div>
-            )
-        }
     }
 }
 

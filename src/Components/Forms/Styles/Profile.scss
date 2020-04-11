@@ -21,7 +21,7 @@
   display: flex;
   position: relative;
   flex-wrap: wrap;
-  width: 90vw;
+  width: 110rem;
 }
 
 .profileImg {
@@ -37,44 +37,49 @@
 }
 
 .profileButtonBox {
-  width: 30%;
+  width: 18rem;
   padding: 0.5rem;
   text-align: right;
 }
 
 @media only screen and (max-width : 2000px) {
   .profileContainer {
-    display: flex;
-    position: relative;
-    flex-wrap: wrap;
-    width: 90vw;
+    width: 110rem;
+  }
+}
+
+@media only screen and (max-width : 1800px) {
+  .profileContainer {
+    width: 95rem;
   }
 }
 
 @media only screen and (max-width : 1600px) {
   .profileContainer {
-    display: flex;
-    position: relative;
-    flex-wrap: wrap;
-    width: 80vw;
+    width: 75rem;
   }
 }
 
 @media only screen and (max-width : 1400px) {
   .profileContainer {
-    display: flex;
-    position: relative;
-    flex-wrap: wrap;
-    width: 70vw;
+    width: 55rem;
+    display: block;
+    height: 30rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .profileTextBox {
+    width: 90%;
   }
 }
 
 @media only screen and (max-width : 1100px) {
   .profileContainer {
-    display: flex;
-    position: relative;
-    flex-wrap: wrap;
-    width: 60vw;
-    overflow-y: none;
+    width: 45rem;
+    display: block;
+    height: 27rem;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 }

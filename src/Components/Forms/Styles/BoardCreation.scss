@@ -13,7 +13,49 @@
 }
 
 .boardCreationAdjust {
-  transform: translate(43%);
+  transform: translate(60%);
   margin-top: -1rem;
   width: 100%
+}
+
+@media only screen and (max-width : 2000px) {
+  .boardCreationContainer {
+    margin-left: 20%;
+  }
+
+  .boardCreationAdjust {
+    transform: translate(60%);
+  }
+}
+
+@media only screen and (max-width : 1600px) {
+  .boardCreationContainer {
+    margin-left: 15%;
+  }
+
+  .boardCreationAdjust {
+    transform: translate(55%);
+  }
+}
+
+@media only screen and (max-width : 1400px) {
+  .boardCreationContainer {
+    margin-left: 5%;
+    height: 30rem;
+  }
+
+  .boardCreationAdjust {
+    transform: translate(45%);
+  }
+}
+
+@media only screen and (max-width : 1100px) {
+  .boardCreationContainer {
+    margin-left: 0%;
+    height: 26rem;
+  }
+
+  .boardCreationAdjust {
+    transform: translate(40%);
+  }
 }

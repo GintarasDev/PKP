@@ -5,6 +5,7 @@ import Button from "../Basics/Button";
 import ListItem from "../Basics/ListItem";
 import ChangePasswordForm from "./ChangePassword";
 import EditProfileForm from "./EditProfile";
+import LoginForm from "./Login";
 
 
 class ProfileForm extends React.Component{
@@ -54,6 +55,7 @@ class ProfileForm extends React.Component{
                     <div className={'profileButtonBox'}>
                         <Button clickHandler={this.setActive.bind(this)} iconPath={'edit.svg'} width={"13rem"} height={"1.5rem"} text={"Edit profile"} />
                         <Button clickHandler={this.setPassword.bind(this)} iconPath={'edit.svg'} width={"18rem"} height={"1.5rem"} text={"Change password"} />
+                        <Button clickHandler={this.signOut} width={"10rem"} height={"1.5rem"} text={"Sign out"} />
                     </div>
             </div>
         );
@@ -62,6 +64,11 @@ class ProfileForm extends React.Component{
     componentDidMount() {
         this.fetchUserInfo();
     }
+
+    signOut = () => {
+        //sign out logic here
+        this.props.stateUpdater({currentPage: (<LoginForm stateUpdater={this.props.stateUpdater}/>)})
+    };
 
     fetchUserInfo(){
         this.setState({
@@ -75,7 +82,7 @@ class ProfileForm extends React.Component{
     };
 
     setActive = () => {
-        this.props.clickHandler(9, <EditProfileForm clickHandler={this.props.clickHandler}/>);
+        this.props.clickHandler(9, <EditProfileForm stateUpdater={this.props.stateUpdater} clickHandler={this.props.clickHandler}/>);
     };
 
     setPassword = () => {

@@ -2,6 +2,7 @@ import React from 'react';
 import './Styles/Group.scss';
 import MemberStatistic from "../Basics/MemberStatistic";
 import Button from "../Basics/Button";
+import GroupEdit from "./GroupEdit";
 
 class Group extends React.Component {
     constructor(props) {
@@ -36,13 +37,13 @@ class Group extends React.Component {
                         {this.state.groupTitle}
                     </div>
                     <Button class={"o-EditButton"} clickHandler={this.editGroup} iconPath={'edit.svg'} width={"12rem"}
-                            height={"1.5rem"} text={"Edit board"}/>
+                            height={"1.5rem"} text={"Edit group"}/>
                 </header>
                 <div className={"o-GroupData"}>
                     <div className={"o-GroupStatistics"}>
                         <div className={"o-InfoTitle"} >Group information</div>
                         <div>{"Administrator: " + this.state.administrator}</div>
-                        <div>{"Decription: " + this.state.description}</div>
+                        <div className={"o-GroupDescritpion"} >{"Decription: " + this.state.description}</div>
                     </div>
                     <div className={"o-GroupStatistics"}>
                         <div className={"o-InfoTitle"} >Group workload</div>
@@ -172,14 +173,9 @@ class Group extends React.Component {
         );
     };
 
-    openGroup = () => {
-        //open group logic goes here :)
-        this.props.clickHandler(9, /*attach group page here*/);
-        console.log("group clicked");
-    }
-
     editGroup = () => {
         console.log("edit group");
+        this.props.clickHandler(9, <GroupEdit returnHandler={this.props.clickHandler} />);
     }
 }
 

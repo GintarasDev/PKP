@@ -39,6 +39,7 @@ class TaskPreview extends React.Component {
                 <div
                     onDragStart={(event) => this.dragStart(event)}
                     onDrag={(event) => this.dragging(event)}
+                    onClick={this.handleClick}
                     draggable={"true"}
                     id={this.props.id}
                     className={this.state.dragClass}

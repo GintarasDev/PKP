@@ -19,7 +19,7 @@ class ChangePasswordForm extends React.Component{
     }
     render() {
         return (
-            <div>
+            <div className={'o-PasswordChangeWrap'}>
                 <div className={'cPassAdjust-text'}>
                     <label className={"cPassText"}>Change password</label>
                 </div>
@@ -27,10 +27,10 @@ class ChangePasswordForm extends React.Component{
                     <div className={'cPassAdjust'}>
                         <Logo class={"logo"} width={"8rem"} height={"8rem"}/>
                     </div>
-                    <div>
-                        <InputField onChange={this.updateCurrentPassword} type={"password"} placeholder={"Current password"} width={"25rem"}/>
-                        <InputField onChange={this.updateNewPassword} type={"password"} placeholder={"New password"} width={"25rem"}/>
-                        <InputField onChange={this.updateRepeatPassword} type={"password"} placeholder={"Repeat new password"} width={"25rem"}/>
+                    <div className={'c-InputField'} >
+                        <InputField class={"c-InputIn"} onChange={this.updateCurrentPassword} type={"password"} placeholder={"Current password"} width={"25rem"}/>
+                        <InputField class={"c-InputIn"} onChange={this.updateNewPassword} type={"password"} placeholder={"New password"} width={"25rem"}/>
+                        <InputField class={"c-InputIn"} onChange={this.updateRepeatPassword} type={"password"} placeholder={"Repeat new password"} width={"25rem"}/>
                     </div>
                     <div className={'cPassContainer'}>
                         <div className={'cPassContainerBT'}>
@@ -53,6 +53,7 @@ class ChangePasswordForm extends React.Component{
             currentPassword: ""
         });
     };
+
     changePassword = () => {
         this.validateData();
         //Connect change password form to backend here! (and remove console log) :)

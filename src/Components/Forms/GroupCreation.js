@@ -14,7 +14,7 @@ class GroupCreation extends React.Component {
         return (
             <div className={'groupCreationContainer'}>
                 <div>
-                    <BoardTemplate value={'Group creation'}/>
+                    <BoardTemplate value={'Group creation'} titlePlaceholder={"Group title"} descriptionPlaceholder={"Group description"} />
                 </div>
                 <div className={'groupCreationAdjust'}>
                     <Button width={'10rem'} text={'Create'}/>

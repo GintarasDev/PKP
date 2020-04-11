@@ -14,7 +14,7 @@ class BoardCreation extends React.Component {
         return (
             <div className={'boardCreationContainer'}>
                 <div>
-                    <BoardTemplate value={'Board creation'}/>
+                    <BoardTemplate value={'Board creation'} titlePlaceholder={"Board title"} descriptionPlaceholder={"Board description"} />
                 </div>
                 <div className={'boardCreationAdjust'}>
                     <Button width={'10rem'} text={'Create'}/>

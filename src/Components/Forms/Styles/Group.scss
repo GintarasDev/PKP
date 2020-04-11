@@ -95,6 +95,8 @@
 .o-InfoTitle {
   font-size: $statistic-user-name-font-size;
   margin: 0 0 0.5rem 0;
+  position: sticky;
+  top: 0;
 }
 
 .o-GroupStatistics {
@@ -104,4 +106,79 @@
   overflow-y: auto;
   margin: 1rem 0 0 4rem;
   font-size: $statistic-font-size;
+}
+
+.o-GroupDescritpion {
+  height: 3rem;
+  overflow-y: auto;
+}
+
+@media only screen and (max-width : 2000px) {
+  .o-MembersStatistics {
+    width: 80rem;
+    height: 35rem;
+    overflow-y: auto;
+  }
+}
+
+@media only screen and (max-width : 1800px) {
+  .o-MembersStatistics {
+    width: 80rem;
+    height: 30rem;
+    overflow-y: auto;
+  }
+}
+
+@media only screen and (max-width : 1600px) {
+  .o-MembersStatistics {
+    width: 43rem;
+    height: 15rem;
+    overflow-y: auto;
+  }
+  .o-GroupData{
+    width: 60%;
+  }
+  .o-GroupTitle {
+    width: 85%;
+  }
+  .o-EditButton {
+    right: 10rem;
+  }
+}
+
+@media only screen and (max-width : 1400px) {
+  .o-MembersStatistics {
+    width: 43rem;
+    height: 15rem;
+    overflow-y: auto;
+  }
+  .o-GroupData{
+    width: 60%;
+  }
+  .o-GroupTitle {
+    width: 70%;
+  }
+  .o-EditButton {
+    position: relative;
+    display: block;
+    margin: 4rem 0 1.5rem 12rem;
+  }
+  .o-Group {
+    height: 30rem;
+    width: 50rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  .o-GroupInfo {
+    position: relative;
+  }
+}
+
+@media only screen and (max-width : 1100px) {
+  .o-Group {
+    height: 27rem;
+    width: 47rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
 }

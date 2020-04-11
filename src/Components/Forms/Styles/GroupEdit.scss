@@ -4,7 +4,7 @@
 .groupEditContainer {
   position: relative;
   height: 35rem;
-  width: 43.5rem;
+  width: 64rem;
   font-size: $main-font-size;
   color: $main-text-color;
   bottom: 1rem;
@@ -23,4 +23,46 @@
   display: inline-block;
   margin-right: 1rem;
   margin-left: 0.5rem;
+}
+
+
+@media only screen and (max-width : 2000px) {
+  .groupEditContainer {
+    margin-left: 8%;
+  }
+}
+
+@media only screen and (max-width : 1800px) {
+  .groupEditContainer {
+    margin-left: 0;
+  }
+}
+
+@media only screen and (max-width : 1600px) {
+  .groupEditContainer {
+    margin-left: -4rem;
+  }
+}
+
+@media only screen and (max-width : 1400px) {
+  .groupEditContainer {
+    margin-left: 2rem;
+  }
+
+  .groupEditButtonBox {
+    transform: translate(0%);
+    margin-left: 3rem;
+  }
+}
+
+@media only screen and (max-width : 1100px) {
+  .groupEditContainer {
+    margin-left: 0;
+    top: -1rem;
+  }
+
+  .groupEditButtonBox {
+    transform: translate(0%);
+    margin-left: 1rem;
+  }
 }

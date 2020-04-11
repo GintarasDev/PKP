@@ -19,8 +19,10 @@ class AssignBar extends React.Component {
         return (
             <div>
                 <div className="AssignWrap">
-                    <input onChange={this.showSearchResults} className={"AssignSearchbar"} placeholder={'Search for user'}/>
-                    <img src={require("../Assets/search.svg")} alt={"search"}/>
+                    <div className={"o-MiniSearchBar"}>
+                        <input onChange={this.showSearchResults} className={"AssignSearchbar"} placeholder={'Search for user'}/>
+                        <img src={require("../Assets/search.svg")} alt={"search"}/>
+                    </div>
                     <div className={'AssignMagic'}>
                         {this.User}
                     </div>

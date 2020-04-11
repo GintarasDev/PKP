@@ -13,7 +13,50 @@
 }
 
 .groupCreationAdjust {
-  transform: translate(43%);
+  transform: translate(60%);
   margin-top: -1rem;
   width: 100%
+}
+
+
+@media only screen and (max-width : 2000px) {
+  .groupCreationContainer {
+    margin-left: 20%;
+  }
+
+  .groupCreationAdjust {
+    transform: translate(60%);
+  }
+}
+
+@media only screen and (max-width : 1600px) {
+  .groupCreationContainer {
+    margin-left: 15%;
+  }
+
+  .groupCreationAdjust {
+    transform: translate(55%);
+  }
+}
+
+@media only screen and (max-width : 1400px) {
+  .groupCreationContainer {
+    margin-left: 5%;
+    height: 30rem;
+  }
+
+  .groupCreationAdjust {
+    transform: translate(45%);
+  }
+}
+
+@media only screen and (max-width : 1100px) {
+  .groupCreationContainer {
+    margin-left: 0%;
+    height: 26rem;
+  }
+
+  .groupCreationAdjust {
+    transform: translate(40%);
+  }
 }

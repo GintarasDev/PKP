@@ -3,7 +3,6 @@ import './BoardTemplate.scss';
 import InputField from "../Basics/InputField";
 import AssignBar from "./AssignBar";
 import User from "./User";
-import Button from "./Button";
 
 class BoardTemplate extends React.Component {
     constructor(props) {
@@ -18,19 +17,23 @@ class BoardTemplate extends React.Component {
     };
 
     render() {
-        if(this.props.type === 'task'){
         return (
             <div className="boardCreationContainer">
                 <label>{this.props.value}</label>
                 <div className={'boardTemplateAdjust'}>
-                    <InputField width={'100%'} placeholder={'Board title'}/>
-                    <InputField type={'area'} width={'100%'} height={'12rem'} placeholder={'Board description'}/>
+                    <InputField width={'100%'} placeholder={this.props.titlePlaceholder}/>
+                    <InputField class={"o-InputField"} type={'area'} width={'100%'} height={'12rem'} placeholder={this.props.descriptionPlaceholder}/>
                 </div>
-                <div className={'boardTemplateRow'}>
-                    <InputField width={'25%'} placeholder={'Start'}/>
-                    <InputField width={'25%'} placeholder={'Deadline'}/>
-                    <InputField width={'40%'} placeholder={'Estimated time'}/>
-                </div>
+                {
+                    this.props.type === "task" ?
+                    (<div className={'boardTemplateRow o-AdditionalRow'}>
+                        <span className={"o-DateTitle"} >Start date</span>
+                        <InputField type={"date"} width={'15rem'} placeholder={'Start'}/>
+                        <span className={"o-DateTitle o-toSide"} >Deadline</span>
+                        <InputField type={"date"} width={'15rem'} placeholder={'Deadline'}/>
+                        <InputField class={"o-EstimatedTime"} width={'12rem'} placeholder={'Estimated time'}/>
+                    </div>) : ""
+                }
                 <div className={'boardTemplateRow'}>
                     <label className={'boardTemplateInline'}>Assigned Users</label>
                     <div className={'boardTemplateInlineImg'} onClick={this.Bar}>
@@ -46,30 +49,6 @@ class BoardTemplate extends React.Component {
                 </div>
             </div>
         );
-        } else {
-            return (
-                <div className="boardCreationContainer">
-                    <label>{this.props.value}</label>
-                    <div className={'boardTemplateAdjust'}>
-                        <InputField width={'100%'} placeholder={'Board title'}/>
-                        <InputField type={'area'} width={'100%'} height={'12rem'} placeholder={'Board description'}/>
-                    </div>
-                    <div className={'boardTemplateRow'}>
-                        <label className={'boardTemplateInline'}>Assigned Users</label>
-                        <div className={'boardTemplateInlineImg'} onClick={this.Bar}>
-                            {this.state.img}
-                        </div>
-                        {this.state.overlay}
-                        <div>
-                            {this.state.popUp}
-                        </div>
-                    </div>
-                    <div className={'boardTemplateUserListHeight'}>
-                        {this.AssignedUserList}
-                    </div>
-                </div>
-            );
-        }
     }
 
     Bar = () => {

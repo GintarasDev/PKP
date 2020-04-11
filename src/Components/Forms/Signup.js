@@ -6,6 +6,7 @@ import Logo from "../Basics/Logo";
 import LoginForm from "./Login";
 import PopUpError from "../Basics/PopUpError";
 import axios from 'axios';
+import Navigation from "./Navigation";
 
 class SignupForm extends React.Component {
     constructor(props) {
@@ -58,6 +59,10 @@ class SignupForm extends React.Component {
         }
     };
 
+    signUpSuccessfull = () => {
+        this.props.stateUpdater({currentPage: (<Navigation stateUpdater={this.updateAppState} />)})
+    };
+
     saveData = () => {
         const url='http://localhost:8080/signup';
         const person = this.state;
@@ -66,7 +71,7 @@ class SignupForm extends React.Component {
             url: url,
             data: person
         })
-            .then(data=>console.log(data))
+            .then(data=>this.signUpSuccessfull)
             .catch(err=>console.log(err))
     };
 

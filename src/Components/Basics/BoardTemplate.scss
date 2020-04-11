@@ -21,6 +21,10 @@
   display: flex;
 }
 
+.o-AdditionalRow {
+ margin: 2rem 0 0 0;
+}
+
 .boardTemplateInline {
   margin-right: 0.5rem;
 }
@@ -28,6 +32,17 @@
 .boardTemplateUserListHeight {
   height: 12rem;
   overflow-y: auto;
+}
+
+.o-DateTitle {
+  display: inline-block;
+  position: absolute;
+  margin: -2rem 0 0 0;
+  left: 1rem
+}
+
+.o-toSide {
+  left: 16rem;
 }
 
 .boardTemplateInlineSat {
@@ -44,7 +59,39 @@
   top: 0;
 }
 
+.o-EstimatedTime {
+  margin-top: 0.25rem;
+}
+
 .boardTemplateUserListTaskHeight {
-  height: 2.25rem;
+  height: 10rem;
   overflow-y: auto;
+}
+
+@media only screen and (max-width : 2000px) {
+  .boardTemplateUserListTaskHeight {
+    height: 10rem;
+    overflow-y: auto;
+  }
+}
+
+@media only screen and (max-width : 1600px) {
+  .boardTemplateUserListTaskHeight {
+    height: 10rem;
+    overflow-y: auto;
+  }
+}
+
+@media only screen and (max-width : 1400px) {
+  .boardTemplateUserListTaskHeight {
+    height: 7rem;
+    overflow-y: auto;
+  }
+}
+
+@media only screen and (max-width : 1100px) {
+  .boardTemplateUserListTaskHeight {
+    height: 3rem;
+    overflow-y: auto;
+  }
 }

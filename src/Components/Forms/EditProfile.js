@@ -6,6 +6,7 @@ import Button from "../Basics/Button";
 import InputField from "../Basics/InputField";
 import ProfileForm from "./Profile";
 import DeleteProfile from "../Basics/DeleteProfile";
+import LoginForm from "./Login";
 
 class EditProfileForm extends React.Component{
     constructor(props) {
@@ -48,8 +49,8 @@ class EditProfileForm extends React.Component{
                 </div>
                 <div className={'eProfileContainerBT eProfileRow'}>
                     <Button color={'red'} clickHandler={this.popUp} text={"Delete profile"} width={"12rem"}/>
-                    <Button clickHandler="" text={"Save changes"} width={"13rem"}/>
-                    <Button color={'orange'} clickHandler={this.setActive.bind(this)} text={"Cancel changes"} width={"14rem"}/>
+                    <Button clickHandler={this.saveChanges} text={"Save changes"} width={"13rem"}/>
+                    <Button color={'orange'} clickHandler={this.cancelChanges} text={"Cancel changes"} width={"14rem"}/>
                 </div>
                 {this.state.popUp}
             </div>
@@ -73,7 +74,7 @@ class EditProfileForm extends React.Component{
     };
 
     popUp = () => {
-        this.setState({popUp: (<DeleteProfile message={"Passwords do not match"} clickHandler={this.removeMessage} width={"20rem"}/>)});
+        this.setState({popUp: (<DeleteProfile call={"your profile?"} dynamic={"profile"} message={"Passwords do not match"} deleteClickHandler={this.deleteProfileConfirmed} cancelClickHandler={this.removeMessage} width={"20rem"}/>)});
     };
 
     removeMessage = () => {
@@ -81,10 +82,16 @@ class EditProfileForm extends React.Component{
     };
 
     saveChanges = () => {
-        //connect to back end
+        //save changes logic goes here
+        this.props.clickHandler(9, <ProfileForm clickHandler={this.props.clickHandler}/>)
     };
 
-    setActive = () => {
+    deleteProfileConfirmed = () => {
+        //delete profile logic here
+        this.props.stateUpdater({currentPage: (<LoginForm stateUpdater={this.props.stateUpdater}/>)});
+    };
+
+    cancelChanges = () => {
         this.props.clickHandler(9, <ProfileForm clickHandler={this.props.clickHandler}/>);
     };
 

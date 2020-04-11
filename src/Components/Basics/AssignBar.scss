@@ -2,21 +2,26 @@
 @import "../Res/Values.scss";
 
 .AssignWrap {
+  z-index: 100;
   position: absolute;
   width: 17rem;
   display: inline-block;
   box-sizing: border-box;
-  background: $light-background-color;
+  background: $mini-search-bar-background;
   border-radius: $preview-panel-border-radius;
   color: $main-text-color;
   font-size: $preview-panel-font-size;
   height: 20rem;
   margin-top: -0.5rem;
-  overflow-y: auto;
-  overflow-x: hidden;
 }
 
-.AssignWrap > img {
+.o-MiniSearchBar {
+  z-index: 101;
+  position: sticky;
+  top: 0.75rem;
+}
+
+.o-MiniSearchBar > img {
   position: absolute;
   right: 0.5rem;
   margin-top: 0.75rem;
@@ -57,8 +62,29 @@
   margin-left: 1rem;
   color: $main-text-color;
   font-size: $main-font-size;
+  overflow-y: auto;
 }
 
 .AssignUserElement {
   margin-top: -1rem;
+}
+
+@media only screen and (max-width : 1400px) {
+  .AssignWrap {
+    height: 13rem;
+  }
+
+  .AssignMagic {
+    height: 8rem;
+  }
+}
+
+@media only screen and (max-width : 1100px) {
+  .AssignWrap {
+    height: 8rem;
+  }
+
+  .AssignMagic {
+    height: 3.5rem;
+  }
 }

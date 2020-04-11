@@ -3,6 +3,8 @@ import './Styles/GroupEdit.scss';
 import BoardTemplate from "../Basics/BoardTemplate";
 import Button from "../Basics/Button";
 import DeleteProfile from "../Basics/DeleteProfile";
+import Group from "./Group";
+import AllGroups from "./Groups";
 
 class GroupEdit extends React.Component {
     constructor(props) {
@@ -16,12 +18,12 @@ class GroupEdit extends React.Component {
         return (
             <div className={'groupEditContainer'}>
                 <div>
-                    <BoardTemplate value={'Group editing'}/>
+                    <BoardTemplate value={'Group editing'}  titlePlaceholder={"Group title"} descriptionPlaceholder={"Group description"} />
                 </div>
                 <div className={'groupEditButtonBox'}>
                     <Button color={'red'} clickHandler={this.popUp} width={'12rem'} text={'Delete group'}/>
-                    <Button width={'13rem'} text={'Save changes'} />
-                    <Button color={'orange'} width={'14rem'} text={'Cancel changes'}/>
+                    <Button clickHandler={this.saveChanges} width={'13rem'} text={'Save changes'} />
+                    <Button clickHandler={this.cancelChanges} color={'orange'} width={'14rem'} text={'Cancel changes'}/>
                 </div>
                 {this.state.popUp}
             </div>
@@ -29,11 +31,26 @@ class GroupEdit extends React.Component {
     };
 
     popUp = () => {
-        this.setState({popUp: (<DeleteProfile dynamic={'group'} call={'this group?'} clickHandler={this.removeMessage} width={"20rem"}/>)});
+        this.setState({popUp: (<DeleteProfile dynamic={'group'} call={'this group?'} deleteClickHandler={this.deleteGroup} cancelClickHandler={this.removeMessage} width={"20rem"}/>)});
     };
 
     removeMessage = () => {
         this.setState({popUp: null});
+    };
+
+    deleteGroup = () => {
+        //delete group logic here
+        this.props.returnHandler(9, <AllGroups clickHandler={this.props.returnHandler}/>)
+    };
+
+    cancelChanges = () => {
+        //cancel changes logic here
+        this.props.returnHandler(9, <Group clickHandler={this.props.returnHandler} />)
+    };
+
+    saveChanges = () => {
+        //save changes logic here
+        this.props.returnHandler(9, <Group clickHandler={this.props.returnHandler} />)
     };
 }
 
