@@ -18,9 +18,9 @@ class Navigation extends React.Component {
         this.state = {
             activeListItemId: 1,
             activeListItem: "",
-            activeUser: "Tomas Lomas",
+            activeUser: this.props.userEssentialData.name + " " + this.props.userEssentialData.surname,
             error: null,
-            personalBoardId: 0
+            activeUserId: this.props.userEssentialData.id
         }
     }
 

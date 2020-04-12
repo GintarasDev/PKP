@@ -55,7 +55,7 @@ class ProfileForm extends React.Component{
                     <div className={'profileButtonBox'}>
                         <Button clickHandler={this.setActive.bind(this)} iconPath={'edit.svg'} width={"13rem"} height={"1.5rem"} text={"Edit profile"} />
                         <Button clickHandler={this.setPassword.bind(this)} iconPath={'edit.svg'} width={"18rem"} height={"1.5rem"} text={"Change password"} />
-                        <Button clickHandler={this.signOut} width={"10rem"} height={"1.5rem"} text={"Sign out"} />
+                        <Button clickHandler={this.signOut.bind(this)} width={"10rem"} height={"1.5rem"} text={"Sign out"} />
                     </div>
             </div>
         );

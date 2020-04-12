@@ -7,13 +7,16 @@ import Logo from "../Basics/Logo";
 import SignupForm from "./Signup";
 import Navigation from "./Navigation";
 import axios from "axios";
+import PopUpError from "../Basics/PopUpError";
+import Validator from "../Helpers/Validation";
 
 class LoginForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             password: "",
-            username: ""
+            username: "",
+            error: ""
         }
 
     }
@@ -29,6 +32,7 @@ class LoginForm extends React.Component {
                     <Button clickHandler={this.logIn} text={"Log in"} width={"10rem"}/>
                     <Link text={"Forgot my password"} href={"https://www.supportivecarematters.org/info/wher-can-i-find-emotional-support/"}/>
                 </div>
+                {this.state.error}
             </div>
         );
     }
@@ -42,34 +46,56 @@ class LoginForm extends React.Component {
     };
 
     logIn = () => {
-        console.log("Congrats, you've just loged in: " + this.state.username + " - " + this.state.password);
-        this.saveData();
-        this.props.stateUpdater({currentPage: (<Navigation stateUpdater={this.props.stateUpdater} />)})
+        if (this.validateData()) {
+            this.saveData(this.getUserData());
+        }
     };
 
-    saveData = () => {
-        const url='http://localhost:8080/login';
-        const fakeShit = this.getUserData();
+    saveData = (userData) => {
+        const url='http://localhost:8090/login';
         axios({
             method: 'post',
             url: url,
-            data: fakeShit
+            data: userData
         })
-            .then(data=>console.log(data))
+            .then(response=>this.loginSuccessful(response))
             .catch(err=>console.log(err))
     };
 
+    loginSuccessful = (response) => {
+        if (response.status === 200) {
+            console.log("success");
+            this.props.stateUpdater({currentPage: (<Navigation userEssentialData={response.data} stateUpdater={this.props.stateUpdater} />)})
+        } else {
+            console.log("failed");
+        }
+    };
+
     getUserData = () => {
-        return this.user = {
+        return {
             password: this.state.password,
             username: this.state.username
-        }
+        };
     };
 
     signUp = () => {
         this.props.stateUpdater({currentPage: (<SignupForm stateUpdater={this.props.stateUpdater}/>)})
-    }
-}
+    };
 
+    validateData = () => {
+        let errors = Validator.checkIfAllFilled([{element: this.state.password, errorMessage: "Please enter your password"},
+            {element: this.state.username, errorMessage: "Please enter your username"}]);
+        if (errors.errorsCount > 0) {
+            this.setState({error: (<PopUpError message={errors.errorMessage} clickHandler={this.removeErrorMessage} width={"20rem"}/>)});
+            return false;
+        } else {
+            return true;
+        }
+    };
+
+    removeErrorMessage = () => {
+        this.setState({error: null});
+    };
+}
 
 export default LoginForm;

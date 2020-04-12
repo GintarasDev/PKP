@@ -7,6 +7,7 @@ import LoginForm from "./Login";
 import PopUpError from "../Basics/PopUpError";
 import axios from 'axios';
 import Navigation from "./Navigation";
+import Validator from "../Helpers/Validation";
 
 class SignupForm extends React.Component {
     constructor(props) {
@@ -59,24 +60,27 @@ class SignupForm extends React.Component {
         }
     };
 
-    signUpSuccessfull = () => {
-        this.props.stateUpdater({currentPage: (<Navigation stateUpdater={this.updateAppState} />)})
+    signUpSuccessful = (response) => {
+        if (response.status === 200) {
+            this.props.stateUpdater({currentPage: (<Navigation userEssentialData={response.data} stateUpdater={this.props.stateUpdater} />)})
+        } else {
+            this.setState({error: (<PopUpError message={"Unknown error occurred while registering, please try again latter"} clickHandler={this.removeErrorMessage} width={"20rem"}/>)});
+        }
     };
 
-    saveData = () => {
-        const url='http://localhost:8080/signup';
-        const person = this.state;
+    saveData = (userData) => {
+        const url='http://localhost:8090/signup';
         axios({
             method: 'post',
             url: url,
-            data: person
+            data: userData
         })
-            .then(data=>this.signUpSuccessfull)
+            .then(response=>this.signUpSuccessful(response))
             .catch(err=>console.log(err))
     };
 
     getUserData = () => {
-        return this.user = {
+        return {
             password: this.state.password,
             username: this.state.username,
             name: this.state.name,
@@ -85,25 +89,26 @@ class SignupForm extends React.Component {
             address: this.state.address,
             phoneNumber: this.state.phoneNumber,
             shortBios: this.state.shortBios,
-        }
+        };
     };
 
     validateData = () => {
-        this.errorsCount = 0;
-        this.checkIfEmpty(this.state.name, "Name field cannot be left empty");
-        this.checkIfEmpty(this.state.surname, "Surname field cannot be left empty");
-        this.checkIfEmpty(this.state.username, "Username field cannot be left empty");
-        this.checkIfEmpty(this.state.email, "Email field cannot be left empty");
-        this.checkIfEmpty(this.state.password, "Password field cannot be left empty");
-        this.checkIfEmpty(this.state.repeatPassword, "Repeat password field cannot be left empty");
-        if (this.state.repeatPassword !== this.state.password){
-            this.setState({error: (<PopUpError message={"Passwords do not match"} clickHandler={this.removeErrorMessage} width={"20rem"}/>)});
-            this.errorsCount++;
+        let errors = Validator.checkIfAllFilled([
+            {element: this.state.name, errorMessage: "Name field cannot be left empty"},
+            {element: this.state.surname, errorMessage: "Surname field cannot be left empty"},
+            {element: this.state.username, errorMessage: "Username field cannot be left empty"},
+            {element: this.state.email, errorMessage: "Email field cannot be left empty"}
+        ]);
+        let passwordErrors = Validator.checkPassword(this.state.password, this.state.repeatPassword,"Passwords do not match or passwords field is empty");
+        if (errors.errorsCount > 0) {
+            this.setState({error: (<PopUpError message={errors.errorMessage} clickHandler={this.removeErrorMessage} width={"20rem"}/>)});
+            return false;
+        } else if (passwordErrors.errorsCount > 0) {
+            this.setState({error: (<PopUpError message={passwordErrors.errorMessage} clickHandler={this.removeErrorMessage} width={"20rem"}/>)});
+            return false;
+        } else {
+            return true;
         }
-        if (this.errorsCount > 1) {
-            this.setState({error: (<PopUpError message={"Please make sure that all mandatory fields are filled correctly (*) and that passwords match"} clickHandler={this.removeErrorMessage} width={"20rem"}/>)});
-        }
-        return this.errorsCount === 0;
     };
 
     checkIfEmpty = (data, errorMessage) => {
