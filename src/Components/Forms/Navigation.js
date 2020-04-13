@@ -61,7 +61,7 @@ class Navigation extends React.Component {
 
     openProfile = () => {
         console.log("open profile");
-        this.setActive(9, (<ProfileForm stateUpdater={this.props.stateUpdater} clickHandler={this.setActive.bind(this)} />));
+        this.setActive(9, (<ProfileForm userId={this.state.activeUserId} stateUpdater={this.props.stateUpdater} clickHandler={this.setActive.bind(this)} />));
     }
 }
 
