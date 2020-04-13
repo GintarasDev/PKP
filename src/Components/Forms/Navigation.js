@@ -41,7 +41,7 @@ class Navigation extends React.Component {
                     <ListItem clickHandler={this.setActive.bind(this)} itemNo={2} component={<BoardCreation/>} class={"list-item"} active={this.state.activeListItemId === 2} iconPath={"new.svg"} text={"New"} width={"10rem"} height={"2rem"} />
                     <ListItem isTitle={true} active={false} iconPath={"group.svg"} text={"Groups"} width={"10rem"} height={"2rem"} />
                     <ListItem clickHandler={this.setActive.bind(this)} itemNo={3} component={<AllGroups clickHandler={this.setActive.bind(this)}/>} class={"list-item"} active={this.state.activeListItemId === 3} iconPath={"all_boards.svg"} text={"All"} width={"10rem"} height={"2rem"} />
-                    <ListItem clickHandler={this.setActive.bind(this)} itemNo={4} component={<GroupCreation/>} class={"list-item"} active={this.state.activeListItemId === 4} iconPath={"add_group.svg"} text={"New"} width={"10rem"} height={"2rem"} />
+                    <ListItem clickHandler={this.setActive.bind(this)} itemNo={4} component={<GroupCreation userId={this.state.activeUserId} clickHandler={this.setActive.bind(this)} />} class={"list-item"} active={this.state.activeListItemId === 4} iconPath={"add_group.svg"} text={"New"} width={"10rem"} height={"2rem"} />
                     <ListItem isTitle={true} active={false} iconPath={"schedule.svg"} text={"Schedule"} width={"15rem"} height={"2rem"} />
                     <ListItem clickHandler={this.setActive.bind(this)} itemNo={5} component={<PersonalSchedule />} class={"list-item"} active={this.state.activeListItemId === 5} iconPath={"schedule.svg"} text={"Schedule"} width={"10rem"} height={"2rem"} />
                 </div>

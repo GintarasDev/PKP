@@ -7,7 +7,8 @@ class AllGroups extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            dataToDisplay: null
+            dataToDisplay: null,
+            id: this.props.id
         };
         this.data = [];
     }

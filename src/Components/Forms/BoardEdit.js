@@ -1,6 +1,6 @@
 import React from 'react';
 import './Styles/BoardEdit.scss';
-import BoardTemplate from "../Basics/BoardTemplate";
+import CUDTemplate from "../Basics/CUDTemplate";
 import Button from "../Basics/Button";
 import DeleteProfile from "../Basics/DeleteProfile";
 import Board from "./Board";
@@ -18,7 +18,7 @@ class BoardEdit extends React.Component {
         return (
             <div className={'boardEditContainer'}>
                 <div>
-                    <BoardTemplate value={'Board editing'} titlePlaceholder={"Board title"} descriptionPlaceholder={"Board description"} />
+                    <CUDTemplate value={'Board editing'} titlePlaceholder={"Board title"} descriptionPlaceholder={"Board description"} />
                 </div>
                 <div className={'boardEditButtonBox'}>
                     <Button color={'red'} clickHandler={this.deleteBoardButton} width={'12rem'} text={'Delete board'}/>

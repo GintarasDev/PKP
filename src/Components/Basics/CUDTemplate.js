@@ -1,10 +1,10 @@
 import React from 'react';
-import './BoardTemplate.scss';
+import './CUDTemplate.scss';
 import InputField from "../Basics/InputField";
 import AssignBar from "./AssignBar";
 import User from "./User";
 
-class BoardTemplate extends React.Component {
+class CUDTemplate extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -21,8 +21,8 @@ class BoardTemplate extends React.Component {
             <div className="boardCreationContainer">
                 <label>{this.props.value}</label>
                 <div className={'boardTemplateAdjust'}>
-                    <InputField width={'100%'} placeholder={this.props.titlePlaceholder}/>
-                    <InputField class={"o-InputField"} type={'area'} width={'100%'} height={'12rem'} placeholder={this.props.descriptionPlaceholder}/>
+                    <InputField onChange={this.updateTitle} width={'100%'} placeholder={this.props.titlePlaceholder}/>
+                    <InputField onChange={this.updateDescription} class={"o-InputField"} type={'area'} width={'100%'} height={'12rem'} placeholder={this.props.descriptionPlaceholder}/>
                 </div>
                 {
                     this.props.type === "task" ?
@@ -51,6 +51,14 @@ class BoardTemplate extends React.Component {
         );
     }
 
+    updateTitle = (e) => {
+      this.props.dataUpdater({title: e.target.value});
+    };
+
+    updateDescription = (e) => {
+        this.props.dataUpdater({description: e.target.value});
+    };
+
     Bar = () => {
         this.setState({popUp: (<AssignBar assignedUser={this.addUser.bind(this)}/>)});
         this.setState({overlay: (<div className={'boardTemplateClosePopUp'} onClick={this.closePopup}> </div>) })
@@ -69,4 +77,4 @@ class BoardTemplate extends React.Component {
     }
 }
 
-export default BoardTemplate;
+export default CUDTemplate;

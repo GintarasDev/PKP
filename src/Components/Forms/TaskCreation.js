@@ -1,6 +1,6 @@
 import React from 'react';
 import './Styles/TaskCreation.scss';
-import BoardTemplate from "../Basics/BoardTemplate";
+import CUDTemplate from "../Basics/CUDTemplate";
 import Button from "../Basics/Button";
 import Board from "./Board";
 
@@ -15,7 +15,7 @@ class TaskCreation extends React.Component {
         return (
             <div className={'taskCreationContainer'}>
                 <div>
-                    <BoardTemplate type={'task'} value={'Task creation'} titlePlaceholder={"Task title"} descriptionPlaceholder={"Task description"} />
+                    <CUDTemplate type={'task'} value={'Task creation'} titlePlaceholder={"Task title"} descriptionPlaceholder={"Task description"} />
                 </div>
                 <div className={'taskCreationAdjust'}>
                     <Button class={"o-ActionButtons"} width={'10rem'} text={'Create'} clickHandler={this.createTask} />

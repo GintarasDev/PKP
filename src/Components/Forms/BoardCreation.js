@@ -1,6 +1,6 @@
 import React from 'react';
 import './Styles/BoardCreation.scss';
-import BoardTemplate from "../Basics/BoardTemplate";
+import CUDTemplate from "../Basics/CUDTemplate";
 import Button from "../Basics/Button";
 
 class BoardCreation extends React.Component {
@@ -14,7 +14,7 @@ class BoardCreation extends React.Component {
         return (
             <div className={'boardCreationContainer'}>
                 <div>
-                    <BoardTemplate value={'Board creation'} titlePlaceholder={"Board title"} descriptionPlaceholder={"Board description"} />
+                    <CUDTemplate value={'Board creation'} titlePlaceholder={"Board title"} descriptionPlaceholder={"Board description"} />
                 </div>
                 <div className={'boardCreationAdjust'}>
                     <Button width={'10rem'} text={'Create'}/>

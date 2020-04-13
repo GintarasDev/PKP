@@ -1,6 +1,6 @@
 import React from 'react';
 import './Styles/TaskEdit.scss';
-import BoardTemplate from "../Basics/BoardTemplate";
+import CUDTemplate from "../Basics/CUDTemplate";
 import Button from "../Basics/Button";
 import DeleteProfile from "../Basics/DeleteProfile";
 import Board from "./Board";
@@ -18,7 +18,7 @@ class TaskEdit extends React.Component {
         return (
             <div className={'taskEditContainer'}>
                 <div>
-                    <BoardTemplate titlePlaceholder={"Task title"} descriptionPlaceholder={"Task description"} type={'task'} value={'Task editing'}/>
+                    <CUDTemplate titlePlaceholder={"Task title"} descriptionPlaceholder={"Task description"} type={'task'} value={'Task editing'}/>
                 </div>
                 <div className={'taskEditButtonBox'}>
                     <Button color={'red'} clickHandler={this.popUp} width={'12rem'} text={'Delete task'}/>

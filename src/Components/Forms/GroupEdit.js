@@ -1,6 +1,6 @@
 import React from 'react';
 import './Styles/GroupEdit.scss';
-import BoardTemplate from "../Basics/BoardTemplate";
+import CUDTemplate from "../Basics/CUDTemplate";
 import Button from "../Basics/Button";
 import DeleteProfile from "../Basics/DeleteProfile";
 import Group from "./Group";
@@ -18,7 +18,7 @@ class GroupEdit extends React.Component {
         return (
             <div className={'groupEditContainer'}>
                 <div>
-                    <BoardTemplate value={'Group editing'}  titlePlaceholder={"Group title"} descriptionPlaceholder={"Group description"} />
+                    <CUDTemplate value={'Group editing'} titlePlaceholder={"Group title"} descriptionPlaceholder={"Group description"} />
                 </div>
                 <div className={'groupEditButtonBox'}>
                     <Button color={'red'} clickHandler={this.popUp} width={'12rem'} text={'Delete group'}/>

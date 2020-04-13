@@ -111,13 +111,6 @@ class SignupForm extends React.Component {
         }
     };
 
-    checkIfEmpty = (data, errorMessage) => {
-        if (data === null || data === undefined || data === "" || data === " "){
-            this.setState({error: (<PopUpError message={errorMessage} clickHandler={this.removeErrorMessage} width={"20rem"}/>)});
-            this.errorsCount++;
-        }
-    };
-
     removeErrorMessage = () => {
         this.setState({error: null});
     };
