@@ -82,7 +82,7 @@ class Board extends React.Component {
     };
 
     editBoard = () => {
-        this.props.clickHandler(9, <BoardEdit boardId={this.props.boardId} title={this.state.boardTitle} description={this.state.boardDescription} assignedUsers={this.state.assignedUsers} boardIsPersonal={this.props.boardIsPersonal} returnHandler={this.props.clickHandler} />);
+        this.props.clickHandler(9, <BoardEdit userId={this.props.userId} boardId={this.props.boardId} title={this.state.boardTitle} description={this.state.boardDescription} assignedUsers={this.state.assignedUsers} boardIsPersonal={this.props.boardIsPersonal} returnHandler={this.props.clickHandler} />);
     };
 
     preparePersonalTasks = () => {

@@ -14,16 +14,17 @@ class BoardEdit extends React.Component {
             popUp: null,
             title: "",
             description: "",
-            assignedUsers: [],
             error: null
-        }
+        };
+        this.assignedUsers = [];
     };
 
     render() {
+        console.log("users board: " + this.assignedUsers);
         return (
             <div className={'boardEditContainer'}>
                 <div>
-                    <CUDTemplate dataUpdater={this.dataUpdater.bind(this)} assignedUsers={this.state.assignedUsers} value={'Board editing'} titlePlaceholder={"Board title"} descriptionPlaceholder={"Board description"} />
+                    <CUDTemplate title={this.state.title} description={this.state.description} dataUpdater={this.dataUpdater.bind(this)} assignedUsers={this.assignedUsers} value={'Board editing'} titlePlaceholder={"Board title"} descriptionPlaceholder={"Board description"} />
                 </div>
                 <div className={'boardEditButtonBox'}>
                     <Button color={'red'} clickHandler={this.deleteBoardButton} width={'12rem'} text={'Delete board'}/>
@@ -36,6 +37,7 @@ class BoardEdit extends React.Component {
     };
 
     componentDidMount() {
+        this.setState({title: this.props.title, description: this.props.description});
         this.loadBoardData();
     }
 
@@ -47,7 +49,8 @@ class BoardEdit extends React.Component {
     };
 
     prepareAssignedUsers = (response) => {
-        this.setState({title: this.props.title, description: this.props.description, assignedUsers: response.data});
+        this.assignedUsers = response.data;
+        this.forceUpdate();
     };
 
     deleteBoardButton = () => {
@@ -69,12 +72,39 @@ class BoardEdit extends React.Component {
 
     cancelChanges = () => {
         //add cancel logic here
-        this.props.returnHandler(this.props.boardIsPersonal ? 1 : 9, <Board clickHandler={this.props.returnHandler} assignedUsers={"1 (personal)"} boardTitle={"Personal"} boardId={this.props.boardId} boardIsPersonal={this.props.boardIsPersonal} />)
+        this.props.returnHandler(this.props.boardIsPersonal ? 1 : 9, <Board clickHandler={this.props.returnHandler} boardId={this.props.boardId} boardIsPersonal={this.props.boardIsPersonal} />)
     };
 
     saveChanges = () => {
-        this.props.returnHandler(this.props.boardIsPersonal ? 1 : 9, <Board clickHandler={this.props.returnHandler} assignedUsers={"1 (personal)"} boardTitle={"Personal"} boardId={this.props.boardId} boardIsPersonal={this.props.boardIsPersonal} />)
-    }
+        this.saveData(this.getBoardData());
+    };
+
+    getBoardData = () => {
+        return {
+            title: this.state.title,
+            description: this.state.description,
+            adminUserId: this.props.userId,
+            assignedUsers: this.assignedUsers
+        };
+    };
+
+    saveData = (boardData) => {
+        const url='http://localhost:8090/updateBoard';
+        axios({
+            method: 'post',
+            url: url,
+            data: boardData,
+            params: this.props.boardId
+        })
+            .then(response=>this.saveSuccessful(response))
+            .catch(err=>console.log(err.response))
+    };
+
+    saveSuccessful = (response) => {
+        if (response.status === 200) {
+            this.props.returnHandler(this.props.boardIsPersonal ? 1 : 9, <Board clickHandler={this.props.returnHandler} assignedUsers={"1 (personal)"} boardTitle={"Personal"} boardId={this.props.boardId} boardIsPersonal={this.props.boardIsPersonal} />)
+        }
+    };
 }
 
 export default BoardEdit;
