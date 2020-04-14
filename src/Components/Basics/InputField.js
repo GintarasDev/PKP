@@ -44,9 +44,9 @@ class InputField extends React.Component {
             );
         } else if(this.props.type === "checkbox") {
             return (
-                <div className={' ' + this.props.class} >
+                <div className={' ' + this.props.class}>
                     <label className="o-Checkbox">
-                        <input type="checkbox" />
+                        <input onInput={this.props.onInput} type="checkbox" />
                         <span className="checkmark" style={{width: this.props.width, height: this.props.width}}>
                             <img style={{width: this.props.width, height: this.props.width}} src={require("../Assets/checkmark.svg")} alt={this.props.title}/>
                         </span>

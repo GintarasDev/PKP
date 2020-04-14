@@ -3,6 +3,8 @@ import '../Basics/Button.scss';
 import './Styles/Schedule.scss';
 import InputField from "../Basics/InputField";
 import PreviewPanel from "../Basics/PreviewPanel";
+import axios from "axios";
+import Button from "../Basics/Button";
 
 class ScheduleForm extends React.Component {
     constructor(props) {
@@ -10,8 +12,8 @@ class ScheduleForm extends React.Component {
         this.state = {
             name: "",
             workSchedule: null,
-            startDate: "",
-            endDate: "",
+            startDate: null,
+            endDate: null
         };
         this.Schedule = [];
     }
@@ -19,9 +21,12 @@ class ScheduleForm extends React.Component {
     render() {
         return (
             <div className={'o-ScheduleContainer'}>
-                <label className={'o-ScheduleTitle'} style={{display: this.props.useTitle ? "block" : "none"}} >{this.state.name} work schedule</label>
+                <label className={'o-ScheduleTitle'}
+                       style={{display: this.props.useTitle ? "block" : "none"}}>{this.state.name} work schedule</label>
                 <label className={'o-ScheduleRangeText'}>Schedule range</label>
-                <InputField class={'o-ScheduleRange'} onChangeFrom={this.state.updateStartDate} onChangeTo={this.state.updateEndDate} type={'date-range'} width={'10rem'}/>
+                <InputField class={'o-ScheduleRange'} onChangeFrom={this.updateStartDate}
+                            onChangeTo={this.updateEndDate} type={'date-range'} width={'15rem'}/>
+                <Button class={'o-ScheduleRange'} clickHandler={this.searchForSchedule} text={'search'} width={'8rem'}/>
                 <div className={'o-ScheduleBoards ' + this.props.scheduleContainerClass}>
                     {this.state.workSchedule}
                 </div>
@@ -31,44 +36,24 @@ class ScheduleForm extends React.Component {
 
     componentDidMount() {
         this.fetchInfo();
-        this.loadBoards();
     };
 
-    fetchInfo(){
+    fetchInfo() {
         this.setState({
             name: "Alexandr Misspot"
         });
     };
 
-    loadBoards = () => {
-        //connect to api here :)
-        this.boardsData = [
-            [{value: "Working from 8:00 till 11:40"}, {value: "Break from 11:40 till 14:20"}, {value: "WFH from 14:20 till 16:00"}, {value: "Break from 16:00 till 18:30"}, {value: "WFH from 18:30 till 20:00"}],
-            [{title: "2020-03-09", value: "14"}, {title: "Number of members", value: "17"}, {title: "Number of members", value: "20"}, {title: "Number of members", value: "15"}],
-            [{title: "2020-03-09", value: "14"}, {title: "Number of members", value: "17"}, {title: "Number of members", value: "20"}, {title: "Number of members", value: "15"}],
-            [{title: "2020-03-09", value: "14"}, {title: "Number of members", value: "17"}, {title: "Number of members", value: "20"}, {title: "Number of members", value: "15"}],
-            [{title: "2020-03-09", value: "14"}, {title: "Number of members", value: "17"}, {title: "Number of members", value: "20"}, {title: "Number of members", value: "15"}],
-            [{title: "2020-03-09", value: "14"}, {title: "Number of members", value: "17"}, {title: "Number of members", value: "20"}, {title: "Number of members", value: "15"}],
-            [{title: "2020-03-09", value: "14"}, {title: "Number of members", value: "17"}, {title: "Number of members", value: "20"}, {title: "Number of members", value: "15"}],
-            [{title: "2020-03-09", value: "14"}, {title: "Number of members", value: "17"}, {title: "Number of members", value: "20"}, {title: "Number of members", value: "15"}],
-            [{title: "Number of members", value: "14"}, {title: "Number of members", value: "17"}, {title: "Number of members", value: "20"}, {title: "Number of members", value: "15"}],
-            [{value: "Working from 8:00 till 11:40"}, {value: "Break from 11:40 till 14:20"}, {value: "WFH from 14:20 till 16:00"}, {value: "Break from 16:00 till 18:30"}, {value: "WFH from 18:30 till 20:00"}],
-            [{title: "2020-03-09", value: "14"}, {title: "Number of members", value: "17"}, {title: "Number of members", value: "20"}, {title: "Number of members", value: "15"}],
-            [{title: "2020-03-09", value: "14"}, {title: "Number of members", value: "17"}, {title: "Number of members", value: "20"}, {title: "Number of members", value: "15"}],
-            [{title: "2020-03-09", value: "14"}, {title: "Number of members", value: "17"}, {title: "Number of members", value: "20"}, {title: "Number of members", value: "15"}],
-            [{title: "2020-03-09", value: "14"}, {title: "Number of members", value: "17"}, {title: "Number of members", value: "20"}, {title: "Number of members", value: "15"}],
-            [{title: "2020-03-09", value: "14"}, {title: "Number of members", value: "17"}, {title: "Number of members", value: "20"}, {title: "Number of members", value: "15"}],
-            [{title: "2020-03-09", value: "14"}, {title: "Number of members", value: "17"}, {title: "Number of members", value: "20"}, {title: "Number of members", value: "15"}],
-            [{title: "2020-03-09", value: "14"}, {title: "Number of members", value: "17"}, {title: "Number of members", value: "20"}, {title: "Number of members", value: "15"}],
-            [{title: "Number of members", value: "14"}, {title: "Number of members", value: "17"}, {title: "Number of members", value: "20"}, {title: "Number of members", value: "15"}],
-        ];
-        this.boardsData.forEach(element => this.prepareData(element));
+    searchForSchedule = () => {
+        this.getScheduleData();
         this.setState({workSchedule: this.Schedule});
+        this.forceUpdate();
     };
 
-    prepareData = (Schedule) => {
+    prepareData = (Schedule, k) => {
         this.Schedule.push(
-            (<PreviewPanel class={"previewPanel"} width={"20rem"} height={"10rem"} title={"2020"} dataToDisplay={Schedule}/>)
+            (<PreviewPanel class={"previewPanel"} width={"20rem"} height={"10rem"} title={this.dates[k]}
+                           dataToDisplay={Schedule}/>)
         );
     };
 
@@ -78,6 +63,36 @@ class ScheduleForm extends React.Component {
 
     updateEndDate = (e) => {
         this.setState({endDate: e.target.value});
+    };
+
+    getScheduleData = () => {
+        axios.get
+        ('http://localhost:8090/Schedule',
+            {
+                params: {
+                    id: this.props.userId,
+                    dateFrom: this.state.startDate,
+                    dateTo: this.state.endDate
+                }
+            })
+            .then(response => this.MyData(response))
+            .catch(err => console.log(err.response))
+    };
+
+    MyData = (response) => {
+        console.log(response.data);
+        this.dates = [];
+        this.boardsData = [];
+        let i;
+        for (i = 0; i < response.data.length; i++) {
+            this.dates.push(response.data[i].date);
+            if (response.data[i].workFromHome === false) {
+                this.boardsData.push([{value: "working from " + response.data[i].from + " till " + response.data[i].to}]);
+            } else this.boardsData.push([{value: "WFH from " + response.data[i].from + " till " + response.data[i].to}]);
+        }
+        let k = 0;
+        this.boardsData.forEach(element => this.prepareData(element, k++));
+        this.setState({workSchedule: this.Schedule});
     };
 
 }

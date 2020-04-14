@@ -43,7 +43,7 @@ class Navigation extends React.Component {
                     <ListItem clickHandler={this.setActive.bind(this)} itemNo={3} component={<AllGroups clickHandler={this.setActive.bind(this)}/>} class={"list-item"} active={this.state.activeListItemId === 3} iconPath={"all_boards.svg"} text={"All"} width={"10rem"} height={"2rem"} />
                     <ListItem clickHandler={this.setActive.bind(this)} itemNo={4} component={<GroupCreation userId={this.state.activeUserId} clickHandler={this.setActive.bind(this)} />} class={"list-item"} active={this.state.activeListItemId === 4} iconPath={"add_group.svg"} text={"New"} width={"10rem"} height={"2rem"} />
                     <ListItem isTitle={true} active={false} iconPath={"schedule.svg"} text={"Schedule"} width={"15rem"} height={"2rem"} />
-                    <ListItem clickHandler={this.setActive.bind(this)} itemNo={5} component={<PersonalSchedule />} class={"list-item"} active={this.state.activeListItemId === 5} iconPath={"schedule.svg"} text={"Schedule"} width={"10rem"} height={"2rem"} />
+                    <ListItem clickHandler={this.setActive.bind(this)} itemNo={5} component={<PersonalSchedule userId={this.state.activeUserId} />} class={"list-item"} active={this.state.activeListItemId === 5} iconPath={"schedule.svg"} text={"Schedule"} width={"10rem"} height={"2rem"} />
                 </div>
                 <div className={"currentItemSpace"}>
                     {this.homePage ? (<Board boardId={/*todo: this.user.personalBoardId*/this.state.personalBoardId} boardIsPersonal={true} assignedUsers={"1 (personal)"} boardTitle={"Personal"} clickHandler={this.setActive.bind(this)}/>)
