@@ -17,22 +17,29 @@ class CUDTemplate extends React.Component {
     };
 
     render() {
+        this.prepareAssignedUsers();
         return (
             <div className="boardCreationContainer">
                 <label>{this.props.value}</label>
                 <div className={'boardTemplateAdjust'}>
-                    <InputField onChange={this.updateTitle} width={'100%'} placeholder={this.props.titlePlaceholder}/>
-                    <InputField onChange={this.updateDescription} class={"o-InputField"} type={'area'} width={'100%'} height={'12rem'} placeholder={this.props.descriptionPlaceholder}/>
+                    <InputField onChange={this.updateTitle} value={this.props.title} width={'100%'}
+                                placeholder={this.props.titlePlaceholder}/>
+                    <InputField onChange={this.updateDescription} value={this.props.description} class={"o-InputField"}
+                                type={'area'} width={'100%'} height={'12rem'}
+                                placeholder={this.props.descriptionPlaceholder}/>
                 </div>
                 {
                     this.props.type === "task" ?
-                    (<div className={'boardTemplateRow o-AdditionalRow'}>
-                        <span className={"o-DateTitle"} >Start date</span>
-                        <InputField type={"date"} width={'15rem'} placeholder={'Start'}/>
-                        <span className={"o-DateTitle o-toSide"} >Deadline</span>
-                        <InputField type={"date"} width={'15rem'} placeholder={'Deadline'}/>
-                        <InputField class={"o-EstimatedTime"} width={'12rem'} placeholder={'Estimated time'}/>
-                    </div>) : ""
+                        (<div className={'boardTemplateRow o-AdditionalRow'}>
+                            <span className={"o-DateTitle"}>Start date</span>
+                            <InputField onChange={this.updateStart} type={"date"} width={'15rem'}
+                                        placeholder={'Start'}/>
+                            <span className={"o-DateTitle o-toSide"}>Deadline</span>
+                            <InputField onChange={this.updateDeadline} type={"date"} width={'15rem'}
+                                        placeholder={'Deadline'}/>
+                            <InputField onChange={this.updateEstimatedTime} class={"o-EstimatedTime"} width={'12rem'}
+                                        placeholder={'Estimated time'}/>
+                        </div>) : ""
                 }
                 <div className={'boardTemplateRow'}>
                     <label className={'boardTemplateInline'}>Assigned Users</label>
@@ -51,8 +58,37 @@ class CUDTemplate extends React.Component {
         );
     }
 
+    componentDidMount() {
+
+    }
+
+    prepareAssignedUsers = () => {
+        if (this.props.assignedUsers === undefined || this.props.assignedUsers === null)
+        {
+            return;
+        }
+        this.AssignedUserList = [];
+        this.props.assignedUsers.forEach(user => {
+            this.AssignedUserList.push(
+                <User id={user.id} name={user.name + " " + user.surname} isRemovable={true}/>
+            );
+        });
+    };
+
+    updateEstimatedTime = (e) => {
+        this.props.dataUpdater({estimatedTime: e.target.value});
+    };
+
+    updateDeadline = (e) => {
+        this.props.dataUpdater({deadlineDate: e.target.value});
+    };
+
+    updateStart = (e) => {
+        this.props.dataUpdater({startDate: e.target.value});
+    };
+
     updateTitle = (e) => {
-      this.props.dataUpdater({title: e.target.value});
+        this.props.dataUpdater({title: e.target.value});
     };
 
     updateDescription = (e) => {
@@ -61,13 +97,13 @@ class CUDTemplate extends React.Component {
 
     Bar = () => {
         this.setState({popUp: (<AssignBar assignedUser={this.addUser.bind(this)}/>)});
-        this.setState({overlay: (<div className={'boardTemplateClosePopUp'} onClick={this.closePopup}> </div>) })
+        this.setState({overlay: (<div className={'boardTemplateClosePopUp'} onClick={this.closePopup}></div>)})
     };
 
     addUser = (id) => {
         this.AssignedUserList.push(
             <User id={id} name={'users'} isRemovable={true}/>
-            );
+        );
         this.forceUpdate();
     };
 
