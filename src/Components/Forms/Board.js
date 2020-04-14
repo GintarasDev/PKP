@@ -6,24 +6,24 @@ import Button from "../Basics/Button";
 import BoardEdit from "./BoardEdit";
 import TaskEdit from "./TaskEdit";
 import TaskCreation from "./TaskCreation";
+import axios from "axios";
 
 class Board extends React.Component {
     constructor(props) {
         super(props);
         this.temp = [];
-        this.elementToAdd = {};
-        this.backlogTasks = [];
-        this.toDoTasks = [];
-        this.inProgressTasks = [];
-        this.onHoldTasks = [];
-        this.doneTasks = [];
-        this.addTasksToBoard();
+
         this.state = {
-            backlogTasks: this.backlogTasks,
-            toDoTasks: this.toDoTasks,
-            inProgressTasks: this.inProgressTasks,
-            onHoldTasks: this.onHoldTasks,
-            doneTasks: this.doneTasks
+            backlogTasks: [],
+            toDoTasks: [],
+            inProgressTasks: [],
+            onHoldTasks: [],
+            doneTasks: [],
+            boardId: this.props.boardId,
+            boardTitle: "",
+            boardDescription: "",
+            numberOfAssignedUsers: "",
+            assignedUsers: []
         }
     };
 
@@ -33,73 +33,101 @@ class Board extends React.Component {
                 <div className={"o-BoardHeader"} >
                     <span className={"o-Left"}>
                         <img src={require("../Assets/personal.svg")} alt={"Assigned users"} />
-                        {" " + this.props.assignedUsers}
+                        {" " + this.state.assignedUsers}
                     </span>
                     <span className={"o-Center"}>
-                        {this.props.boardTitle}
+                        {this.state.boardTitle}
                     </span>
                     <span className={"o-Right"}>
                         <Button clickHandler={this.editBoard} iconPath={'edit.svg'} width={"12rem"} height={"1.5rem"} text={"Edit board"} />
                     </span>
                 </div>
                 <div className="o-Boards">
-                    <PreviewPanel class={"taskPanel"} title={"Backlog"} height={"40rem"} width={"16rem"} additionalElement={this.addTaskButton()} additionalElementHeight={"1.2rem"} dataToDisplay={this.state.backlogTasks} addElement={this.addElement.bind(this)} />
-                    <PreviewPanel class={"taskPanel"} title={"To do"} height={"40rem"} width={"16rem"} additionalElement={this.addTaskButton()} additionalElementHeight={"1.2rem"} dataToDisplay={this.state.toDoTasks} addElement={this.addElement.bind(this)} />
-                    <PreviewPanel class={"taskPanel"} title={"In progress"} height={"40rem"} width={"16rem"} additionalElement={this.addTaskButton()} additionalElementHeight={"1.2rem"} dataToDisplay={this.state.inProgressTasks} addElement={this.addElement.bind(this)} />
-                    <PreviewPanel class={"taskPanel"} title={"On hold"} height={"40rem"} width={"16rem"} additionalElement={this.addTaskButton()} additionalElementHeight={"1.2rem"} dataToDisplay={this.state.onHoldTasks} addElement={this.addElement.bind(this)} />
-                    <PreviewPanel class={"taskPanel"} title={"Done"} height={"40rem"} width={"16rem"} additionalElement={this.addTaskButton()} additionalElementHeight={"1.2rem"} dataToDisplay={this.state.doneTasks} addElement={this.addElement.bind(this)} />
+                    <PreviewPanel class={"taskPanel"} title={"Backlog"} height={"40rem"} width={"16rem"} additionalElement={this.addTaskButton("BACKLOG")} additionalElementHeight={"1.2rem"} dataToDisplay={this.state.backlogTasks} addElement={this.addElement.bind(this)} />
+                    <PreviewPanel class={"taskPanel"} title={"To do"} height={"40rem"} width={"16rem"} additionalElement={this.addTaskButton("TO_DO")} additionalElementHeight={"1.2rem"} dataToDisplay={this.state.toDoTasks} addElement={this.addElement.bind(this)} />
+                    <PreviewPanel class={"taskPanel"} title={"In progress"} height={"40rem"} width={"16rem"} additionalElement={this.addTaskButton("IN_PROGRESS")} additionalElementHeight={"1.2rem"} dataToDisplay={this.state.inProgressTasks} addElement={this.addElement.bind(this)} />
+                    <PreviewPanel class={"taskPanel"} title={"On hold"} height={"40rem"} width={"16rem"} additionalElement={this.addTaskButton("ON_HOLD")} additionalElementHeight={"1.2rem"} dataToDisplay={this.state.onHoldTasks} addElement={this.addElement.bind(this)} />
+                    <PreviewPanel class={"taskPanel"} title={"Done"} height={"40rem"} width={"16rem"} additionalElement={this.addTaskButton("DONE")} additionalElementHeight={"1.2rem"} dataToDisplay={this.state.doneTasks} addElement={this.addElement.bind(this)} />
                 </div>
             </div>
         );
     };
 
-    editBoard = () => {
-        this.props.clickHandler(9, <BoardEdit boardId={this.props.boardId} boardIsPersonal={this.props.boardIsPersonal} returnHandler={this.props.clickHandler} />);
+    componentDidMount() {
+        if (this.props.boardIsPersonal) {
+            this.preparePersonalTasks();
+        } else {
+            this.getData();
+        }
+    }
+
+    getData = () => {
+        const url='http://localhost:8090/board';
+        axios.get(url, {params: {id: this.props.boardId}})
+            .then(response=>this.prepareData(response))
+            .catch(err=>console.log(err.response))
     };
 
-    addTasksToBoard = () => {
+    prepareData = (response) => {
+      if (response.status === 200) {
+          this.setState({
+              boardTitle: response.data.title,
+              boardDescription: response.data.description,
+              numberOfAssignedUsers: response.data.assignedUsers.length,
+              assignedUsers: response.data.assignedUsers
+          });
+      } else {
+          console.log("error: " + response);
+      }
+    };
+
+    editBoard = () => {
+        this.props.clickHandler(9, <BoardEdit boardId={this.props.boardId} title={this.state.boardTitle} description={this.state.boardDescription} assignedUsers={this.state.assignedUsers} boardIsPersonal={this.props.boardIsPersonal} returnHandler={this.props.clickHandler} />);
+    };
+
+    preparePersonalTasks = () => {
         //connect to api here :)
-        this.backlogTasks = [
+        let backlogTasks = [];
+        let toDoTasks = [];
+        let inProgressTasks = [];
+        let onHoldTasks = [];
+        let doneTasks = [];
+        backlogTasks = [
             {id: "0", value: (<TaskPreview id={"0"} board="backlog" width={"14rem"} title={"Prepare UI UX project for tommy the carrot"} estimatedTime={"3.52"} taskCreator={"Tomas Petrikevich"} dropFunction={this.removeTaskFromBoard.bind(this)} clickHandler={this.editTask} />)},
-            {id: "1", value: (<TaskPreview id={"1"} board="backlog" width={"14rem"} title={"Prepare UI UX project for tommy the carrot"} estimatedTime={"3.52"} taskCreator={"Tomas Petrikevich"} dropFunction={this.removeTaskFromBoard.bind(this)} clickHandler={this.editTask} />)},
-            {id: "2", value: (<TaskPreview id={"2"} board="backlog" width={"14rem"} title={"Prepare UI UX project for tommy the carrot"} estimatedTime={"3.52"} taskCreator={"Tomas Petrikevich"} dropFunction={this.removeTaskFromBoard.bind(this)} clickHandler={this.editTask} />)},
-            {id: "3", value: (<TaskPreview id={"3"} board="backlog" width={"14rem"} title={"Prepare UI UX project for tommy the carrot"} estimatedTime={"3.52"} taskCreator={"Tomas Petrikevich"} dropFunction={this.removeTaskFromBoard.bind(this)} clickHandler={this.editTask} />)},
-            {id: "4", value: (<TaskPreview id={"4"} board="backlog" width={"14rem"} title={"Prepare UI UX project for tommy the carrot"} estimatedTime={"3.52"} taskCreator={"Tomas Petrikevich"} dropFunction={this.removeTaskFromBoard.bind(this)} clickHandler={this.editTask} />)},
-          ];
-        this.toDoTasks = [
-            {id: "5", value: (<TaskPreview id={"5"} board="todo" width={"14rem"} title={"Prepare UI UX project for tommy the carrot"} estimatedTime={"3.52"} taskCreator={"Tomas Petrikevich"} dropFunction={this.removeTaskFromBoard.bind(this)} clickHandler={this.editTask} />)},
-            {id: "6", value: (<TaskPreview id={"6"} board="todo" width={"14rem"} title={"Prepare UI UX project for tommy the carrot"} estimatedTime={"3.52"} taskCreator={"Tomas Petrikevich"} dropFunction={this.removeTaskFromBoard.bind(this)} clickHandler={this.editTask} />)},
-            {id: "7", value: (<TaskPreview id={"7"} board="todo" width={"14rem"} title={"Prepare UI UX project for tommy the carrot"} estimatedTime={"3.52"} taskCreator={"Tomas Petrikevich"} dropFunction={this.removeTaskFromBoard.bind(this)} clickHandler={this.editTask} />)},
-            {id: "8", value: (<TaskPreview id={"8"} board="todo" width={"14rem"} title={"Prepare UI UX project for tommy the carrot"} estimatedTime={"3.52"} taskCreator={"Tomas Petrikevich"} dropFunction={this.removeTaskFromBoard.bind(this)} clickHandler={this.editTask} />)},
-            {id: "9", value: (<TaskPreview id={"9"} board="todo" width={"14rem"} title={"Prepare UI UX project for tommy the carrot"} estimatedTime={"3.52"} taskCreator={"Tomas Petrikevich"} dropFunction={this.removeTaskFromBoard.bind(this)} clickHandler={this.editTask} />)},
-            {id: "10", value: (<TaskPreview id={"10"} board="todo" width={"14rem"} title={"Prepare UI UX project for tommy the carrot"} estimatedTime={"3.52"} taskCreator={"Tomas Petrikevich"} dropFunction={this.removeTaskFromBoard.bind(this)} clickHandler={this.editTask} />)},
-            {id: "11", value: (<TaskPreview id={"11"} board="todo" width={"14rem"} title={"Prepare UI UX project for tommy the carrot"} estimatedTime={"3.52"} taskCreator={"Tomas Petrikevich"} dropFunction={this.removeTaskFromBoard.bind(this)} clickHandler={this.editTask} />)},
-            {id: "12", value: (<TaskPreview id={"12"} board="todo" width={"14rem"} title={"Prepare UI UX project for tommy the carrot"} estimatedTime={"3.52"} taskCreator={"Tomas Petrikevich"} dropFunction={this.removeTaskFromBoard.bind(this)} clickHandler={this.editTask} />)}
-        ];
-        this.inProgressTasks = [
-            {id: "13", value: (<TaskPreview id={"13"} board="inprogress" width={"14rem"} title={"Prepare UI UX project for tommy the carrot"} estimatedTime={"3.52"} taskCreator={"Tomas Petrikevich"} dropFunction={this.removeTaskFromBoard.bind(this)} clickHandler={this.editTask} />)},
-            {id: "14", value: (<TaskPreview id={"14"} board="inprogress" width={"14rem"} title={"Prepare UI UX project for tommy the carrot"} estimatedTime={"3.52"} taskCreator={"Tomas Petrikevich"} dropFunction={this.removeTaskFromBoard.bind(this)} clickHandler={this.editTask} />)},
-            {id: "15", value: (<TaskPreview id={"15"} board="inprogress" width={"14rem"} title={"Prepare UI UX project for tommy the carrot"} estimatedTime={"3.52"} taskCreator={"Tomas Petrikevich"} dropFunction={this.removeTaskFromBoard.bind(this)} clickHandler={this.editTask} />)},
-            {id: "16", value: (<TaskPreview id={"16"} board="inprogress" width={"14rem"} title={"Prepare UI UX project for tommy the carrot"} estimatedTime={"3.52"} taskCreator={"Tomas Petrikevich"} dropFunction={this.removeTaskFromBoard.bind(this)} clickHandler={this.editTask} />)},
             ];
-        this.onHoldTasks = [];
-        this.doneTasks = [
+        toDoTasks = [
+            {id: "5", value: (<TaskPreview id={"5"} board="todo" width={"14rem"} title={"Prepare UI UX project for tommy the carrot"} estimatedTime={"3.52"} taskCreator={"Tomas Petrikevich"} dropFunction={this.removeTaskFromBoard.bind(this)} clickHandler={this.editTask} />)},
+            ];
+        inProgressTasks = [
+            {id: "13", value: (<TaskPreview id={"13"} board="inprogress" width={"14rem"} title={"Prepare UI UX project for tommy the carrot"} estimatedTime={"3.52"} taskCreator={"Tomas Petrikevich"} dropFunction={this.removeTaskFromBoard.bind(this)} clickHandler={this.editTask} />)},
+            ];
+        onHoldTasks = [];
+        doneTasks = [
             {id: "17", value: (<TaskPreview id={"17"} board="done" width={"14rem"} title={"Prepare UI UX project for tommy the carrot"} estimatedTime={"3.52"} taskCreator={"Tomas Petrikevich"} dropFunction={this.removeTaskFromBoard.bind(this)} clickHandler={this.editTask} />)},
-            {id: "18", value: (<TaskPreview id={"18"} board="done" width={"14rem"} title={"Prepare UI UX project for tommy the carrot"} estimatedTime={"3.52"} taskCreator={"Tomas Petrikevich"} dropFunction={this.removeTaskFromBoard.bind(this)} clickHandler={this.editTask} />)}
         ];
+
+        this.setState({
+            backlogTasks: backlogTasks,
+            toDoTasks: toDoTasks,
+            inProgressTasks: inProgressTasks,
+            onHoldTasks: onHoldTasks,
+            doneTasks: doneTasks,
+            boardTitle: "Personal board",
+            numberOfAssignedUsers: "1 (personal)"
+        });
     };
 
     editTask = () => {
-        this.props.clickHandler(9, <TaskEdit returnHandler={this.props.clickHandler} boardIsPersonal={true} />);
+        this.props.clickHandler(9, <TaskEdit returnHandler={this.props.clickHandler} boardIsPersonal={true} boardId={this.state.boardId} />);
     };
 
-    createNewTask = () => {
-        this.props.clickHandler(9, <TaskCreation returnHandler={this.props.clickHandler} boardIsPersonal={true} />);
+    createNewTask = (status) => {
+        this.props.clickHandler(9, <TaskCreation returnHandler={this.props.clickHandler} boardIsPersonal={false} boardId={1} status={status} userId={this.props.userId} />);
     };
 
-    addTaskButton = () => {
+    addTaskButton = (status) => {
         return (
-          <div className="o-AddTask" onClick={this.createNewTask} >
+          <div className="o-AddTask" onClick={() => this.createNewTask(status)} >
               <img src={require("../Assets/new.svg")} style={{width: "3rem", height: "3rem"}} alt={"Create new task"}/>
           </div>
         );

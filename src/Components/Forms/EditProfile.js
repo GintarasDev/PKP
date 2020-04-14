@@ -74,7 +74,7 @@ class EditProfileForm extends React.Component{
     };
 
     popUp = () => {
-        this.setState({popUp: (<DeleteProfile call={"your profile?"} dynamic={"profile"} message={"Passwords do not match"} deleteClickHandler={this.deleteProfileConfirmed} cancelClickHandler={this.removeMessage} width={"20rem"}/>)});
+        this.setState({popUp: (<DeleteProfile type={"password"} call={"your profile?"} dynamic={"profile"} message={"Passwords do not match"} deleteClickHandler={this.deleteProfileConfirmed} cancelClickHandler={this.removeMessage} width={"20rem"}/>)});
     };
 
     removeMessage = () => {

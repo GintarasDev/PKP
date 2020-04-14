@@ -28,10 +28,10 @@ class CUDTemplate extends React.Component {
                     this.props.type === "task" ?
                     (<div className={'boardTemplateRow o-AdditionalRow'}>
                         <span className={"o-DateTitle"} >Start date</span>
-                        <InputField type={"date"} width={'15rem'} placeholder={'Start'}/>
+                        <InputField onChange={this.updateStart} type={"date"} width={'15rem'} placeholder={'Start'}/>
                         <span className={"o-DateTitle o-toSide"} >Deadline</span>
-                        <InputField type={"date"} width={'15rem'} placeholder={'Deadline'}/>
-                        <InputField class={"o-EstimatedTime"} width={'12rem'} placeholder={'Estimated time'}/>
+                        <InputField onChange={this.updateDeadline} type={"date"} width={'15rem'} placeholder={'Deadline'}/>
+                        <InputField onChange={this.updateEstimatedTime} class={"o-EstimatedTime"} width={'12rem'} placeholder={'Estimated time'}/>
                     </div>) : ""
                 }
                 <div className={'boardTemplateRow'}>
@@ -50,6 +50,31 @@ class CUDTemplate extends React.Component {
             </div>
         );
     }
+
+    componentDidMount() {
+        this.prepareAssignedUsers();
+    }
+
+    prepareAssignedUsers = () => {
+      this.props.assignedUsers.forEach(user => {
+          this.AssignedUserList.push(
+              <User id={user.id} name={user.name + " " + user.surname} isRemovable={true}/>
+          );
+          this.forceUpdate();
+      });
+    };
+
+    updateEstimatedTime = (e) => {
+        this.props.dataUpdater({estimatedTime: e.target.value});
+    };
+
+    updateDeadline = (e) => {
+        this.props.dataUpdater({deadlineDate: e.target.value});
+    };
+
+    updateStart = (e) => {
+        this.props.dataUpdater({startDate: e.target.value});
+    };
 
     updateTitle = (e) => {
       this.props.dataUpdater({title: e.target.value});
