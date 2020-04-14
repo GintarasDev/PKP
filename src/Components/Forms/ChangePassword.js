@@ -6,6 +6,7 @@ import Button from "../Basics/Button";
 import InputField from "../Basics/InputField";
 import PopUpError from "../Basics/PopUpError";
 import ProfileForm from "./Profile";
+import axios from "axios";
 
 class ChangePasswordForm extends React.Component{
     constructor(props) {
@@ -35,7 +36,7 @@ class ChangePasswordForm extends React.Component{
                     <div className={'cPassContainer'}>
                         <div className={'cPassContainerBT'}>
                             <Button clickHandler={this.changePassword.bind(this)} text={"Save"} width={"12rem"}/>
-                            <Button color={'orange'} clickHandler={this.setActive.bind(this)} text={"Cancel"} width={"12rem"}/>
+                            <Button color={'orange'} clickHandler={this.cancelChange} text={"Cancel"} width={"12rem"}/>
                         </div>
                     </div>
                 </div>
@@ -43,6 +44,11 @@ class ChangePasswordForm extends React.Component{
             </div>
         );
     }
+
+    cancelChange = () => {
+      console.log("cancel change");
+      //todo: cancel change
+    };
 
     componentDidMount() {
         this.fetchPassword();
@@ -56,7 +62,26 @@ class ChangePasswordForm extends React.Component{
 
     changePassword = () => {
         this.validateData();
-        //Connect change password form to backend here! (and remove console log) :)
+        this.saveChanges();
+    };
+
+    saveChanges = () => {
+        const url='http://localhost:8090/updatePassword';
+        axios({
+            method: 'post',
+            url: url,
+            data: this.getUserData()
+        })
+            .then(this.props.clickHandler(9, <ProfileForm userId={this.props.userId} clickHandler={this.props.clickHandler} stateUpdater={this.props.stateUpdater}/>))
+            .catch(err=>console.log(err))
+    };
+
+    getUserData = () => {
+        return {
+            id: this.props.userId,
+            oldPassword: this.state.currentPassword,
+            newPassword: this.state.newPassword,
+        };
     };
 
     validateData = () => {

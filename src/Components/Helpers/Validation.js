@@ -20,7 +20,14 @@ class Validator {
             return {errorsCount: 1, errorMessage: errorMessage};
         }
         return {errorsCount: 0, errorMessage: ""};
-    }
+    };
+
+    static checkIfGreater = (from, to, errorMessage) => {
+        if (!(this.checkIfFilled(from) && this.checkIfFilled(to) && from < to)) {
+            return {errorsCount: 1, errorMessage: errorMessage};
+        }
+        return {errorsCount: 0, errorMessage: ""};
+    };
 }
 
 export default Validator;
