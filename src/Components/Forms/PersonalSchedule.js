@@ -29,7 +29,6 @@ class PersonalSchedule extends React.Component {
             person: "15",
             error: null
         };
-        this.Schedule = [];
     }
 
     render() {
@@ -65,7 +64,7 @@ class PersonalSchedule extends React.Component {
                                 title={"Working from home"} type={"checkbox"} width={"2rem"}/>
                 </div>
                 <div className={"o-ScheduleForm"}>
-                    <ScheduleForm scheduleContainerClass={"o-ScheduleContainerB"}/>
+                    <ScheduleForm userId={this.props.userId} scheduleContainerClass={"o-ScheduleContainerB"}/>
                 </div>
                 {this.state.error}
             </div>
@@ -119,6 +118,7 @@ class PersonalSchedule extends React.Component {
     };
 
     setSchedule = () => {
+        this.Schedule = [];
         if (this.validateData()) {
             this.Schedule.push(
                 {
@@ -149,7 +149,7 @@ class PersonalSchedule extends React.Component {
                     workFromHome: this.state.workFromHome3
                 }
             );
-            this.saveData(this.getScheduleData());
+            this.saveData(this.postScheduleData());
         }
     };
 
@@ -170,7 +170,7 @@ class PersonalSchedule extends React.Component {
             .catch(err => console.log(err.response))
     };
 
-    getScheduleData = () => {
+    postScheduleData = () => {
         return {
             workTimeLists: this.Schedule
         }
