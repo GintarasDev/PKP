@@ -15,7 +15,11 @@ class PreviewPanel extends React.Component {
         if (this.props.clickHandler === undefined || this.props.clickHandler === null) {
             console.log("function is not assigned...");
         } else {
-            this.props.clickHandler(this.props.itemNo, this.props.component);
+            if (this.props.boardId !== null){
+                this.props.clickHandler(this.props.boardId);
+            } else {
+                this.props.clickHandler(this.props.itemNo, this.props.component);
+            }
         }
     };
 

@@ -2,12 +2,16 @@ import React from 'react';
 import './Styles/Boards.scss';
 import PreviewPanel from "../Basics/PreviewPanel";
 import Board from "./Board";
+import axios from "axios";
+import PopUpError from "../Basics/PopUpError";
 
 class AllBoards extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            dataToDisplay: null
+            dataToDisplay: null,
+            error: null,
+            activeUserId: this.props.userId
         };
         this.data = [];
     }
@@ -18,44 +22,54 @@ class AllBoards extends React.Component {
                 <div className="o-AllBoardsMargin">
                     {this.state.dataToDisplay}
                 </div>
+                {this.state.error}
             </div>
         );
     }
 
     componentDidMount() {
-        this.loadBoards();
+        this.getData();
     }
 
-    loadBoards = () => {
-        //connect to api here :)
-        this.boardsData = [
-            [{title: "Number of members", value: "14"}, {title: "Number of members", value: "17"}, {title: "Number of members", value: "20"}, {title: "Number of members", value: "15"}],
-            [{title: "Number of members", value: "14"}, {title: "Number of members", value: "17"}, {title: "Number of members", value: "20"}, {title: "Number of members", value: "15"}],
-            [{title: "Number of members", value: "14"}, {title: "Number of members", value: "17"}, {title: "Number of members", value: "20"}, {title: "Number of members", value: "15"}],
-            [{title: "Number of members", value: "14"}, {title: "Number of members", value: "17"}, {title: "Number of members", value: "20"}, {title: "Number of members", value: "15"}],
-            [{title: "Number of members", value: "14"}, {title: "Number of members", value: "17"}, {title: "Number of members", value: "20"}, {title: "Number of members", value: "15"}],
-            [{title: "Number of members", value: "14"}, {title: "Number of members", value: "17"}, {title: "Number of members", value: "20"}, {title: "Number of members", value: "15"}],
-            [{title: "Number of members", value: "14"}, {title: "Number of members", value: "17"}, {title: "Number of members", value: "20"}, {title: "Number of members", value: "15"}],
-            [{title: "Number of members", value: "14"}, {title: "Number of members", value: "17"}, {title: "Number of members", value: "20"}, {title: "Number of members", value: "15"}],
-            [{title: "Number of members", value: "14"}, {title: "Number of members", value: "17"}, {title: "Number of members", value: "20"}, {title: "Number of members", value: "15"}],
-            [{title: "Number of members", value: "14"}, {title: "Number of members", value: "17"}, {title: "Number of members", value: "20"}, {title: "Number of members", value: "15"}],
-            [{title: "Number of members", value: "14"}, {title: "Number of members", value: "17"}, {title: "Number of members", value: "20"}, {title: "Number of members", value: "15"}],
-            [{title: "Number of members", value: "14"}, {title: "Number of members", value: "17"}, {title: "Number of members", value: "20"}, {title: "Number of members", value: "15"}],
-            [{title: "Number of members", value: "14"}, {title: "Number of members", value: "17"}, {title: "Number of members", value: "20"}, {title: "Number of members", value: "15"}]
-        ];
-        this.boardsData.forEach(element => this.prepareData(element));
-        this.setState({dataToDisplay: this.data});
+    getData = () => {
+        const url = 'http://localhost:8090/AllUserBoards';
+        axios.get(url, {params: {id: this.props.userId}})
+            .then(response => this.loadBoards(response))
+            .catch(err => console.log(err))
     };
 
-    prepareData = (data) => {
+    loadBoards = (response) => {
+        if(response.status === 200) {
+            response.data.forEach(element => {
+                this.prepareData(
+                    [
+                        {title: "Number of members", value: element.numberOfMembers},
+                        {title: "Description", value: element.description}
+                    ],
+                    element.title,
+                    element.id);
+            });
+            this.setState({dataToDisplay: this.data});
+        }
+        else {
+            this.setState({error: (<PopUpError message={"Unknown error occurred while trying to load your boards"} clickHandler={this.removeErrorMessage} width={"20rem"}/>)});
+        }
+    };
+
+    prepareData = (data, title, id) => {
         this.data.push(
-            (<PreviewPanel clickHandler={this.openBoard.bind(this)} class={"previewPanel"} width={"20rem"} height={"20rem"} title={"Project X"} dataToDisplay={data}/>)
+            (<PreviewPanel clickHandler={this.openBoard.bind(this)} boardId={id} class={"previewPanel"} width={"20rem"}
+                           height={"14rem"} title={title} dataToDisplay={data}/>)
         );
     };
 
-    openBoard = () => {
-        //open board logic goes here :)
-        this.props.clickHandler(9, <Board boardTitle={"Project X"} assignedUsers={"17"} clickHandler={this.props.clickHandler}/>);
+    removeErrorMessage = () => {
+        this.setState({error: null});
+    };
+
+    openBoard = (id) => {
+        console.log("opening: " + id);
+        this.props.clickHandler(9, <Board userId={this.state.activeUserId} boardId={id} boardIsPersonal={false} clickHandler={this.props.clickHandler}/>);
         console.log("project clicked");
     }
 }
