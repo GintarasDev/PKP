@@ -1,59 +1,46 @@
 
 .o-SignupFormWrap {
   position: fixed;
-  display: inline-block;
+  display: grid;
+  grid-auto-columns: minmax(3rem, auto);
+  grid-template-rows: 4.5rem auto 30rem 4.5rem auto;
   box-sizing: border-box;
   width: 100%;
   height: 100%;
-  left: 50%;
-  top: 50%;
 }
 
-.o-Signup {
-  position: relative;
-  width: 43rem;
-  transform: translate(-50%, -50%);
-  text-align: center;
+.ob-InputFields {
+  grid-row: 3;
+  margin: 0 auto;
+  max-width: 41.5rem;
 }
 
-.o-SignupFormWrap > .o-Button {
+.oa-Login {
+  grid-column: 3 / span 1;
   position: fixed;
   display: inline-block;
   right: 2rem;
   top: 0;
 }
 
-.o-Signup > .o-Button {
+.oa-Signup {
   position: relative;
-  left: 50%;
-  transform: translateX(-50%);
 }
 
-.columns {
-  position: relative;
-  display: block;
-  width: 100%;
-  height: 15rem;
+.ob-InputField {
+  display: inline-block !important;
+  margin: 0.5rem 0.25rem !important;
+  max-width: 20rem;
 }
 
 .short-bios {
   position: relative;
   height: 8rem;
+  margin: 0.5rem auto !important;
   resize: none;
+  max-width: 41.5rem;
 }
 
-.column-one {
-  position: absolute;
-  display: inline-block;
-  width: 50%;
-  left: 0;
-  top: 0;
-}
+@media only screen and (max-width : 690px) {
 
-.column-two {
-  position: absolute;
-  display: inline-block;
-  width: 50%;
-  right: 0;
-  top: 0;
 }

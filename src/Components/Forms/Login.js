@@ -24,11 +24,11 @@ class LoginForm extends React.Component {
     render() {
         return (
             <div className="o-LoginFormWrap">
-                <Button clickHandler={this.signUp} text={"Sign up"} width={"10rem"}/>
+                <Button className={"o-SignupBtn"} clickHandler={this.signUp} text={"Sign up"} width={"10rem"}/>
                 <div className="o-LoginForm">
-                    <Logo width={"25rem"} height={"8rem"}/>
-                    <InputField onChange={this.updateUsername} type={"text"} placeholder={"Username"} width={"25rem"}/>
-                    <InputField onChange={this.updatePassword} type={"password"} placeholder={"Password"} width={"25rem"}/>
+                    <Logo width={"8rem"} height={"8rem"}/>
+                    <InputField class={"oa-InputField"} onChange={this.updateUsername} type={"text"} placeholder={"Username"} width={"90%"}/>
+                    <InputField class={"oa-InputField"} onChange={this.updatePassword} type={"password"} placeholder={"Password"} width={"90%"}/>
                     <Button clickHandler={this.logIn} text={"Log in"} width={"10rem"}/>
                     <Link text={"Forgot my password"} href={"https://www.supportivecarematters.org/info/wher-can-i-find-emotional-support/"}/>
                 </div>
