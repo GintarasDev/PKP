@@ -33,7 +33,7 @@ class Board extends React.Component {
                 <div className={"o-BoardHeader"} >
                     <span className={"o-Left"}>
                         <img src={require("../Assets/personal.svg")} alt={"Assigned users"} />
-                        {" " + this.state.assignedUsers}
+                        {" " + this.state.numberOfAssignedUsers}
                     </span>
                     <span className={"o-Center"}>
                         {this.state.boardTitle}
@@ -69,7 +69,10 @@ class Board extends React.Component {
     };
 
     prepareData = (response) => {
+        console.log(response.data.taskData);
       if (response.status === 200) {
+          for(let i=0; i<response.data.taskData.length; i++)
+          {this.prepareTask(response.data.taskData[i])}
           this.setState({
               boardTitle: response.data.title,
               boardDescription: response.data.description,
@@ -79,6 +82,32 @@ class Board extends React.Component {
       } else {
           console.log("error: " + response);
       }
+    };
+
+    prepareTask = (data) => {
+        this.temp = [];
+
+        if (data.status === "BACKLOG") {
+            this.setState({backlogTasks: this.getAway(data, this.state.backlogTasks)});
+        }
+        else if (data.status === "TO_DO") {
+            this.setState({toDoTasks: this.getAway(data, this.state.toDoTasks)});
+        }
+        else if (data.status === "IN_PROGRESS") {
+            this.setState({inProgressTasks: this.getAway(data, this.state.inProgressTasks)});
+        }
+        else if (data.status === "ON_HOLD") {
+            this.setState({onHoldTasks: this.getAway(data, this.state.onHoldTasks)});
+        }
+        else if (data.status === "DONE") {
+            this.setState({doneTasks: this.getAway(data, this.state.doneTasks)});
+        }
+    };
+
+    getAway = (data, temp) => {
+        this.temp = temp;
+        this.temp.push({id: data.id, value: (<TaskPreview id={data.id} board={data.status} width={"14rem"} title={data.title} estimatedTime={data.estimatedTime} taskCreator={data.adminUserId} dropFunction={this.removeTaskFromBoard.bind(this)} clickHandler={this.editTask} />)});
+        return this.temp;
     };
 
     editBoard = () => {
