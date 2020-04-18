@@ -6,6 +6,7 @@ import DeleteProfile from "../Basics/DeleteProfile";
 import Board from "./Board";
 import AllBoards from "./Boards";
 import axios from "axios";
+import PopUpError from "../Basics/PopUpError";
 
 class BoardEdit extends React.Component {
     constructor(props) {
@@ -20,7 +21,7 @@ class BoardEdit extends React.Component {
     };
 
     render() {
-        console.log("users board: " + this.assignedUsers);
+        console.log(this.assignedUsers);
         return (
             <div className={'boardEditContainer'}>
                 <div>
@@ -32,6 +33,7 @@ class BoardEdit extends React.Component {
                     <Button clickHandler={this.cancelChanges} color={'orange'} width={'14rem'} text={'Cancel changes'}/>
                 </div>
                 {this.state.popUp}
+                {this.state.error}
             </div>
         );
     };
@@ -80,11 +82,13 @@ class BoardEdit extends React.Component {
     };
 
     getBoardData = () => {
+        console.log(this.props.boardId);
         return {
+            id: this.props.boardId,
             title: this.state.title,
             description: this.state.description,
             adminUserId: this.props.userId,
-            assignedUsers: this.assignedUsers
+            assignedUsers: this.props.assignedUsers
         };
     };
 
@@ -93,11 +97,10 @@ class BoardEdit extends React.Component {
         axios({
             method: 'post',
             url: url,
-            data: boardData,
-            params: this.props.boardId
+            data: boardData
         })
             .then(response=>this.saveSuccessful(response))
-            .catch(err=>console.log(err.response))
+            .catch(err=>console.log(err.response.data))
     };
 
     saveSuccessful = (response) => {
@@ -105,6 +108,7 @@ class BoardEdit extends React.Component {
             this.props.returnHandler(this.props.boardIsPersonal ? 1 : 9, <Board clickHandler={this.props.returnHandler} assignedUsers={"1 (personal)"} boardTitle={"Personal"} boardId={this.props.boardId} boardIsPersonal={this.props.boardIsPersonal} />)
         }
     };
+
 }
 
 export default BoardEdit;

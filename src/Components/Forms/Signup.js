@@ -26,28 +26,37 @@ class SignupForm extends React.Component {
         };
         this.errorsCount = 0;
     }
+
     render() {
         return (
             <div className="o-SignupFormWrap">
-                <Button clickHandler={this.logIn} text={"Log in"} width={"10rem"}/>
-                <div className="o-Signup">
-                    <Logo width={"20rem"} height={"5rem"}/>
-                    <div className={"columns"}>
-                        <div className={"column-one"}>
-                            <InputField onChange={this.updateName} type={"text"} placeholder={"Name*"} width={"20rem"}/>
-                            <InputField onChange={this.updateUsername} type={"text"} placeholder={"Username*"} width={"20rem"}/>
-                            <InputField onChange={this.updateAddress} type={"text"} placeholder={"Address"} width={"20rem"}/>
-                            <InputField onChange={this.updatePassword} type={"password"} placeholder={"Password*"} width={"20rem"}/>
-                        </div>
-                        <div className={"column-two"}>
-                            <InputField onChange={this.updateSurname} type={"text"} placeholder={"Surname*"} width={"20rem"}/>
-                            <InputField onChange={this.updateEmail} type={"text"} placeholder={"Email*"} width={"20rem"}/>
-                            <InputField onChange={this.updatePhoneNumber} type={"text"} placeholder={"Phone number"} width={"20rem"}/>
-                            <InputField onChange={this.updateRepeatPassword} type={"password"} placeholder={"Repeat password*"} width={"20rem"}/>
-                        </div>
-                    </div>
-                    <InputField class={"short-bios"} onChange={this.updateShortBios} type={"area"} placeholder={"Short bios"} width={"41.5rem"}/>
-                    <Button clickHandler={this.signUp} text={"Sign up"} width={"10rem"}/>
+                <Button class={".oa-Login"} clickHandler={this.logIn} text={"Log in"} width={"10rem"}/>
+                <div className={"ob-InputFields"}>
+                    <Logo width={"5rem"} height={"5rem"}/>
+                    <br/>
+                    <InputField class={"ob-InputField"} onChange={this.updateName} type={"text"} placeholder={"Name*"}
+                                width={"100%"}/>
+                    <InputField class={"ob-InputField"} onChange={this.updateSurname} type={"text"}
+                                placeholder={"Surname*"}
+                                width={"100%"}/>
+                    <InputField class={"ob-InputField"} onChange={this.updateUsername} type={"text"}
+                                placeholder={"Username*"} width={"100%"}/>
+                    <InputField class={"ob-InputField"} onChange={this.updateEmail} type={"text"} placeholder={"Email*"}
+                                width={"100%"}/>
+                    <InputField class={"ob-InputField"} onChange={this.updateAddress} type={"text"}
+                                placeholder={"Address"}
+                                width={"100%"}/>
+                    <InputField class={"ob-InputField"} onChange={this.updatePhoneNumber} type={"text"}
+                                placeholder={"Phone number"} width={"100%"}/>
+                    <InputField class={"ob-InputField"} onChange={this.updatePassword} type={"password"}
+                                placeholder={"Password*"}
+                                width={"100%"}/>
+                    <InputField class={"ob-InputField"} onChange={this.updateRepeatPassword} type={"password"}
+                                placeholder={"Repeat password*"}
+                                width={"100%"}/>
+                    <InputField class={"short-bios"} onChange={this.updateShortBios} type={"area"}
+                                placeholder={"Short bios"} width={"100%"}/>
+                    <Button class={".ob-Signup"} clickHandler={this.signUp} text={"Sign up"} width={"10rem"}/>
                 </div>
                 {this.state.error}
             </div>
@@ -55,28 +64,33 @@ class SignupForm extends React.Component {
     }
 
     signUp = () => {
-        if(this.validateData()) {
+        if (this.validateData()) {
             this.saveData(this.getUserData());
         }
     };
 
     signUpSuccessful = (response) => {
         if (response.status === 200) {
-            this.props.stateUpdater({currentPage: (<Navigation userEssentialData={response.data} stateUpdater={this.props.stateUpdater} />)})
+            this.props.stateUpdater({
+                currentPage: (<Navigation userEssentialData={response.data} stateUpdater={this.props.stateUpdater}/>)
+            })
         } else {
-            this.setState({error: (<PopUpError message={"Unknown error occurred while registering, please try again latter"} clickHandler={this.removeErrorMessage} width={"20rem"}/>)});
+            this.setState({
+                error: (<PopUpError message={"Unknown error occurred while registering, please try again latter"}
+                                    clickHandler={this.removeErrorMessage} width={"20rem"}/>)
+            });
         }
     };
 
     saveData = (userData) => {
-        const url='http://localhost:8090/signup';
+        const url = 'http://localhost:8090/signup';
         axios({
             method: 'post',
             url: url,
             data: userData
         })
-            .then(response=>this.signUpSuccessful(response))
-            .catch(err=>console.log(err))
+            .then(response => this.signUpSuccessful(response))
+            .catch(err => console.log(err))
     };
 
     getUserData = () => {
@@ -99,12 +113,18 @@ class SignupForm extends React.Component {
             {element: this.state.username, errorMessage: "Username field cannot be left empty"},
             {element: this.state.email, errorMessage: "Email field cannot be left empty"}
         ]);
-        let passwordErrors = Validator.checkPassword(this.state.password, this.state.repeatPassword,"Passwords do not match or passwords field is empty");
+        let passwordErrors = Validator.checkPassword(this.state.password, this.state.repeatPassword, "Passwords do not match or passwords field is empty");
         if (errors.errorsCount > 0) {
-            this.setState({error: (<PopUpError message={errors.errorMessage} clickHandler={this.removeErrorMessage} width={"20rem"}/>)});
+            this.setState({
+                error: (
+                    <PopUpError message={errors.errorMessage} clickHandler={this.removeErrorMessage} width={"20rem"}/>)
+            });
             return false;
         } else if (passwordErrors.errorsCount > 0) {
-            this.setState({error: (<PopUpError message={passwordErrors.errorMessage} clickHandler={this.removeErrorMessage} width={"20rem"}/>)});
+            this.setState({
+                error: (<PopUpError message={passwordErrors.errorMessage} clickHandler={this.removeErrorMessage}
+                                    width={"20rem"}/>)
+            });
             return false;
         } else {
             return true;
