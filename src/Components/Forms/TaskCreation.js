@@ -21,7 +21,8 @@ class TaskCreation extends React.Component {
             boardId: this.props.boardId,
             status: this.props.status,
             assignee: null, //todo: limit to 1 assignee
-            groupId: 1
+            groupId: 1,
+            assignedUsers: []
         }
     };
 
@@ -29,7 +30,7 @@ class TaskCreation extends React.Component {
         return (
             <div className={'taskCreationContainer'}>
                 <div>
-                    <CUDTemplate dataUpdater={this.dataUpdater.bind(this)} type={'task'} value={'Task creation'} titlePlaceholder={"Task title"} descriptionPlaceholder={"Task description"} />
+                    <CUDTemplate dataUpdater={this.dataUpdater.bind(this)} type={'task'} value={'Task creation'} titlePlaceholder={"Task title"} descriptionPlaceholder={"Task description"} isTaskAssignee={true}/>
                 </div>
                 <div className={'taskCreationAdjust'}>
                     <Button class={"o-ActionButtons"} width={'10rem'} text={'Create'} clickHandler={this.createTask} />

@@ -9,6 +9,7 @@ class Group extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            id: null,
             dataToDisplay: null,
             groupMembers: 0,
             onlineMembers: 1,
@@ -76,6 +77,7 @@ class Group extends React.Component {
         axios.get(url, {params: {id: this.props.id}})
             .then(response => {
                 this.setState({
+                    id: response.data.id,
                     groupMembers: response.data.numberOfMembers,
                     groupTitle: response.data.title,
                     administrator: response.data.administratorFullName,
@@ -108,7 +110,7 @@ class Group extends React.Component {
 
     editGroup = () => {
         console.log("edit group");
-        this.props.clickHandler(9, <GroupEdit returnHandler={this.props.clickHandler}/>);
+        this.props.clickHandler(9, <GroupEdit returnHandler={this.props.clickHandler} id={this.state.id}/>);
     }
 }
 

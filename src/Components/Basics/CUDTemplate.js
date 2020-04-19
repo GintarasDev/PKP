@@ -97,11 +97,14 @@ class CUDTemplate extends React.Component {
     };
 
     Bar = () => {
-        this.setState({popUp: (<AssignBar assignedUser={this.addUser.bind(this)}/>)});
+        this.setState({popUp: (<AssignBar isGroups={this.props.isGroups} assignedUser={this.addUser.bind(this)}/>)});
         this.setState({overlay: (<div className={'boardTemplateClosePopUp'} onClick={this.closePopup}></div>)})
     };
 
     addUser = (id, name) => {
+        if (this.props.isTaskAssignee) {
+            this.AssignedUserList = [];
+        }
         this.AssignedUserList.push(
             <User id={id} name={name} isRemovable={true}/>
         );

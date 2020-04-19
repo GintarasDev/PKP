@@ -34,7 +34,7 @@ class AssignBar extends React.Component {
     };
 
     UserList = () => {
-        const url = 'http://localhost:8090/getAllUsersForGroups';
+        const url = this.props.isGroups ? 'http://localhost:8090/getAllUsersForGroups' : 'http://localhost:8090/getAllUsers';
         axios.get(url, {crossdomain: true})
             .then(response => {
                     response.data.forEach(element => {

@@ -44,7 +44,6 @@ class GroupEdit extends React.Component {
     };
 
     cancelChanges = () => {
-        //cancel changes logic here
         this.props.returnHandler(9, <Group clickHandler={this.props.returnHandler} />)
     };
 

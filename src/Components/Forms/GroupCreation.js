@@ -23,7 +23,7 @@ class GroupCreation extends React.Component {
             <div className={'groupCreationContainer'}>
                 <div>
                     <CUDTemplate dataUpdater={this.dataUpdater.bind(this)} value={'Group creation'}
-                                 titlePlaceholder={"Group title"} descriptionPlaceholder={"Group description"}/>
+                                 titlePlaceholder={"Group title"} descriptionPlaceholder={"Group description"}  isGroups={true}/>
                 </div>
                 <div className={'groupCreationAdjust'}>
                     <Button clickHandler={this.createGroup.bind(this)} width={'10rem'} text={'Create'}/>
