@@ -30,24 +30,34 @@ class Board extends React.Component {
     render() {
         return (
             <div className="o-PersonalBoard">
-                <div className={"o-BoardHeader"} >
-                    <span className={"o-Left"}>
-                        <img src={require("../Assets/personal.svg")} alt={"Assigned users"} />
-                        {" " + this.state.assignedUsers}
-                    </span>
-                    <span className={"o-Center"}>
-                        {this.state.boardTitle}
-                    </span>
-                    <span className={"o-Right"}>
-                        <Button clickHandler={this.editBoard} iconPath={'edit.svg'} width={"12rem"} height={"1.5rem"} text={"Edit board"} />
-                    </span>
+                <div className={"o-BoardHeader o-Left"}>
+                    <img src={require("../Assets/personal.svg")} alt={"Assigned users"}/>
+                    {" " + this.state.assignedUsers}
+                </div>
+                <div className={"o-BoardHeader o-Center"}>
+                    {this.state.boardTitle}
+                </div>
+                <div className={"o-BoardHeader o-Right"}>
+                    <Button clickHandler={this.editBoard} iconPath={'edit.svg'} width={"12rem"} height={"1.5rem"}
+                            text={"Edit board"}/>
                 </div>
                 <div className="o-Boards">
-                    <PreviewPanel class={"taskPanel"} title={"Backlog"} height={"40rem"} width={"16rem"} additionalElement={this.addTaskButton("BACKLOG")} additionalElementHeight={"1.2rem"} dataToDisplay={this.state.backlogTasks} addElement={this.addElement.bind(this)} />
-                    <PreviewPanel class={"taskPanel"} title={"To do"} height={"40rem"} width={"16rem"} additionalElement={this.addTaskButton("TO_DO")} additionalElementHeight={"1.2rem"} dataToDisplay={this.state.toDoTasks} addElement={this.addElement.bind(this)} />
-                    <PreviewPanel class={"taskPanel"} title={"In progress"} height={"40rem"} width={"16rem"} additionalElement={this.addTaskButton("IN_PROGRESS")} additionalElementHeight={"1.2rem"} dataToDisplay={this.state.inProgressTasks} addElement={this.addElement.bind(this)} />
-                    <PreviewPanel class={"taskPanel"} title={"On hold"} height={"40rem"} width={"16rem"} additionalElement={this.addTaskButton("ON_HOLD")} additionalElementHeight={"1.2rem"} dataToDisplay={this.state.onHoldTasks} addElement={this.addElement.bind(this)} />
-                    <PreviewPanel class={"taskPanel"} title={"Done"} height={"40rem"} width={"16rem"} additionalElement={this.addTaskButton("DONE")} additionalElementHeight={"1.2rem"} dataToDisplay={this.state.doneTasks} addElement={this.addElement.bind(this)} />
+                    <PreviewPanel class={"taskPanel"} title={"Backlog"} height={"40rem"} width={"16rem"}
+                                  additionalElement={this.addTaskButton("BACKLOG")} additionalElementHeight={"1.2rem"}
+                                  dataToDisplay={this.state.backlogTasks} addElement={this.addElement.bind(this)}/>
+                    <PreviewPanel class={"taskPanel"} title={"To do"} height={"40rem"} width={"16rem"}
+                                  additionalElement={this.addTaskButton("TO_DO")} additionalElementHeight={"1.2rem"}
+                                  dataToDisplay={this.state.toDoTasks} addElement={this.addElement.bind(this)}/>
+                    <PreviewPanel class={"taskPanel"} title={"In progress"} height={"40rem"} width={"16rem"}
+                                  additionalElement={this.addTaskButton("IN_PROGRESS")}
+                                  additionalElementHeight={"1.2rem"} dataToDisplay={this.state.inProgressTasks}
+                                  addElement={this.addElement.bind(this)}/>
+                    <PreviewPanel class={"taskPanel"} title={"On hold"} height={"40rem"} width={"16rem"}
+                                  additionalElement={this.addTaskButton("ON_HOLD")} additionalElementHeight={"1.2rem"}
+                                  dataToDisplay={this.state.onHoldTasks} addElement={this.addElement.bind(this)}/>
+                    <PreviewPanel class={"taskPanel"} title={"Done"} height={"40rem"} width={"16rem"}
+                                  additionalElement={this.addTaskButton("DONE")} additionalElementHeight={"1.2rem"}
+                                  dataToDisplay={this.state.doneTasks} addElement={this.addElement.bind(this)}/>
                 </div>
             </div>
         );
@@ -62,27 +72,31 @@ class Board extends React.Component {
     }
 
     getData = () => {
-        const url='http://localhost:8090/board';
+        const url = 'http://localhost:8090/board';
         axios.get(url, {params: {id: this.props.boardId}})
-            .then(response=>this.prepareData(response))
-            .catch(err=>console.log(err.response))
+            .then(response => this.prepareData(response))
+            .catch(err => console.log(err.response))
     };
 
     prepareData = (response) => {
-      if (response.status === 200) {
-          this.setState({
-              boardTitle: response.data.title,
-              boardDescription: response.data.description,
-              numberOfAssignedUsers: response.data.assignedUsers.length,
-              assignedUsers: response.data.assignedUsers
-          });
-      } else {
-          console.log("error: " + response);
-      }
+        if (response.status === 200) {
+            this.setState({
+                boardTitle: response.data.title,
+                boardDescription: response.data.description,
+                numberOfAssignedUsers: response.data.assignedUsers.length,
+                assignedUsers: response.data.assignedUsers
+            });
+        } else {
+            console.log("error: " + response);
+        }
     };
 
     editBoard = () => {
-        this.props.clickHandler(9, <BoardEdit userId={this.props.userId} boardId={this.props.boardId} title={this.state.boardTitle} description={this.state.boardDescription} assignedUsers={this.state.assignedUsers} boardIsPersonal={this.props.boardIsPersonal} returnHandler={this.props.clickHandler} />);
+        this.props.clickHandler(9, <BoardEdit userId={this.props.userId} boardId={this.props.boardId}
+                                              title={this.state.boardTitle} description={this.state.boardDescription}
+                                              assignedUsers={this.state.assignedUsers}
+                                              boardIsPersonal={this.props.boardIsPersonal}
+                                              returnHandler={this.props.clickHandler}/>);
     };
 
     preparePersonalTasks = () => {
@@ -93,17 +107,37 @@ class Board extends React.Component {
         let onHoldTasks = [];
         let doneTasks = [];
         backlogTasks = [
-            {id: "0", value: (<TaskPreview id={"0"} board="backlog" width={"14rem"} title={"Prepare UI UX project for tommy the carrot"} estimatedTime={"3.52"} taskCreator={"Tomas Petrikevich"} dropFunction={this.removeTaskFromBoard.bind(this)} clickHandler={this.editTask} />)},
-            ];
+            {id: "0",
+                value: (<TaskPreview id={"0"} board="backlog" width={"14rem"}
+                                     title={"Prepare UI UX project for tommy the carrot"} estimatedTime={"3.52"}
+                                     taskCreator={"Tomas Petrikevich"}
+                                     dropFunction={this.removeTaskFromBoard.bind(this)} clickHandler={this.editTask}/>)
+            },
+        ];
         toDoTasks = [
-            {id: "5", value: (<TaskPreview id={"5"} board="todo" width={"14rem"} title={"Prepare UI UX project for tommy the carrot"} estimatedTime={"3.52"} taskCreator={"Tomas Petrikevich"} dropFunction={this.removeTaskFromBoard.bind(this)} clickHandler={this.editTask} />)},
-            ];
+            {id: "5",
+                value: (<TaskPreview id={"5"} board="todo" width={"14rem"}
+                                     title={"Prepare UI UX project for tommy the carrot"} estimatedTime={"3.52"}
+                                     taskCreator={"Tomas Petrikevich"}
+                                     dropFunction={this.removeTaskFromBoard.bind(this)} clickHandler={this.editTask}/>)
+            },
+        ];
         inProgressTasks = [
-            {id: "13", value: (<TaskPreview id={"13"} board="inprogress" width={"14rem"} title={"Prepare UI UX project for tommy the carrot"} estimatedTime={"3.52"} taskCreator={"Tomas Petrikevich"} dropFunction={this.removeTaskFromBoard.bind(this)} clickHandler={this.editTask} />)},
-            ];
+            {id: "13",
+                value: (<TaskPreview id={"13"} board="inprogress" width={"14rem"}
+                                     title={"Prepare UI UX project for tommy the carrot"} estimatedTime={"3.52"}
+                                     taskCreator={"Tomas Petrikevich"}
+                                     dropFunction={this.removeTaskFromBoard.bind(this)} clickHandler={this.editTask}/>)
+            },
+        ];
         onHoldTasks = [];
         doneTasks = [
-            {id: "17", value: (<TaskPreview id={"17"} board="done" width={"14rem"} title={"Prepare UI UX project for tommy the carrot"} estimatedTime={"3.52"} taskCreator={"Tomas Petrikevich"} dropFunction={this.removeTaskFromBoard.bind(this)} clickHandler={this.editTask} />)},
+            {id: "17",
+                value: (<TaskPreview id={"17"} board="done" width={"14rem"}
+                                     title={"Prepare UI UX project for tommy the carrot"} estimatedTime={"3.52"}
+                                     taskCreator={"Tomas Petrikevich"}
+                                     dropFunction={this.removeTaskFromBoard.bind(this)} clickHandler={this.editTask}/>)
+            },
         ];
 
         this.setState({
@@ -118,18 +152,21 @@ class Board extends React.Component {
     };
 
     editTask = () => {
-        this.props.clickHandler(9, <TaskEdit returnHandler={this.props.clickHandler} boardIsPersonal={true} boardId={this.state.boardId} />);
+        this.props.clickHandler(9, <TaskEdit returnHandler={this.props.clickHandler} boardIsPersonal={true}
+                                             boardId={this.state.boardId}/>);
     };
 
     createNewTask = (status) => {
-        this.props.clickHandler(9, <TaskCreation returnHandler={this.props.clickHandler} boardIsPersonal={false} boardId={1} status={status} userId={this.props.userId} />);
+        this.props.clickHandler(9, <TaskCreation returnHandler={this.props.clickHandler} boardIsPersonal={false}
+                                                 boardId={1} status={status} userId={this.props.userId}/>);
     };
 
     addTaskButton = (status) => {
         return (
-          <div className="o-AddTask" onClick={() => this.createNewTask(status)} >
-              <img src={require("../Assets/new.svg")} style={{width: "3rem", height: "3rem"}} alt={"Create new task"}/>
-          </div>
+            <div className="o-AddTask" onClick={() => this.createNewTask(status)}>
+                <img src={require("../Assets/new.svg")} style={{width: "3rem", height: "3rem"}}
+                     alt={"Create new task"}/>
+            </div>
         );
     };
 
@@ -138,20 +175,16 @@ class Board extends React.Component {
         if (boardTitle === "backlog") {
             this.removeTask(id, this.state.backlogTasks);
             this.setState({backlogTasks: this.temp});
-        }
-        else if (boardTitle === "todo") {
+        } else if (boardTitle === "todo") {
             this.removeTask(id, this.state.toDoTasks);
             this.setState({toDoTasks: this.temp});
-        }
-        else if (boardTitle === "inprogress") {
+        } else if (boardTitle === "inprogress") {
             this.removeTask(id, this.state.inProgressTasks);
             this.setState({inProgressTasks: this.temp});
-        }
-        else if (boardTitle === "onhold") {
+        } else if (boardTitle === "onhold") {
             this.removeTask(id, this.state.onHoldTasks);
             this.setState({onHoldTasks: this.temp});
-        }
-        else if (boardTitle === "done") {
+        } else if (boardTitle === "done") {
             this.removeTask(id, this.state.doneTasks);
             this.setState({doneTasks: this.temp});
         }
@@ -162,7 +195,7 @@ class Board extends React.Component {
     };
 
     checkElement = (element, id) => {
-        if(element.id !== id) {
+        if (element.id !== id) {
             this.temp.push(element);
         } else {
             this.elementToAdd = element;
@@ -176,23 +209,19 @@ class Board extends React.Component {
             this.temp = this.state.backlogTasks;
             this.temp.push(this.elementToAdd);
             this.setState({backlogTasks: this.temp});
-        }
-        else if (boardTitle === "To do") {
+        } else if (boardTitle === "To do") {
             this.temp = this.state.toDoTasks;
             this.temp.push(this.elementToAdd);
             this.setState({toDoTasks: this.temp});
-        }
-        else if (boardTitle === "In progress") {
+        } else if (boardTitle === "In progress") {
             this.temp = this.state.inProgressTasks;
             this.temp.push(this.elementToAdd);
             this.setState({inProgressTasks: this.temp});
-        }
-        else if (boardTitle === "On hold") {
+        } else if (boardTitle === "On hold") {
             this.temp = this.state.onHoldTasks;
             this.temp.push(this.elementToAdd);
             this.setState({onHoldTasks: this.temp});
-        }
-        else if (boardTitle === "Done") {
+        } else if (boardTitle === "Done") {
             this.temp = this.state.doneTasks;
             this.temp.push(this.elementToAdd);
             this.setState({doneTasks: this.temp});

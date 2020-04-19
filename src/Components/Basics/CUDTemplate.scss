@@ -3,50 +3,69 @@
 
 .boardTemplateContainer {
   position: relative;
-  height: 40rem;
-  width: 43.5rem;
-  font-size: $main-font-size;
-  color: $main-text-color;
-  bottom: 1rem;
-  top: 0.5rem;
-  text-align: left;
-  margin-left: 6.25rem;
+  width: 100%;
+  display: grid;
+  grid-template-columns:  minmax(5rem, auto);
+  grid-template-rows: 2rem 17rem auto auto 10rem;
 }
 
-.boardTemplateAdjust {
-  margin-left: -1.5rem;
+.boardTemplateContainer > label {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.o-CudInput {
+  margin: 1rem 0 !important;
+  width: 100%;
+}
+
+.boardInputs {
+  width: 100%;
+  max-width: 43.5rem;
+  text-align: center;
+  grid-column: 1;
+  grid-row: 2
 }
 
 .boardTemplateRow {
-  display: flex;
+  display: block;
+}
+
+.boardTemplateRow > div {
+  display: inline-block;
 }
 
 .o-AdditionalRow {
- margin: 2rem 0 0 0;
+  grid-column: 1 ;
+  grid-row: 3;
+  margin: 2rem 0 0 0;
+}
+
+.boardTemplateAssignedUsers {
+  grid-column: 1;
+  grid-row: 4;
+}
+
+.boardTemplateUserListTaskHeight {
+  height: 100%;
+  max-width: 43.5rem;
+  overflow-y: auto;
+  grid-column: 1;
+  grid-row: 5;
 }
 
 .boardTemplateInline {
   margin-right: 0.5rem;
 }
 
-.boardTemplateUserListHeight {
-  height: 12rem;
-  overflow-y: auto;
-}
-
 .o-DateTitle {
-  display: inline-block;
-  position: absolute;
+  display: block;
+  position: relative;
   margin: -2rem 0 0 0;
-  left: 1rem
-}
-
-.o-toSide {
-  left: 16rem;
 }
 
 .boardTemplateInlineSat {
-  filter: invert(99%) sepia(14%) saturate(15%) hue-rotate(114deg) brightness(115%) contrast(100%);
+  filter: invert(100%);
   width: 2rem;
   height: 2rem;
 }
@@ -60,38 +79,19 @@
 }
 
 .o-EstimatedTime {
+  display: inline-block;
   margin-top: 0.25rem;
 }
 
-.boardTemplateUserListTaskHeight {
-  height: 10rem;
-  overflow-y: auto;
-}
-
-@media only screen and (max-width : 2000px) {
-  .boardTemplateUserListTaskHeight {
-    height: 10rem;
-    overflow-y: auto;
+@media only screen and (max-width : 495px) {
+  .ob-AddAdditionalMargin {
+    margin-top: 2.5rem;
   }
-}
 
-@media only screen and (max-width : 1600px) {
-  .boardTemplateUserListTaskHeight {
-    height: 10rem;
-    overflow-y: auto;
-  }
-}
-
-@media only screen and (max-width : 1400px) {
-  .boardTemplateUserListTaskHeight {
-    height: 7rem;
-    overflow-y: auto;
-  }
-}
-
-@media only screen and (max-width : 1100px) {
-  .boardTemplateUserListTaskHeight {
-    height: 3rem;
-    overflow-y: auto;
+  .ob-MiniSearchBarPopup {
+    position: relative;
+    display: block;
+    top: 1.5rem;
+    margin-left: -12rem;
   }
 }

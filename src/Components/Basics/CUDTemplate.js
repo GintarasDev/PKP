@@ -19,35 +19,39 @@ class CUDTemplate extends React.Component {
     render() {
         this.prepareAssignedUsers();
         return (
-            <div className="boardCreationContainer">
+            <div className="boardTemplateContainer">
                 <label>{this.props.value}</label>
-                <div className={'boardTemplateAdjust'}>
-                    <InputField onChange={this.updateTitle} value={this.props.title} width={'100%'}
+                <div className={'boardInputs'}>
+                    <InputField class={"o-CudInput"} onChange={this.updateTitle} value={this.props.title} width={'100%'}
                                 placeholder={this.props.titlePlaceholder}/>
-                    <InputField onChange={this.updateDescription} value={this.props.description} class={"o-InputField"}
+                    <InputField class={"o-CudInput"} onChange={this.updateDescription} value={this.props.description}
                                 type={'area'} width={'100%'} height={'12rem'}
                                 placeholder={this.props.descriptionPlaceholder}/>
                 </div>
                 {
                     this.props.type === "task" ?
                         (<div className={'boardTemplateRow o-AdditionalRow'}>
-                            <span className={"o-DateTitle"}>Start date</span>
-                            <InputField onChange={this.updateStart} type={"date"} width={'15rem'}
-                                        placeholder={'Start'}/>
-                            <span className={"o-DateTitle o-toSide"}>Deadline</span>
-                            <InputField onChange={this.updateDeadline} type={"date"} width={'15rem'}
-                                        placeholder={'Deadline'}/>
+                            <div>
+                                <span className={"o-DateTitle"}>Start date</span>
+                                <InputField onChange={this.updateStart} type={"date"} width={'15rem'}
+                                            placeholder={'Start'}/>
+                            </div>
+                            <div className={"ob-AddAdditionalMargin"}>
+                                <span className={"o-DateTitle"}>Deadline</span>
+                                <InputField onChange={this.updateDeadline} type={"date"} width={'15rem'}
+                                            placeholder={'Deadline'}/>
+                            </div>
                             <InputField onChange={this.updateEstimatedTime} class={"o-EstimatedTime"} width={'12rem'}
                                         placeholder={'Estimated time'}/>
                         </div>) : ""
                 }
-                <div className={'boardTemplateRow'}>
+                <div className={'boardTemplateRow boardTemplateAssignedUsers'}>
                     <label className={'boardTemplateInline'}>Assigned Users</label>
-                    <div className={'boardTemplateInlineImg'} onClick={this.Bar}>
+                    <div onClick={this.Bar}>
                         {this.state.img}
                     </div>
                     {this.state.overlay}
-                    <div>
+                    <div className={"ob-MiniSearchBarPopup"} >
                         {this.state.popUp}
                     </div>
                 </div>
@@ -63,8 +67,7 @@ class CUDTemplate extends React.Component {
     }
 
     prepareAssignedUsers = () => {
-        if (this.props.assignedUsers === undefined || this.props.assignedUsers === null)
-        {
+        if (this.props.assignedUsers === undefined || this.props.assignedUsers === null) {
             return;
         }
         this.AssignedUserList = [];
@@ -97,7 +100,7 @@ class CUDTemplate extends React.Component {
 
     Bar = () => {
         this.setState({popUp: (<AssignBar assignedUser={this.addUser.bind(this)}/>)});
-        this.setState({overlay: (<div className={'boardTemplateClosePopUp'} onClick={this.closePopup}></div>)})
+        this.setState({overlay: (<div className={'boardTemplateClosePopUp'} onClick={this.closePopup}/>)})
     };
 
     addUser = (id) => {

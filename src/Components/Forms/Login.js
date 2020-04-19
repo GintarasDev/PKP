@@ -18,7 +18,6 @@ class LoginForm extends React.Component {
             username: "",
             error: ""
         }
-
     }
 
     render() {

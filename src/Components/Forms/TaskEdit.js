@@ -4,7 +4,6 @@ import CUDTemplate from "../Basics/CUDTemplate";
 import Button from "../Basics/Button";
 import DeleteProfile from "../Basics/DeleteProfile";
 import Board from "./Board";
-import AllBoards from "./Boards";
 
 class TaskEdit extends React.Component {
     constructor(props) {
@@ -17,7 +16,7 @@ class TaskEdit extends React.Component {
     render() {
         return (
             <div className={'taskEditContainer'}>
-                <div>
+                <div className={"oc-CudTemplateCont"} >
                     <CUDTemplate titlePlaceholder={"Task title"} descriptionPlaceholder={"Task description"} type={'task'} value={'Task editing'}/>
                 </div>
                 <div className={'taskEditButtonBox'}>
@@ -41,7 +40,7 @@ class TaskEdit extends React.Component {
     deleteTask = () => {
         //delete task logic here
         this.props.returnHandler(this.props.boardIsPersonal ? 1 : 9, <Board clickHandler={this.props.returnHandler} assignedUsers={"1 (personal)"} boardTitle={"Personal"} boardId={this.props.boardId} boardIsPersonal={this.props.boardIsPersonal} />)
-    }
+    };
 
     cancelChanges = () => {
         //add cancel changes logic here

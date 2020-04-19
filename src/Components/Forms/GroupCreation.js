@@ -2,7 +2,6 @@ import React from 'react';
 import './Styles/GroupCreation.scss';
 import CUDTemplate from "../Basics/CUDTemplate";
 import Button from "../Basics/Button";
-import Navigation from "./Navigation";
 import PopUpError from "../Basics/PopUpError";
 import axios from "axios";
 import Validator from "../Helpers/Validation";
@@ -21,12 +20,12 @@ class GroupCreation extends React.Component {
     render() {
         return (
             <div className={'groupCreationContainer'}>
-                <div>
+                <div className={"oe-CudTemplateCont "} >
                     <CUDTemplate dataUpdater={this.dataUpdater.bind(this)} value={'Group creation'} titlePlaceholder={"Group title"} descriptionPlaceholder={"Group description"} />
                 </div>
-                <div className={'groupCreationAdjust'}>
-                    <Button clickHandler={this.createGroup.bind(this)} width={'10rem'} text={'Create'}/>
-                    <Button clickHandler={this.cancelCreation.bind(this)} color={"red"} width={'10rem'} text={'Cancel'}/>
+                <div className={'groupCreationButtons'}>
+                    <Button class={"o-ActionButtons"} clickHandler={this.createGroup.bind(this)} width={'10rem'} text={'Create'}/>
+                    <Button class={"o-ActionButtons"} clickHandler={this.cancelCreation.bind(this)} color={"red"} width={'10rem'} text={'Cancel'}/>
                 </div>
                 {this.state.error}
             </div>
