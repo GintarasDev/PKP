@@ -21,17 +21,15 @@ class ChangePasswordForm extends React.Component{
     render() {
         return (
             <div className={'o-PasswordChangeWrap'}>
-                <div className={'cPassAdjust-text'}>
-                    <label className={"cPassText"}>Change password</label>
-                </div>
+                    <div className={"cPassText"}>Change password</div>
                 <div className={'cPassCenter'}>
                     <div className={'cPassAdjust'}>
                         <Logo class={"logo"} width={"8rem"} height={"8rem"}/>
                     </div>
                     <div className={'c-InputField'} >
-                        <InputField class={"c-InputIn"} onChange={this.updateCurrentPassword} type={"password"} placeholder={"Current password"} width={"25rem"}/>
-                        <InputField class={"c-InputIn"} onChange={this.updateNewPassword} type={"password"} placeholder={"New password"} width={"25rem"}/>
-                        <InputField class={"c-InputIn"} onChange={this.updateRepeatPassword} type={"password"} placeholder={"Repeat new password"} width={"25rem"}/>
+                        <InputField class={"c-InputIn"} onChange={this.updateCurrentPassword} type={"password"} placeholder={"Current password"} width={"100%"}/>
+                        <InputField class={"c-InputIn"} onChange={this.updateNewPassword} type={"password"} placeholder={"New password"} width={"100%"}/>
+                        <InputField class={"c-InputIn"} onChange={this.updateRepeatPassword} type={"password"} placeholder={"Repeat new password"} width={"100%"}/>
                     </div>
                     <div className={'cPassContainer'}>
                         <div className={'cPassContainerBT'}>

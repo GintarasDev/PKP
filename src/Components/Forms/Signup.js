@@ -30,33 +30,34 @@ class SignupForm extends React.Component {
     render() {
         return (
             <div className="o-SignupFormWrap">
-                <Button class={".oa-Login"} clickHandler={this.logIn} text={"Log in"} width={"10rem"}/>
+                <Button class={"oa-Login"} clickHandler={this.logIn} text={"Log in"} width={"10rem"}/>
                 <div className={"ob-InputFields"}>
-                    <Logo width={"5rem"} height={"5rem"}/>
+                    <Logo width={"6rem"} height={"6rem"}/>
                     <br/>
                     <InputField class={"ob-InputField"} onChange={this.updateName} type={"text"} placeholder={"Name*"}
-                                width={"100%"}/>
+                                width={"90%"}/>
                     <InputField class={"ob-InputField"} onChange={this.updateSurname} type={"text"}
                                 placeholder={"Surname*"}
-                                width={"100%"}/>
+                                width={"90%"}/>
                     <InputField class={"ob-InputField"} onChange={this.updateUsername} type={"text"}
-                                placeholder={"Username*"} width={"100%"}/>
+                                placeholder={"Username*"} width={"90%"}/>
                     <InputField class={"ob-InputField"} onChange={this.updateEmail} type={"text"} placeholder={"Email*"}
-                                width={"100%"}/>
+                                width={"90%"}/>
                     <InputField class={"ob-InputField"} onChange={this.updateAddress} type={"text"}
                                 placeholder={"Address"}
-                                width={"100%"}/>
+                                width={"90%"}/>
                     <InputField class={"ob-InputField"} onChange={this.updatePhoneNumber} type={"text"}
-                                placeholder={"Phone number"} width={"100%"}/>
+                                placeholder={"Phone number"} width={"90%"}/>
                     <InputField class={"ob-InputField"} onChange={this.updatePassword} type={"password"}
                                 placeholder={"Password*"}
-                                width={"100%"}/>
+                                width={"90%"}/>
                     <InputField class={"ob-InputField"} onChange={this.updateRepeatPassword} type={"password"}
                                 placeholder={"Repeat password*"}
-                                width={"100%"}/>
+                                width={"90%"}/>
+                    <br/>
                     <InputField class={"short-bios"} onChange={this.updateShortBios} type={"area"}
                                 placeholder={"Short bios"} width={"100%"}/>
-                    <Button class={".ob-Signup"} clickHandler={this.signUp} text={"Sign up"} width={"10rem"}/>
+                    <Button class={"ob-Signup"} clickHandler={this.signUp} text={"Sign up"} width={"10rem"}/>
                 </div>
                 {this.state.error}
             </div>

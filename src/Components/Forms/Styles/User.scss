@@ -1,44 +1,30 @@
 @import "../../Res/Values.scss";
 @import "../../Res/Colors.scss";
 
+.userContainer {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(10rem, auto);
+  grid-template-rows: 6rem auto auto auto auto auto auto auto auto auto;
+  width: 80%;
+}
+
 .userFilterOnline {
   filter: brightness(0) saturate(100%) invert(21%) sepia(31%) saturate(4609%) hue-rotate(344deg) brightness(73%) contrast(131%);
 }
 
-.userCenterButton {
-  width: 30%;
-  text-align:center;
-  margin:auto;
-}
-
 .userText {
-  position: relative;
   font-size: $main-font-size;
   color: $main-text-color;
-  bottom: 1rem;
-  margin: 0 0 0 1rem;
 }
 
 .userCenter {
   text-align: center;
+  justify-self: center;
 }
 
 .userImg {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 1%;
-}
-
-.userContainer {
-  position: relative;
-  flex-wrap: wrap;
-  width: 72rem;
-}
-
-.userTextBox {
-  width: 70%;
-  padding: 0.5rem;
+  justify-self: center;
 }
 
 * {
@@ -47,7 +33,14 @@
 }
 
 .userButtonBox {
-  flex: 0 0 30%;
-  padding: 0.5rem;
-  text-align: right;
+  grid-column: 1;
+  grid-row: 10;
+  justify-self: center;
+  text-align: center;
+}
+
+@media only screen and (max-width : 1000px) {
+  .userContainer {
+    width: 100%;
+  }
 }

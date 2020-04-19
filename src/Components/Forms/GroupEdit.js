@@ -17,7 +17,7 @@ class GroupEdit extends React.Component {
     render() {
         return (
             <div className={'groupEditContainer'}>
-                <div>
+                <div className={"of-CudTemplateCont"} >
                     <CUDTemplate value={'Group editing'} titlePlaceholder={"Group title"} descriptionPlaceholder={"Group description"} />
                 </div>
                 <div className={'groupEditButtonBox'}>

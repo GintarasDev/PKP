@@ -27,41 +27,39 @@ class ProfileForm extends React.Component {
     render() {
         return (
             <div className={'profileContainer'}>
-                <div className={'profileTextBox'}>
-                    <div className={'profileCenter'}>
-                        <Logo class={"logo"} width={"8rem"} height={"4rem"}/>
-                    </div>
-                    <div className='profileCenter'>
-                        <label className={"profileText"}>{this.state.FullName}</label>
-                    </div>
-                    <div className={'profileCenter'}>
-                        <label className={"profileText"}>Username: {this.state.Username}</label>
-                    </div>
-                    <div className={'profileCenter'}>
-                        <label className={"profileText"}>Email: {this.state.Email}</label>
-                    </div>
-                    <div className={'profileCenter'}>
-                        <label className={"profileText"}>Phone number: {this.state.PhoneNumber}</label>
-                    </div>
-                    <div className={'profileCenter'}>
-                        <label className={"profileText"}>Address: {this.state.Address}</label>
-                    </div>
-                    <div className={'profileCenter'}>
-                        <label className={"profileText"}>Bios:</label>
-                    </div>
-                    <div className={'profileCenter'}>
-                        <p className={'profileText'}>{this.state.Bios}</p>
-                    </div>
-                    <div className={'profileImg'}>
-                        <ListItem class={'profileFilterOnline'} iconPath={"online.svg"} width={"2rem"} height={"2rem"}/>
-                    </div>
+                <div className={'profileCenter'}>
+                    <Logo class={"logo"} width={"8rem"} height={"4rem"}/>
+                </div>
+                <div className='profileCenter'>
+                    <label className={"profileText"}>{this.state.FullName}</label>
+                </div>
+                <div className={'profileCenter'}>
+                    <label className={"profileText"}>Username: {this.state.Username}</label>
+                </div>
+                <div className={'profileCenter'}>
+                    <label className={"profileText"}>Email: {this.state.Email}</label>
+                </div>
+                <div className={'profileCenter'}>
+                    <label className={"profileText"}>Phone number: {this.state.PhoneNumber}</label>
+                </div>
+                <div className={'profileCenter'}>
+                    <label className={"profileText"}>Address: {this.state.Address}</label>
+                </div>
+                <div className={'profileCenter'}>
+                    <label className={"profileText"}>Bios:</label>
+                </div>
+                <div className={'profileCenter'}>
+                    <p className={'profileText'}>{this.state.Bios}</p>
+                </div>
+                <div className={'profileImg'}>
+                    <ListItem class={'profileFilterOnline'} iconPath={"online.svg"} width={"2rem"} height={"2rem"}/>
                 </div>
                 <div className={'profileButtonBox'}>
-                    <Button clickHandler={this.setActive.bind(this)} iconPath={'edit.svg'} width={"13rem"}
+                    <Button class={"o-ActiveButton"} clickHandler={this.setActive.bind(this)} iconPath={'edit.svg'} width={"13rem"}
                             height={"1.5rem"} text={"Edit profile"}/>
-                    <Button clickHandler={this.setPassword.bind(this)} iconPath={'edit.svg'} width={"18rem"}
+                    <Button class={"o-ActiveButton"} clickHandler={this.setPassword.bind(this)} iconPath={'edit.svg'} width={"18rem"}
                             height={"1.5rem"} text={"Change password"}/>
-                    <Button clickHandler={this.signOut.bind(this)} width={"10rem"} height={"1.5rem"} text={"Sign out"}/>
+                    <Button class={"o-ActiveButton"} clickHandler={this.signOut.bind(this)} width={"10rem"} height={"1.5rem"} text={"Sign out"}/>
                 </div>
             </div>
         );
@@ -100,7 +98,8 @@ class ProfileForm extends React.Component {
     };
 
     setPassword = () => {
-        this.props.clickHandler(9, <ChangePasswordForm userId={this.props.userId} stateUpdater={this.props.stateUpdater} clickHandler={this.props.clickHandler}/>);
+        this.props.clickHandler(9, <ChangePasswordForm userId={this.props.userId} stateUpdater={this.props.stateUpdater}
+                                                       clickHandler={this.props.clickHandler}/>);
     };
 }
 

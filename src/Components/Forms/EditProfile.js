@@ -9,7 +9,7 @@ import DeleteProfile from "../Basics/DeleteProfile";
 import LoginForm from "./Login";
 import axios from "axios";
 
-class EditProfileForm extends React.Component{
+class EditProfileForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -24,31 +24,27 @@ class EditProfileForm extends React.Component{
             popUp: null
         };
     }
+
     render() {
         return (
             <div className={'eProfileContainer'}>
-                <div className={'eProfileAdjust-text'}>
-                    <label className={"eProfileText"}>Edit profile</label>
-                </div>
-                <div className={'eProfileAdjust'}>
-                    <Logo width={"8rem"} height={"8rem"}/>
-                </div>
-                <div className={'eProfileRow'}>
-                    <InputField class={"eProfile-Input"} onChange={this.updateName} type={"text"} value={this.state.name} placeholder={"Name"} width={"21.5rem"}/>
-                    <InputField class={"eProfile-Input"} onChange={this.updateSurname} type={"text"} value={this.state.surname} placeholder={"Surname"} width={"21.5rem"}/>
-                </div>
-                <div className={'eProfileRow'}>
-                    <InputField class={"eProfile-Input"} onChange={this.updateUsername} type={"text"} value={this.state.username} placeholder={"Username"} width={"21.5rem"}/>
-                    <InputField class={"eProfile-Input"} onChange={this.updateEmail} type={"text"} value={this.state.email} placeholder={"Email"} width={"21.5rem"}/>
-                </div>
-                <div className={'eProfileRow'}>
-                    <InputField class={"eProfile-Input"} onChange={this.updateAddress} type={"text"} value={this.state.address} placeholder={"Adress"} width={"21.5rem"}/>
-                    <InputField class={"eProfile-Input"} onChange={this.updatePhoneNumber} type={"text"} value={this.state.phoneNumber} placeholder={"Phone Number"} width={"21.5rem"}/>
-                </div>
-                <div className={'eProfileRow'}>
-                    <InputField class={"eProfile-Input"} onChange={this.updateShortBios} type={"area"} value={this.state.bios} placeholder={"Bios"} width={"45rem"} height={"8rem"} />
-                </div>
-                <div className={'eProfileContainerBT eProfileRow'}>
+                <div className={"eProfileText"}>Edit profile</div>
+                <Logo class={"eProfileLogo"} width={"8rem"} height={"8rem"}/>
+                <InputField class={"eProfile-Input eProfile-Left"} onChange={this.updateName} type={"text"}
+                            value={this.state.name} placeholder={"Name"} width={"100%"}/>
+                <InputField class={"eProfile-Input"} onChange={this.updateSurname} type={"text"}
+                            value={this.state.surname} placeholder={"Surname"} width={"100%"}/>
+                <InputField class={"eProfile-Input eProfile-Left"} onChange={this.updateUsername} type={"text"}
+                            value={this.state.username} placeholder={"Username"} width={"100%"}/>
+                <InputField class={"eProfile-Input"} onChange={this.updateEmail} type={"text"}
+                            value={this.state.email} placeholder={"Email"} width={"100%"}/>
+                <InputField class={"eProfile-Input eProfile-Left"} onChange={this.updateAddress} type={"text"}
+                            value={this.state.address} placeholder={"Adress"} width={"100%"}/>
+                <InputField class={"eProfile-Input"} onChange={this.updatePhoneNumber} type={"text"}
+                            value={this.state.phoneNumber} placeholder={"Phone Number"} width={"100%"}/>
+                <InputField class={"eProfile-Input eProfile-Bios"} onChange={this.updateShortBios} type={"area"}
+                            value={this.state.bios} placeholder={"Bios"} width={"100%"} height={"8rem"}/>
+                <div className={'eProfileContainerBT'}>
                     <Button color={'red'} clickHandler={this.popUp} text={"Delete profile"} width={"12rem"}/>
                     <Button clickHandler={this.saveChanges} text={"Save changes"} width={"13rem"}/>
                     <Button color={'orange'} clickHandler={this.cancelChanges} text={"Cancel changes"} width={"14rem"}/>
@@ -59,7 +55,12 @@ class EditProfileForm extends React.Component{
     }
 
     popUp = () => {
-        this.setState({popUp: (<DeleteProfile type={"password"} call={"your profile?"} dynamic={"profile"} message={"Passwords do not match"} deleteClickHandler={this.deleteProfileConfirmed} cancelClickHandler={this.removeMessage} width={"20rem"}/>)});
+        this.setState({
+            popUp: (<DeleteProfile type={"password"} call={"your profile?"} dynamic={"profile"}
+                                   message={"Passwords do not match"}
+                                   deleteClickHandler={this.deleteProfileConfirmed}
+                                   cancelClickHandler={this.removeMessage} width={"20rem"}/>)
+        });
     };
 
     removeMessage = () => {
@@ -67,14 +68,15 @@ class EditProfileForm extends React.Component{
     };
 
     saveChanges = () => {
-        const url='http://localhost:8090/updatePerson';
+        const url = 'http://localhost:8090/updatePerson';
         axios({
             method: 'post',
             url: url,
             data: this.getUserData()
         })
-            .then(this.props.clickHandler(9, <ProfileForm userId={this.props.userId} stateUpdater={this.props.stateUpdater}/>))
-            .catch(err=>console.log(err))
+            .then(this.props.clickHandler(9, <ProfileForm userId={this.props.userId}
+                                                          stateUpdater={this.props.stateUpdater}/>))
+            .catch(err => console.log(err))
     };
 
     getUserData = () => {
@@ -91,7 +93,7 @@ class EditProfileForm extends React.Component{
     };
 
     deleteProfileConfirmed = () => {
-        const url='http://localhost:8090/deleteUser';
+        const url = 'http://localhost:8090/deleteUser';
         axios({
             method: 'post',
             url: url,
@@ -100,7 +102,7 @@ class EditProfileForm extends React.Component{
             }
         })
             .then(this.props.stateUpdater({currentPage: (<LoginForm stateUpdater={this.props.stateUpdater}/>)}))
-            .catch(err=>console.log(err))
+            .catch(err => console.log(err))
     };
 
     cancelChanges = () => {

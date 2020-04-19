@@ -2,7 +2,6 @@ import React from 'react';
 import './Styles/BoardCreation.scss';
 import CUDTemplate from "../Basics/CUDTemplate";
 import Button from "../Basics/Button";
-import Group from "./Group";
 import PopUpError from "../Basics/PopUpError";
 import axios from "axios";
 import Validator from "../Helpers/Validation";
@@ -25,12 +24,12 @@ class BoardCreation extends React.Component {
     render() {
         return (
             <div className={'boardCreationContainer'}>
-                <div>
+                <div className={"od-CudTemplateCont"} >
                     <CUDTemplate dataUpdater={this.dataUpdater.bind(this)} value={'Board creation'} titlePlaceholder={"Board title"} descriptionPlaceholder={"Board description"} />
                 </div>
-                <div className={'boardCreationAdjust'}>
-                    <Button clickHandler={this.createBoard} width={'10rem'} text={'Create'}/>
-                    <Button width={'10rem'} text={'Cancel'}/>
+                <div className={'boardCreationButtons'}>
+                    <Button class={"o-ActionButtons"} clickHandler={this.createBoard} width={'10rem'} text={'Create'}/>
+                    <Button class={"o-ActionButtons"} color={"orange"} width={'10rem'} text={'Cancel'}/>
                 </div>
                 {this.state.error}
             </div>

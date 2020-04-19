@@ -6,7 +6,6 @@ import DeleteProfile from "../Basics/DeleteProfile";
 import Board from "./Board";
 import AllBoards from "./Boards";
 import axios from "axios";
-import PopUpError from "../Basics/PopUpError";
 
 class BoardEdit extends React.Component {
     constructor(props) {
@@ -24,7 +23,7 @@ class BoardEdit extends React.Component {
         console.log(this.assignedUsers);
         return (
             <div className={'boardEditContainer'}>
-                <div>
+                <div className={"oe-CudTemplateCont"} >
                     <CUDTemplate title={this.state.title} description={this.state.description} dataUpdater={this.dataUpdater.bind(this)} assignedUsers={this.assignedUsers} value={'Board editing'} titlePlaceholder={"Board title"} descriptionPlaceholder={"Board description"} />
                 </div>
                 <div className={'boardEditButtonBox'}>

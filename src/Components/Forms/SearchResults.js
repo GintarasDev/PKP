@@ -3,6 +3,7 @@ import './Styles/SearchResults.scss';
 import User from "../Basics/User";
 import PreviewPanel from "../Basics/PreviewPanel";
 import Board from "./Board";
+import UserForm from "./User";
 
 class SearchResults extends React.Component{
     constructor(props) {
@@ -44,7 +45,6 @@ class SearchResults extends React.Component{
         this.prepareGroups();
         this.prepareUsers();
 
-
         this.prepareBoards(); // leave only one instance on build
         this.prepareBoards();
         this.prepareBoards();
@@ -71,7 +71,7 @@ class SearchResults extends React.Component{
     };
 
     prepareBoards = () => {
-        let placeholderData = [{title: "Number of members", value: "14"}, {title: "Number of members", value: "17"}, {title: "Number of members", value: "20"}, {title: "Number of members", value: "15"}]
+        let placeholderData = [{title: "Number of members", value: "14"}, {title: "Number of members", value: "17"}, {title: "Number of members", value: "20"}, {title: "Number of members", value: "15"}];
         this.resultsBoards.push(
             (<PreviewPanel clickHandler={this.openBoard.bind(this)} class={"previewPanel"} width={"20rem"} height={"15rem"} title={"Project X"} dataToDisplay={placeholderData}/>)
         );
@@ -83,7 +83,7 @@ class SearchResults extends React.Component{
     };
 
     prepareGroups = () => {
-        let placeholderData = [{title: "Number of members", value: "14"}, {title: "Number of members", value: "17"}, {title: "Number of members", value: "20"}, {title: "Number of members", value: "15"}]
+        let placeholderData = [{title: "Number of members", value: "14"}, {title: "Number of members", value: "17"}, {title: "Number of members", value: "20"}, {title: "Number of members", value: "15"}];
         this.resultsGroups.push(
             (<PreviewPanel clickHandler={this.openGroup.bind(this)} class={"previewPanel"} width={"20rem"} height={"13rem"} title={"Student Workers"} dataToDisplay={placeholderData}/>)
         );
@@ -105,6 +105,7 @@ class SearchResults extends React.Component{
         //open user profile logic goes here :)
         //this.props.clickHandler(9, <Profile />);
         console.log("user clicked");
+        this.props.clickHandler(9, <UserForm clickHandler={this.props.clickHandler}/>);
     };
 }
 

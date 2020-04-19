@@ -1,51 +1,64 @@
 @import "../../Res/Values.scss";
 @import "../../Res/Colors.scss";
 
+.eProfileContainer {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(10rem, auto) minmax(10rem, auto);
+  grid-template-rows: 2rem 9rem 4rem 4rem 4rem 9rem 2rem;
+  grid-column-gap: 1rem;
+  width: 80%;
+}
+
 .eProfileText {
+  grid-column: 1 / span 2;
+  grid-row: 1;
+  text-align: left;
   font-size: $main-font-size;
   color: $main-text-color;
-  bottom: 1rem;
-  margin: 0 0 0 1rem;
 }
 
-.eProfileAdjust-text {
-  text-align: left;
-  margin-left: 1rem;
-}
-
-.eProfileAdjust {
+.eProfileLogo {
+  grid-column: 1 / span 2;
+  grid-row: 2;
   text-align: center;
-  width: 100%;
-  margin-top: -2rem;
+  width: 100% !important;
+  margin: 0 !important;
 }
 
 .short-bios {
   display: inline-block;
 }
 
-.eProfileContainer {
-   position: relative;
-   height: 40rem;
-   width: 60vw;
-   margin-left: 4.75rem;
- }
-
-.eProfileRow {
-  position: relative;
-  display: block;
-  text-align: center;
-}
-
 .eProfile-Input {
   display: inline-block;
+  margin: 0.5rem 0 !important;
+  max-width: 21.5rem;
+}
+
+.eProfile-Left {
+  position: relative;
+  margin: 0 0 0 auto;
+  justify-self: end;
+}
+
+.eProfile-Bios {
+  position: relative;
+  display: block !important;
+  grid-column: 1 / span 2;
+  grid-row: 6;
+  max-width: 44rem;
+  margin: auto;
+  justify-self: center;
 }
 
 .eProfileContainerBT {
   width: 100%;
-  float: left;
   text-align: center;
-  margin-left: 1rem;
+  grid-column: 1 / span 2;
+  grid-row: 7;
 }
+
 .eProfileContainer button{
   display: inline-block;
   margin-right: 1rem;
@@ -53,42 +66,32 @@
 }
 
 
-@media only screen and (max-width : 2000px) {
+@media only screen and (max-width : 1000px) {
   .eProfileContainer {
-    position: relative;
-    height: 40rem;
-    width: 60vw;
-    margin-left: 4.75rem;
+    width: 100%;
+    margin-top: -2rem;
   }
 }
 
-@media only screen and (max-width : 1600px) {
+@media only screen and (max-width : 450px) {
   .eProfileContainer {
-    position: relative;
-    height: 40rem;
-    width: 60vw;
-    margin-left: 4.75rem;
+    grid-column-gap: 0;
+    grid-template-columns: minmax(10rem, auto);
+    grid-template-rows: 2rem 9rem 4rem 4rem 4rem 4rem 4rem 4rem 9rem 2rem;
   }
-}
 
-@media only screen and (max-width : 1400px) {
-  .eProfileContainer {
-    position: relative;
-    height: 32rem;
-    overflow-y: auto;
-    overflow-x: hidden;
-    width: 60vw;
-    margin-left: 4.75rem;
+  .eProfile-Input {
+    grid-column: 1;
+    max-width: 100%;
   }
-}
 
-@media only screen and (max-width : 1100px) {
-  .eProfileContainer {
-    position: relative;
-    height: 27rem;
-    overflow-y: auto;
-    overflow-x: hidden;
-    width: 70vw;
-    margin-left: -1rem;
+  .eProfileContainerBT {
+    grid-column: 1;
+    grid-row: 10;
+  }
+
+  .eProfile-Bios {
+    grid-column: 1;
+    grid-row: 9;
   }
 }

@@ -25,11 +25,11 @@ class AllBoards extends React.Component {
                 {this.state.error}
             </div>
         );
-    }
+    };
 
     componentDidMount() {
         this.getData();
-    }
+    };
 
     getData = () => {
         const url = 'http://localhost:8090/AllUserBoards';

@@ -3,59 +3,45 @@
 
 .boardCreationContainer {
   position: relative;
-  height: 35rem;
-  width: 44rem;
+  display: grid;
+  grid-template-columns:  minmax(5rem, auto);
+  grid-template-rows: auto 5rem;
+  width: 80%;
   font-size: $main-font-size;
   color: $main-text-color;
   bottom: 1rem;
   top: 0.5rem;
-  margin-left: 20%;
 }
 
-.boardCreationAdjust {
-  transform: translate(60%);
-  margin-top: -1rem;
+.boardCreationButtons {
+  text-align: center;
+  grid-row: 2;
+  grid-column: 1;
+  margin-top: 1.5rem;
   width: 100%
 }
 
-@media only screen and (max-width : 2000px) {
-  .boardCreationContainer {
-    margin-left: 20%;
-  }
-
-  .boardCreationAdjust {
-    transform: translate(60%);
-  }
+.od-CudTemplateCont {
+  grid-row: 1;
+  grid-column: 1;
+  margin: 0 auto;
 }
 
-@media only screen and (max-width : 1600px) {
-  .boardCreationContainer {
-    margin-left: 15%;
-  }
-
-  .boardCreationAdjust {
-    transform: translate(55%);
-  }
+.boardInputs {
+  min-width: 43.5rem;
 }
 
-@media only screen and (max-width : 1400px) {
-  .boardCreationContainer {
-    margin-left: 5%;
-    height: 30rem;
-  }
-
-  .boardCreationAdjust {
-    transform: translate(45%);
-  }
+.o-ActionButtons {
+  display: inline-block;
+  margin: 0 1rem 0 0;
 }
 
-@media only screen and (max-width : 1100px) {
-  .boardCreationContainer {
-    margin-left: 0%;
-    height: 26rem;
+@media only screen and (max-width : 700px) {
+  .boardInputs {
+    min-width: 0;
   }
 
-  .boardCreationAdjust {
-    transform: translate(40%);
+  .boardCreationContainer {
+    width: 100%;
   }
 }

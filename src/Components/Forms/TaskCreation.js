@@ -3,7 +3,6 @@ import './Styles/TaskCreation.scss';
 import CUDTemplate from "../Basics/CUDTemplate";
 import Button from "../Basics/Button";
 import Board from "./Board";
-import Group from "./Group";
 import PopUpError from "../Basics/PopUpError";
 import axios from "axios";
 import Validator from "../Helpers/Validation";
@@ -22,20 +21,22 @@ class TaskCreation extends React.Component {
             status: this.props.status,
             assignee: null, //todo: limit to 1 assignee
             groupId: 1,
-            assignedUsers: []
+            assignedUsers: [],
+            error: ""
         }
     };
 
     render() {
         return (
             <div className={'taskCreationContainer'}>
-                <div>
-                    <CUDTemplate dataUpdater={this.dataUpdater.bind(this)} type={'task'} value={'Task creation'} titlePlaceholder={"Task title"} descriptionPlaceholder={"Task description"} isTaskAssignee={true}/>
+                <div className={"ob-CudTemplateCont"} >
+                    <CUDTemplate dataUpdater={this.dataUpdater.bind(this)} type={'task'} value={'Task creation'} titlePlaceholder={"Task title"} descriptionPlaceholder={"Task description"} />
                 </div>
-                <div className={'taskCreationAdjust'}>
+                <div className={'taskCreationButtons'}>
                     <Button class={"o-ActionButtons"} width={'10rem'} text={'Create'} clickHandler={this.createTask} />
                     <Button color={"orange"} class={"o-ActionButtons"} width={'10rem'} text={'Cancel'} clickHandler={this.cancelCreation} />
                 </div>
+                {this.state.error}
             </div>
         );
     };

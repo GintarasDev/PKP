@@ -27,7 +27,7 @@ class TaskEdit extends React.Component {
     render() {
         return (
             <div className={'taskEditContainer'}>
-                <div>
+                <div className={"oc-CudTemplateCont"} >
                     <CUDTemplate dataUpdater={this.dataUpdater.bind(this)} isTaskAssignee={true} titlePlaceholder={"Task title"} descriptionPlaceholder={"Task description"} type={'task'} value={'Task editing'}/>
                 </div>
                 <div className={'taskEditButtonBox'}>
@@ -95,10 +95,6 @@ class TaskEdit extends React.Component {
         this.props.returnHandler(this.props.boardIsPersonal ? 1 : 9, <Board clickHandler={this.props.returnHandler} assignedUsers={"1 (personal)"} boardTitle={"Personal"} boardId={this.props.boardId} boardIsPersonal={this.props.boardIsPersonal} />)
     };
 
-    // saveChanges = () => {
-    //     //add save changes logic here
-    //     this.props.returnHandler(this.props.boardIsPersonal ? 1 : 9, <Board clickHandler={this.props.returnHandler} assignedUsers={"1 (personal)"} boardTitle={"Personal"} boardId={this.props.boardId} boardIsPersonal={this.props.boardIsPersonal} />)
-    // };
 }
 
 export default TaskEdit;
