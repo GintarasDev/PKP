@@ -16,7 +16,7 @@ class TaskPreview extends React.Component {
         if (this.props.clickHandler === undefined || this.props.clickHandler === null) {
             console.log("function is not assigned...");
         } else {
-            this.props.clickHandler(this.props.itemNo, this.props.component);
+            this.props.clickHandler(this.props.id, this.props.component);
         }
     };
 

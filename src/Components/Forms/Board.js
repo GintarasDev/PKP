@@ -69,7 +69,6 @@ class Board extends React.Component {
     };
 
     prepareData = (response) => {
-        console.log(response.data.taskData);
       if (response.status === 200) {
           for(let i=0; i<response.data.taskData.length; i++)
           {this.prepareTask(response.data.taskData[i])}
@@ -146,12 +145,13 @@ class Board extends React.Component {
         });
     };
 
-    editTask = () => {
-        this.props.clickHandler(9, <TaskEdit returnHandler={this.props.clickHandler} boardIsPersonal={true} boardId={this.state.boardId} />);
+    editTask = (id, component) => {
+        console.log(id);
+        this.props.clickHandler(9, <TaskEdit returnHandler={this.props.clickHandler} boardIsPersonal={true} boardId={this.state.boardId} taskId={id}/>);
     };
 
     createNewTask = (status) => {
-        this.props.clickHandler(9, <TaskCreation returnHandler={this.props.clickHandler} boardIsPersonal={false} boardId={1} status={status} userId={this.props.userId} />);
+        this.props.clickHandler(9, <TaskCreation returnHandler={this.props.clickHandler} boardIsPersonal={false} boardId={this.state.boardId} status={status} userId={this.props.userId} />);
     };
 
     addTaskButton = (status) => {
