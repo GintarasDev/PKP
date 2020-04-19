@@ -3,6 +3,7 @@ import './Styles/Group.scss';
 import MemberStatistic from "../Basics/MemberStatistic";
 import Button from "../Basics/Button";
 import GroupEdit from "./GroupEdit";
+import axios from "axios";
 
 class Group extends React.Component {
     constructor(props) {
@@ -10,14 +11,14 @@ class Group extends React.Component {
         this.state = {
             dataToDisplay: null,
             groupMembers: 0,
-            onlineMembers: 0,
-            groupTitle: "Student workers",
-            administrator: "Tomas Lomas",
-            description: "Lorem ipsim dolor sit amet, consectetur adipiscing elit. Vivamus venenatis pulvin ipsum dolor venenatis pulvin ipsum dolor venenatis pulvin ipsum dolor ipsum dolor venenatis pulvin ipsum dolor.",
-            totalAssignedTasks: 84,
-            totalAssignedTasksEsimate: 354,
-            totalAvailableTime: 459,
-            totalAssignedTasksProcentage: (354/459 * 100) > 100 ? 100 : (354/459 * 100)
+            onlineMembers: 1,
+            groupTitle: "",
+            administrator: "",
+            description: "",
+            totalAssignedTasks: 0,
+            totalAssignedTasksEsimate: 0,
+            totalAvailableTime: 0,
+            totalAssignedTasksProcentage: 0,
             /*totalAssignedTasksEsimate / totalAvailableTime * 100*/
         };
         this.data = [];
@@ -41,17 +42,21 @@ class Group extends React.Component {
                 </header>
                 <div className={"o-GroupData"}>
                     <div className={"o-GroupStatistics"}>
-                        <div className={"o-InfoTitle"} >Group information</div>
+                        <div className={"o-InfoTitle"}>Group information</div>
                         <div>{"Administrator: " + this.state.administrator}</div>
-                        <div className={"o-GroupDescritpion"} >{"Decription: " + this.state.description}</div>
+                        <div className={"o-GroupDescritpion"}>{"Decription: " + this.state.description}</div>
                     </div>
                     <div className={"o-GroupStatistics"}>
-                        <div className={"o-InfoTitle"} >Group workload</div>
+                        <div className={"o-InfoTitle"}>Group workload</div>
                         <div>{"Total assigned task: " + this.state.totalAssignedTasks + ", " + this.state.totalAssignedTasksEsimate + "h"}</div>
                         <div>{"Total available time: " + this.state.totalAvailableTime}</div>
-                        <div className={"o-WeekTimeBar"} >
-                            <div className={(100 - this.state.totalAssignedTasksProcentage) >= 20 ? "o-WeekTimeFilled" :  "o-WeekTimeFilledRed"} style={{width: this.state.totalAssignedTasksProcentage + "%"}}>{this.state.totalAssignedTasksEsimate + "h"}</div>
-                            <div className={(100 - this.state.totalAssignedTasksProcentage) >= 20 ? "o-WeekTimeFree" :  "o-WeekTimeFreeRed"} style={{width: (100 - this.state.totalAssignedTasksProcentage) + "%"}}>{(this.state.totalAvailableTime - this.state.totalAssignedTasksEsimate) + "h"}</div>
+                        <div className={"o-WeekTimeBar"}>
+                            <div
+                                className={(100 - this.state.totalAssignedTasksProcentage) >= 20 ? "o-WeekTimeFilled" : "o-WeekTimeFilledRed"}
+                                style={{width: this.state.totalAssignedTasksProcentage + "%"}}>{this.state.totalAssignedTasksEsimate + "h"}</div>
+                            <div
+                                className={(100 - this.state.totalAssignedTasksProcentage) >= 20 ? "o-WeekTimeFree" : "o-WeekTimeFreeRed"}
+                                style={{width: (100 - this.state.totalAssignedTasksProcentage) + "%"}}>{(this.state.totalAvailableTime - this.state.totalAssignedTasksEsimate) + "h"}</div>
                         </div>
                     </div>
                 </div>
@@ -67,7 +72,20 @@ class Group extends React.Component {
     }
 
     loadBoards = () => {
-        //connect to api here :)
+        const url = 'http://localhost:8090/group';
+        axios.get(url, {params: {id: this.props.id}})
+            .then(response => {
+                this.setState({
+                    groupMembers: response.data.numberOfMembers,
+                    groupTitle: response.data.title,
+                    administrator: response.data.administratorFullName,
+                    description: response.data.description,
+                    totalAssignedTasks: response.data.membersTasksNumber,
+                    totalAssignedTasksEsimate: response.data.membersTasksTime,
+                    totalAssignedTasksProcentage: (this.state.totalAssignedTasksEsimate / this.state.totalAvailableTime * 100) > 100 ? 100 : (this.state.totalAssignedTasksEsimate / this.state.totalAvailableTime * 100)
+                });
+            })
+            .catch(err => console.log(err.response))
         this.groupsData = [
             [{title: "Number of members", value: "17"}, {
                 title: "Assigned tasks",
@@ -75,92 +93,7 @@ class Group extends React.Component {
             }, {title: "Administrator", value: "Lina Karbokaite"}, {
                 title: "Description",
                 value: "The best workers group of all time!!! you will never see better group... ever... in your whole fucking life!!!!!"
-            }],
-            [{title: "Number of members", value: "17"}, {
-                title: "Assigned tasks",
-                value: "37.5h"
-            }, {title: "Administrator", value: "Lina Karbokaite"}, {
-                title: "Description",
-                value: "The best workers group of all time!!! you will never see better group... ever... in your whole fucking life!!!!!"
-            }],
-            [{title: "Number of members", value: "17"}, {
-                title: "Assigned tasks",
-                value: "37.5h"
-            }, {title: "Administrator", value: "Lina Karbokaite"}, {
-                title: "Description",
-                value: "The best workers group of all time!!! you will never see better group... ever... in your whole fucking life!!!!!"
-            }],
-            [{title: "Number of members", value: "17"}, {
-                title: "Assigned tasks",
-                value: "37.5h"
-            }, {title: "Administrator", value: "Lina Karbokaite"}, {
-                title: "Description",
-                value: "The best workers group of all time!!! you will never see better group... ever... in your whole fucking life!!!!!"
-            }],
-            [{title: "Number of members", value: "17"}, {
-                title: "Assigned tasks",
-                value: "37.5h"
-            }, {title: "Administrator", value: "Lina Karbokaite"}, {
-                title: "Description",
-                value: "The best workers group of all time!!! you will never see better group... ever... in your whole fucking life!!!!!"
-            }],
-            [{title: "Number of members", value: "17"}, {
-                title: "Assigned tasks",
-                value: "37.5h"
-            }, {title: "Administrator", value: "Lina Karbokaite"}, {
-                title: "Description",
-                value: "The best workers group of all time!!! you will never see better group... ever... in your whole fucking life!!!!!"
-            }],
-            [{title: "Number of members", value: "17"}, {
-                title: "Assigned tasks",
-                value: "37.5h"
-            }, {title: "Administrator", value: "Lina Karbokaite"}, {
-                title: "Description",
-                value: "The best workers group of all time!!! you will never see better group... ever... in your whole fucking life!!!!!"
-            }],
-            [{title: "Number of members", value: "17"}, {
-                title: "Assigned tasks",
-                value: "37.5h"
-            }, {title: "Administrator", value: "Lina Karbokaite"}, {
-                title: "Description",
-                value: "The best workers group of all time!!! you will never see better group... ever... in your whole fucking life!!!!!"
-            }],
-            [{title: "Number of members", value: "17"}, {
-                title: "Assigned tasks",
-                value: "37.5h"
-            }, {title: "Administrator", value: "Lina Karbokaite"}, {
-                title: "Description",
-                value: "The best workers group of all time!!! you will never see better group... ever... in your whole fucking life!!!!!"
-            }],
-            [{title: "Number of members", value: "17"}, {
-                title: "Assigned tasks",
-                value: "37.5h"
-            }, {title: "Administrator", value: "Lina Karbokaite"}, {
-                title: "Description",
-                value: "The best workers group of all time!!! you will never see better group... ever... in your whole fucking life!!!!!"
-            }],
-            [{title: "Number of members", value: "17"}, {
-                title: "Assigned tasks",
-                value: "37.5h"
-            }, {title: "Administrator", value: "Lina Karbokaite"}, {
-                title: "Description",
-                value: "The best workers group of all time!!! you will never see better group... ever... in your whole fucking life!!!!!"
-            }],
-            [{title: "Number of members", value: "17"}, {
-                title: "Assigned tasks",
-                value: "37.5h"
-            }, {title: "Administrator", value: "Lina Karbokaite"}, {
-                title: "Description",
-                value: "The best workers group of all time!!! you will never see better group... ever... in your whole fucking life!!!!!"
-            }],
-            [{title: "Number of members", value: "17"}, {
-                title: "Assigned tasks",
-                value: "37.5h"
-            }, {title: "Administrator", value: "Lina Karbokaite"}, {
-                title: "Description",
-                value: "The best workers group of all time!!! you will never see better group... ever... in your whole fucking life!!!!!"
-            }]
-        ];
+            }]];
         this.groupsData.forEach(element => this.prepareData(element));
         this.setState({dataToDisplay: this.data});
     };
@@ -175,7 +108,7 @@ class Group extends React.Component {
 
     editGroup = () => {
         console.log("edit group");
-        this.props.clickHandler(9, <GroupEdit returnHandler={this.props.clickHandler} />);
+        this.props.clickHandler(9, <GroupEdit returnHandler={this.props.clickHandler}/>);
     }
 }
 

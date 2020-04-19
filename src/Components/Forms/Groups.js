@@ -2,6 +2,8 @@ import React from 'react';
 import './Styles/Groups.scss';
 import PreviewPanel from "../Basics/PreviewPanel";
 import Group from "./Group";
+import axios from "axios";
+import User from "../Basics/User";
 
 class AllGroups extends React.Component {
     constructor(props) {
@@ -16,7 +18,7 @@ class AllGroups extends React.Component {
     render() {
         return (
             <div className="o-AllGroups">
-                <div className="o-AllGroupsMargin" >
+                <div className="o-AllGroupsMargin">
                     {this.state.dataToDisplay}
                 </div>
             </div>
@@ -28,35 +30,34 @@ class AllGroups extends React.Component {
     }
 
     loadBoards = () => {
-        //connect to api here :)
-        this.groupsData = [
-            [{title: "Number of members", value: "17"}, {title: "Assigned tasks", value: "37.5h"}, {title: "Administrator", value: "Lina Karbokaite"}, {title: "Description", value: "The best workers group of all time!!! you will never see better group... ever... in your whole fucking life!!!!!"}],
-            [{title: "Number of members", value: "17"}, {title: "Assigned tasks", value: "37.5h"}, {title: "Administrator", value: "Lina Karbokaite"}, {title: "Description", value: "The best workers group of all time!!! you will never see better group... ever... in your whole fucking life!!!!!"}],
-            [{title: "Number of members", value: "17"}, {title: "Assigned tasks", value: "37.5h"}, {title: "Administrator", value: "Lina Karbokaite"}, {title: "Description", value: "The best workers group of all time!!! you will never see better group... ever... in your whole fucking life!!!!!"}],
-            [{title: "Number of members", value: "17"}, {title: "Assigned tasks", value: "37.5h"}, {title: "Administrator", value: "Lina Karbokaite"}, {title: "Description", value: "The best workers group of all time!!! you will never see better group... ever... in your whole fucking life!!!!!"}],
-            [{title: "Number of members", value: "17"}, {title: "Assigned tasks", value: "37.5h"}, {title: "Administrator", value: "Lina Karbokaite"}, {title: "Description", value: "The best workers group of all time!!! you will never see better group... ever... in your whole fucking life!!!!!"}],
-            [{title: "Number of members", value: "17"}, {title: "Assigned tasks", value: "37.5h"}, {title: "Administrator", value: "Lina Karbokaite"}, {title: "Description", value: "The best workers group of all time!!! you will never see better group... ever... in your whole fucking life!!!!!"}],
-            [{title: "Number of members", value: "17"}, {title: "Assigned tasks", value: "37.5h"}, {title: "Administrator", value: "Lina Karbokaite"}, {title: "Description", value: "The best workers group of all time!!! you will never see better group... ever... in your whole fucking life!!!!!"}],
-            [{title: "Number of members", value: "17"}, {title: "Assigned tasks", value: "37.5h"}, {title: "Administrator", value: "Lina Karbokaite"}, {title: "Description", value: "The best workers group of all time!!! you will never see better group... ever... in your whole fucking life!!!!!"}],
-            [{title: "Number of members", value: "17"}, {title: "Assigned tasks", value: "37.5h"}, {title: "Administrator", value: "Lina Karbokaite"}, {title: "Description", value: "The best workers group of all time!!! you will never see better group... ever... in your whole fucking life!!!!!"}],
-            [{title: "Number of members", value: "17"}, {title: "Assigned tasks", value: "37.5h"}, {title: "Administrator", value: "Lina Karbokaite"}, {title: "Description", value: "The best workers group of all time!!! you will never see better group... ever... in your whole fucking life!!!!!"}],
-            [{title: "Number of members", value: "17"}, {title: "Assigned tasks", value: "37.5h"}, {title: "Administrator", value: "Lina Karbokaite"}, {title: "Description", value: "The best workers group of all time!!! you will never see better group... ever... in your whole fucking life!!!!!"}],
-            [{title: "Number of members", value: "17"}, {title: "Assigned tasks", value: "37.5h"}, {title: "Administrator", value: "Lina Karbokaite"}, {title: "Description", value: "The best workers group of all time!!! you will never see better group... ever... in your whole fucking life!!!!!"}],
-            [{title: "Number of members", value: "17"}, {title: "Assigned tasks", value: "37.5h"}, {title: "Administrator", value: "Lina Karbokaite"}, {title: "Description", value: "The best workers group of all time!!! you will never see better group... ever... in your whole fucking life!!!!!"}]
-            ];
-        this.groupsData.forEach(element => this.prepareData(element));
-        this.setState({dataToDisplay: this.data});
+        const url = 'http://localhost:8090/getAllGroups';
+        axios.get(url, {crossdomain: true})
+            .then(response => {
+                    response.data.forEach(element => {
+                            this.prepareData([{title: "Number of members", value: element.numberOfMembers},
+                                    {title: "Assigned tasks", value: element.membersTasksNumber},
+                                    {title: "Administrator", value: element.administratorFullName},
+                                    {title: "Description", value: element.description}],
+                                element.title,
+                                element.id)
+                        }
+                    );
+                    this.setState({dataToDisplay: this.data});
+                }
+            )
+            .catch(err => console.log(err));
     };
 
-    prepareData = (data) => {
+    prepareData = (data, title, id) => {
         this.data.push(
-            (<PreviewPanel clickHandler={this.openGroup.bind(this)} class={"previewPanel"} width={"20rem"} height={"20rem"} title={"Student workers"} dataToDisplay={data}/>)
+            (<PreviewPanel clickHandler={this.openGroup.bind(this)} class={"previewPanel"} width={"20rem"}
+                           height={"20rem"} boardId={id} title={title} dataToDisplay={data}/>)
         );
     };
 
-    openGroup = () => {
+    openGroup = (id) => {
         //open group logic goes here :)
-        this.props.clickHandler(9, <Group clickHandler={this.props.clickHandler} />);
+        this.props.clickHandler(9, <Group clickHandler={this.props.clickHandler} id={id}/>);
         console.log("group clicked");
     }
 }
