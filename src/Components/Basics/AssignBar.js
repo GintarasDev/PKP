@@ -34,7 +34,7 @@ class AssignBar extends React.Component {
     };
 
     UserList = () => {
-        const url = 'http://localhost:8090/getAllUsers';
+        const url = 'http://localhost:8090/getAllUsersForGroups';
         axios.get(url, {crossdomain: true})
             .then(response => {
                     response.data.forEach(element => {
@@ -52,8 +52,8 @@ class AssignBar extends React.Component {
         this.forceUpdate()
     };
 
-    Assign = (id) => {
-        this.props.assignedUser(id);
+    Assign = (id, name) => {
+        this.props.assignedUser(id, name);
     };
 }
 

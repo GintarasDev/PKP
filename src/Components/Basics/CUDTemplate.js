@@ -14,6 +14,7 @@ class CUDTemplate extends React.Component {
             overlay: null
         };
         this.AssignedUserList = [];
+        this.AssignedUserIdsList = [];
     };
 
     render() {
@@ -100,10 +101,14 @@ class CUDTemplate extends React.Component {
         this.setState({overlay: (<div className={'boardTemplateClosePopUp'} onClick={this.closePopup}></div>)})
     };
 
-    addUser = (id) => {
+    addUser = (id, name) => {
         this.AssignedUserList.push(
-            <User id={id} name={'users'} isRemovable={true}/>
+            <User id={id} name={name} isRemovable={true}/>
         );
+        this.AssignedUserIdsList.push(id);
+        this.props.dataUpdater({
+            assignedUsers: this.AssignedUserIdsList
+        });
         this.forceUpdate();
     };
 
