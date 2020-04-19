@@ -4,13 +4,23 @@ import CUDTemplate from "../Basics/CUDTemplate";
 import Button from "../Basics/Button";
 import DeleteProfile from "../Basics/DeleteProfile";
 import Board from "./Board";
-import AllBoards from "./Boards";
+import axios from "axios";
 
 class TaskEdit extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            popUp: null
+            popUp: null,
+            title: "",
+            description: "",
+            estimatedTime: null,
+            startDate: null,
+            deadlineDate: null,
+            adminUserId: this.props.userId,
+            boardId: this.props.boardId,
+            status: this.props.status,
+            id: this.props.taskId,
+            assignedUsers: []
         }
     };
 
@@ -18,7 +28,7 @@ class TaskEdit extends React.Component {
         return (
             <div className={'taskEditContainer'}>
                 <div>
-                    <CUDTemplate titlePlaceholder={"Task title"} descriptionPlaceholder={"Task description"} type={'task'} value={'Task editing'}/>
+                    <CUDTemplate dataUpdater={this.dataUpdater.bind(this)} isTaskAssignee={true} titlePlaceholder={"Task title"} descriptionPlaceholder={"Task description"} type={'task'} value={'Task editing'}/>
                 </div>
                 <div className={'taskEditButtonBox'}>
                     <Button color={'red'} clickHandler={this.popUp} width={'12rem'} text={'Delete task'}/>
@@ -28,6 +38,43 @@ class TaskEdit extends React.Component {
                 {this.state.popUp}
             </div>
         );
+    };
+
+    saveChanges = () => {
+        this.saveData(this.getTaskData());
+    };
+
+    getTaskData = () => {
+        return {
+            id: this.state.id,
+            title: this.state.title,
+            description: this.state.description,
+            estimatedTime: this.state.estimatedTime,
+            startDate: this.state.startDate,
+            deadlineDate: this.state.deadlineDate,
+            assignee: this.state.assignedUsers[0]
+        };
+    };
+
+    saveData = (taskData) => {
+        const url='http://localhost:8090/updateTask';
+        axios({
+            method: 'post',
+            url: url,
+            data: taskData
+        })
+            .then(response=>this.saveSuccessful(response))
+            .catch(err=>console.log(err.response.data))
+    };
+
+    saveSuccessful = (response) => {
+        if (response.status === 200) {
+            this.props.returnHandler(this.props.boardIsPersonal ? 1 : 9, <Board clickHandler={this.props.returnHandler} assignedUsers={"1 (personal)"} boardTitle={"Personal"} boardId={this.props.boardId} boardIsPersonal={this.props.boardIsPersonal} />)
+        }
+    };
+
+    dataUpdater = (data) => {
+        this.setState(data);
     };
 
     popUp = () => {
@@ -41,17 +88,17 @@ class TaskEdit extends React.Component {
     deleteTask = () => {
         //delete task logic here
         this.props.returnHandler(this.props.boardIsPersonal ? 1 : 9, <Board clickHandler={this.props.returnHandler} assignedUsers={"1 (personal)"} boardTitle={"Personal"} boardId={this.props.boardId} boardIsPersonal={this.props.boardIsPersonal} />)
-    }
+    };
 
     cancelChanges = () => {
         //add cancel changes logic here
         this.props.returnHandler(this.props.boardIsPersonal ? 1 : 9, <Board clickHandler={this.props.returnHandler} assignedUsers={"1 (personal)"} boardTitle={"Personal"} boardId={this.props.boardId} boardIsPersonal={this.props.boardIsPersonal} />)
     };
 
-    saveChanges = () => {
-        //add save changes logic here
-        this.props.returnHandler(this.props.boardIsPersonal ? 1 : 9, <Board clickHandler={this.props.returnHandler} assignedUsers={"1 (personal)"} boardTitle={"Personal"} boardId={this.props.boardId} boardIsPersonal={this.props.boardIsPersonal} />)
-    };
+    // saveChanges = () => {
+    //     //add save changes logic here
+    //     this.props.returnHandler(this.props.boardIsPersonal ? 1 : 9, <Board clickHandler={this.props.returnHandler} assignedUsers={"1 (personal)"} boardTitle={"Personal"} boardId={this.props.boardId} boardIsPersonal={this.props.boardIsPersonal} />)
+    // };
 }
 
 export default TaskEdit;
