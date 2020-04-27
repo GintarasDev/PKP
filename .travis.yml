@@ -1,6 +1,8 @@
 language: node_js
 node_js:
-  - 7
+  - node
+script:
+  - npm start
 
 notifications:
     webhooks: https://travis-for-jira-prod.toolsplus.app/travis/notifications?token=13688d3f-a121-3217-9646-019f8dc06bfd
