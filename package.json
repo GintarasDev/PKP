@@ -17,6 +17,7 @@
     "selenium-webdriver": "^4.0.0-alpha.7"
   },
   "scripts": {
+    "lint": "eslint.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -41,6 +42,7 @@
   },
   "devDependencies": {
     "coveralls": "^3.1.0",
+    "eslint": "^6.8.0",
     "jest": "^25.4.0"
   }
 }
