@@ -13,12 +13,15 @@
     "react-day-picker": "^7.4.0",
     "react-dom": "^16.13.1",
     "react-draggable": "^4.0.0",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "selenium-webdriver": "^4.0.0-alpha.7"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:coverage": "jest --coverage",
+    "test:coveralls": "jest --coverage && coveralls < coverage/lcov.info",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -35,5 +38,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "coveralls": "^3.1.0",
+    "eslint": "^6.8.0",
+    "jest": "^25.4.0"
   }
 }
