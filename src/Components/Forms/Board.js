@@ -181,7 +181,7 @@ class Board extends React.Component {
 
     editTask = (id, component) => {
         console.log(id);
-        this.props.clickHandler(9, <TaskEdit returnHandler={this.props.clickHandler} boardIsPersonal={true} boardId={this.state.boardId} taskId={id}/>);
+        this.props.clickHandler(9, <TaskEdit userId={this.props.userId} returnHandler={this.props.clickHandler} boardIsPersonal={false} boardId={this.state.boardId} taskId={id}/>);
     };
 
     createNewTask = (status) => {

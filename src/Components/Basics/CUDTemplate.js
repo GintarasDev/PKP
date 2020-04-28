@@ -35,15 +35,15 @@ class CUDTemplate extends React.Component {
                             <div>
                                 <span className={"o-DateTitle"}>Start date</span>
                                 <InputField onChange={this.updateStart} type={"date"} width={'15rem'}
-                                            placeholder={'Start'}/>
+                                            placeholder={'Start'} value={this.props.startDate} />
                             </div>
                             <div className={"ob-AddAdditionalMargin"}>
                                 <span className={"o-DateTitle"}>Deadline</span>
                                 <InputField onChange={this.updateDeadline} type={"date"} width={'15rem'}
-                                            placeholder={'Deadline'}/>
+                                            placeholder={'Deadline'} value={this.props.deadlineDate} />
                             </div>
                             <InputField onChange={this.updateEstimatedTime} class={"o-EstimatedTime"} width={'12rem'}
-                                        placeholder={'Estimated time'}/>
+                                        placeholder={'Estimated time'} value={this.props.estimatedTime} />
                         </div>) : ""
                 }
                 <div className={'boardTemplateRow boardTemplateAssignedUsers'}>
@@ -63,20 +63,28 @@ class CUDTemplate extends React.Component {
         );
     }
 
-    componentDidMount() {
-
-    }
+    addCurrentUser = () => {
+        this.AssignedUserList = [];
+        this.AssignedUserList.push(
+            <User id={this.props.assigneeId} name={this.props.assigneeFullName} isRemovable={true}/>
+        );
+        console.log("add current user," + this.props.assigneeFullName + " assignedUserList:");
+        console.log(this.AssignedUserList);
+    };
 
     prepareAssignedUsers = () => {
-        if (this.props.assignedUsers === undefined || this.props.assignedUsers === null) {
+        if (!(this.props.assignedUsers === undefined || this.props.assignedUsers === null)) {
+            this.AssignedUserList = [];
+            this.props.assignedUsers.forEach(user => {
+                this.AssignedUserList.push(
+                    <User id={user.id} name={user.name + " " + user.surname} isRemovable={true}/>
+                );
+            });
             return;
         }
-        this.AssignedUserList = [];
-        this.props.assignedUsers.forEach(user => {
-            this.AssignedUserList.push(
-                <User id={user.id} name={user.name + " " + user.surname} isRemovable={true}/>
-            );
-        });
+        if (this.AssignedUserList.length === 0) {
+            this.addCurrentUser();
+        }
     };
 
     updateEstimatedTime = (e) => {

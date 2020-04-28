@@ -74,7 +74,8 @@ class Group extends React.Component {
 
     loadBoards = () => {
         const url = 'http://localhost:8090/group';
-        axios.get(url, {params: {id: this.props.id}})
+        console.log("group id: " + this.props.groupId);
+        axios.get(url, {params: {id: this.props.groupId}})
             .then(response => {
                 this.setState({
                     id: response.data.id,
@@ -86,8 +87,9 @@ class Group extends React.Component {
                     totalAssignedTasksEsimate: response.data.membersTasksTime,
                     totalAssignedTasksProcentage: (this.state.totalAssignedTasksEsimate / this.state.totalAvailableTime * 100) > 100 ? 100 : (this.state.totalAssignedTasksEsimate / this.state.totalAvailableTime * 100)
                 });
+                console.log("title: " + response.data.title);
             })
-            .catch(err => console.log(err.response))
+            .catch(err => console.log(err.response));
         this.groupsData = [
             [{title: "Number of members", value: "17"}, {
                 title: "Assigned tasks",

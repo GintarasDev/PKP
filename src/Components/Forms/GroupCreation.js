@@ -51,7 +51,7 @@ class GroupCreation extends React.Component {
         console.log("created");
         if (response.status === 200) {
             console.log("redirecting...");
-            this.props.clickHandler(9, <Group groupId={response.data.id} clickHandler={this.props.clickHandler}/>);
+            this.props.clickHandler(9, <Group groupId={response.data} clickHandler={this.props.clickHandler}/>);
         } else {
             this.setState({
                 error: (<PopUpError message={"Unknown error occurred while creating a group, please try again latter"}

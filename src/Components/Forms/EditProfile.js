@@ -74,8 +74,12 @@ class EditProfileForm extends React.Component {
             url: url,
             data: this.getUserData()
         })
-            .then(this.props.clickHandler(9, <ProfileForm userId={this.props.userId}
-                                                          stateUpdater={this.props.stateUpdater}/>))
+            .then(response => {
+                if (response.status === 200) {
+                    this.props.clickHandler(9, <ProfileForm userId={this.props.userId}
+                                                            stateUpdater={this.props.stateUpdater} clickHandler={this.props.clickHandler} />)
+                }
+            })
             .catch(err => console.log(err))
     };
 
@@ -93,11 +97,12 @@ class EditProfileForm extends React.Component {
     };
 
     deleteProfileConfirmed = () => {
+        console.log("user id: " + this.props.userId);
         const url = 'http://localhost:8090/deleteUser';
         axios({
             method: 'post',
             url: url,
-            data: {
+            params: {
                 id: this.props.userId
             }
         })

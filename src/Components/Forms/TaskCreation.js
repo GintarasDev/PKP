@@ -29,12 +29,14 @@ class TaskCreation extends React.Component {
     render() {
         return (
             <div className={'taskCreationContainer'}>
-                <div className={"ob-CudTemplateCont"} >
-                    <CUDTemplate dataUpdater={this.dataUpdater.bind(this)} type={'task'} value={'Task creation'} titlePlaceholder={"Task title"} descriptionPlaceholder={"Task description"} />
+                <div className={"ob-CudTemplateCont"}>
+                    <CUDTemplate dataUpdater={this.dataUpdater.bind(this)} type={'task'} value={'Task creation'}
+                                 titlePlaceholder={"Task title"} descriptionPlaceholder={"Task description"}/>
                 </div>
                 <div className={'taskCreationButtons'}>
-                    <Button class={"o-ActionButtons"} width={'10rem'} text={'Create'} clickHandler={this.createTask} />
-                    <Button color={"orange"} class={"o-ActionButtons"} width={'10rem'} text={'Cancel'} clickHandler={this.cancelCreation} />
+                    <Button class={"o-ActionButtons"} width={'10rem'} text={'Create'} clickHandler={this.createTask}/>
+                    <Button color={"orange"} class={"o-ActionButtons"} width={'10rem'} text={'Cancel'}
+                            clickHandler={this.cancelCreation}/>
                 </div>
                 {this.state.error}
             </div>
@@ -51,32 +53,46 @@ class TaskCreation extends React.Component {
 
     cancelCreation = () => {
         //cancel task creation logic here
-        this.props.returnHandler(this.props.boardIsPersonal ? 1 : 9, <Board boardId={/*todo: this.user.personalBoardId*/this.state.personalBoardId} boardIsPersonal={true} assignedUsers={"1 (personal)"} boardTitle={"Personal"} clickHandler={this.props.returnHandler}/>)
+        this.props.returnHandler(this.props.boardIsPersonal ? 1 : 9, <Board userId={this.props.userId}
+                                                                            clickHandler={this.props.returnHandler}
+                                                                            assignedUsers={"1 (personal)"}
+                                                                            boardTitle={"Personal"}
+                                                                            boardId={this.props.boardId}
+                                                                            boardIsPersonal={this.props.boardIsPersonal}/>)
     };
 
     creationSuccessful = (response) => {
         console.log("created");
         if (response.status === 200) {
             console.log("redirecting...");
-            this.props.returnHandler(this.props.boardIsPersonal ? 1 : 9, <Board boardId={this.props.boardId} userId={this.props.userId} boardIsPersonal={true} assignedUsers={"1 (personal)"} boardTitle={"Personal"} clickHandler={this.props.returnHandler}/>)
+            this.props.returnHandler(this.props.boardIsPersonal ? 1 : 9, <Board userId={this.props.userId}
+                                                                                clickHandler={this.props.returnHandler}
+                                                                                assignedUsers={"1 (personal)"}
+                                                                                boardTitle={"Personal"}
+                                                                                boardId={this.props.boardId}
+                                                                                boardIsPersonal={this.props.boardIsPersonal}/>)
         } else {
-            this.setState({error: (<PopUpError message={"Unknown error occurred while creating a group, please try again latter"} clickHandler={this.removeErrorMessage} width={"20rem"}/>)});
+            this.setState({
+                error: (<PopUpError message={"Unknown error occurred while creating a group, please try again latter"}
+                                    clickHandler={this.removeErrorMessage} width={"20rem"}/>)
+            });
         }
     };
 
     saveData = (taskData) => {
-        const url='http://localhost:8090/createTask';
+        console.log(taskData.adminUserId);
+        const url = 'http://localhost:8090/createTask';
         axios({
             method: 'post',
             url: url,
             data: taskData
         })
-            .then(response=>this.creationSuccessful(response))
-            .catch(err=>console.log(err.response))
+            .then(response => this.creationSuccessful(response))
+            .catch(err => console.log(err.response))
     };
 
     getTaskData = () => {
-        console.log("data updater: " + this.state.title + " - " + this.state.description + " - " + this.state.adminUserId );
+        console.log("data updater: " + this.state.title + " - " + this.state.description + " - " + this.state.adminUserId);
         return {
             title: this.state.title,
             description: this.state.description,
@@ -98,7 +114,10 @@ class TaskCreation extends React.Component {
             {element: this.state.description, errorMessage: "Description field cannot be left empty"}
         ]);
         if (errors.errorsCount > 0) {
-            this.setState({error: (<PopUpError message={errors.errorMessage} clickHandler={this.removeErrorMessage} width={"20rem"}/>)});
+            this.setState({
+                error: (
+                    <PopUpError message={errors.errorMessage} clickHandler={this.removeErrorMessage} width={"20rem"}/>)
+            });
             return false;
         } else {
             return true;

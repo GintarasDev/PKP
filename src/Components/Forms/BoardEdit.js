@@ -81,7 +81,7 @@ class BoardEdit extends React.Component {
     };
 
     getBoardData = () => {
-        console.log(this.props.boardId);
+        console.log("board id: " + this.props.boardId);
         return {
             id: this.props.boardId,
             title: this.state.title,
@@ -96,7 +96,8 @@ class BoardEdit extends React.Component {
         axios({
             method: 'post',
             url: url,
-            data: boardData
+            data: boardData,
+            params: {id: this.props.boardId}
         })
             .then(response=>this.saveSuccessful(response))
             .catch(err=>console.log(err.response.data))
